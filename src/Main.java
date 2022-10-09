@@ -1,14 +1,18 @@
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
+
+import crypt.Cryption;
+import io.IO;
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        BufferedWriter w = new BufferedWriter(new FileWriter("./doc/secret.txt"));
-        w.write("teststtttttttttttttt");
-        w.close();
+        Cryption cr = new Cryption();
+        String pelda = cr.encrypt("alma");
 
+        IO io = new IO();
+        io.writeFile("pelda.txt", pelda);
+
+        System.out.println(pelda);
         System.out.println("Hello world!");
 
 

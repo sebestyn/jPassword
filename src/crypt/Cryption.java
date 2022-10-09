@@ -1,0 +1,14 @@
+package crypt;
+
+public class Cryption {
+
+    public String encrypt(String s){
+        char[] chars = s.toCharArray();
+        char[] encrypted = new char[chars.length];
+        for(int i=0; i< chars.length; i++) {
+            encrypted[i] = (char) (chars[i] + 5);
+        }
+        return new String(encrypted);
+    }
+
+}
