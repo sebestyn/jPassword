@@ -7,7 +7,7 @@ import java.io.IOException;
 public class IO {
     public void writeFile(String fileName, String message) throws IOException {
 
-        String path = "./doc/" + fileName;
+        String path = "./data/" + fileName;
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(path));
         writer.write(message);

@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="-">
-      <change afterPath="$PROJECT_DIR$/doc/pelda.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pelda.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/crypt/Cryption.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/io/IO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/Specifikáció.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/shield-dog-solid.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/~WRL4083.tmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/Button.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/pelda.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/secret.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pelda.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/pelda.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/IO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/IO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +55,8 @@
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "advanced.settings"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -58,6 +68,15 @@
       <recent name="" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="Run Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="jPassword" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -66,7 +85,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1665309904900</updated>
-      <workItem from="1665309910630" duration="2773000" />
+      <workItem from="1665309910630" duration="7417000" />
     </task>
     <task id="LOCAL-00001" summary="teszt">
       <created>1665311331916</created>
@@ -75,7 +94,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665311331916</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="-">
+      <created>1665312714576</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665312714576</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
