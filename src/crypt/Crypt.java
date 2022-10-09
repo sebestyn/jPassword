@@ -1,17 +1,33 @@
 package crypt;
 
-/**
- * Include all cryption method
- */
 public class Crypt {
 
-    public String encrypt(String s){
-        char[] chars = s.toCharArray();
-        char[] encrypted = new char[chars.length];
-        for(int i=0; i< chars.length; i++) {
-            encrypted[i] = (char) (chars[i] + 5);
+    /**
+     *
+     * @param message Az üzenet amit titkosítani szeretnél
+     * @param cryptType A titkosító algoritmus típusa
+     * @return A titkosított üzenet
+     * @throws CryptoException Hiba a titkosítás közben
+     */
+    public String encrypt(CryptType cryptType, String message) throws CryptoException {
+
+        switch (cryptType){
+            case SHA256:
+                var sha256 = new SHA256();
+                return sha256.encrypt(message);
+            default:
+                throw new CryptoException("Invalid cryptType");
         }
-        return new String(encrypted);
+    }
+
+    /**
+     * @param message   Az üzenet amit dekódolni szeretnél
+     * @param cryptType A titkosító algoritmus típusa
+     * @return A dekódolt üzenet
+     * @throws CryptoException Hiba a dekódolás közben
+     */
+    public String decrypt(CryptType cryptType, String message) throws CryptoException {
+        return null;
     }
 
 }

@@ -4,14 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="-">
-      <change afterPath="$PROJECT_DIR$/tst/crypt/CryptTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tst/gui/GUITest.java" afterDir="false" />
+    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="add test">
+      <change afterPath="$PROJECT_DIR$/data/master.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/MainConsole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crypt/AES.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crypt/CryptAbs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crypt/CryptType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crypt/CryptoException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/crypt/SHA256.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dataTypes/MasterPassword.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/io/MasterPasswordIO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tst/crypt/AESTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tst/crypt/SHA256Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tst/io/MasterPasswordIOTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/pelda.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/jPassword.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jPassword.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crypt/Cryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/Crypt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypt/Crypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/Crypt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/IO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tst/crypt/CryptTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +34,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
+        <option value="Enum" />
         <option value="Class" />
         <option value="JUnit5 Test Class" />
       </list>
@@ -45,6 +58,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Downloaded.Files.Path.Enabled": "false",
+    "OverrideImplement.generate.javadoc": "true",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
     "Repository.Attach.Sources": "false",
@@ -74,18 +88,26 @@
     </key>
     <key name="CreateTestDialog.RecentsKey">
       <recent name="crypt" />
+      <recent name="io" />
       <recent name="gui" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CryptTest.mainEncryptMethod">
-    <configuration name="Run Main" type="Application" factoryName="Application">
+  <component name="RunManager" selected="JUnit.AESTest">
+    <configuration name="Console app" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="MainConsole" />
+      <module name="jPassword" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GUI app" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="jPassword" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CryptTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AESTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jPassword" />
       <extension name="coverage">
         <pattern>
@@ -94,13 +116,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="crypt" />
-      <option name="MAIN_CLASS_NAME" value="crypt.CryptTest" />
+      <option name="MAIN_CLASS_NAME" value="crypt.AESTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CryptTest.mainEncryptMethod" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="AESTest.encrypt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jPassword" />
       <extension name="coverage">
         <pattern>
@@ -109,22 +131,76 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="crypt" />
-      <option name="MAIN_CLASS_NAME" value="crypt.CryptTest" />
-      <option name="METHOD_NAME" value="mainEncryptMethod" />
+      <option name="MAIN_CLASS_NAME" value="crypt.AESTest" />
+      <option name="METHOD_NAME" value="encrypt" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="MasterPasswordIOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jPassword" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io" />
+      <option name="MAIN_CLASS_NAME" value="io.MasterPasswordIOTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MasterPasswordIOTest.isAlreadyExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jPassword" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="io.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="io" />
+      <option name="MAIN_CLASS_NAME" value="io.MasterPasswordIOTest" />
+      <option name="METHOD_NAME" value="isAlreadyExist" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SHA256Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jPassword" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="crypt.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="crypt" />
+      <option name="MAIN_CLASS_NAME" value="crypt.SHA256Test" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.Run Main" />
-      <item itemvalue="JUnit.CryptTest" />
-      <item itemvalue="JUnit.CryptTest.mainEncryptMethod" />
+      <item itemvalue="Application.GUI app" />
+      <item itemvalue="Application.Console app" />
+      <item itemvalue="JUnit.AESTest" />
+      <item itemvalue="JUnit.AESTest.encrypt" />
+      <item itemvalue="JUnit.MasterPasswordIOTest" />
+      <item itemvalue="JUnit.MasterPasswordIOTest.isAlreadyExist" />
+      <item itemvalue="JUnit.SHA256Test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.CryptTest.mainEncryptMethod" />
-        <item itemvalue="JUnit.CryptTest" />
+        <item itemvalue="JUnit.AESTest" />
+        <item itemvalue="JUnit.AESTest.encrypt" />
+        <item itemvalue="JUnit.MasterPasswordIOTest" />
+        <item itemvalue="JUnit.MasterPasswordIOTest.isAlreadyExist" />
+        <item itemvalue="JUnit.SHA256Test" />
       </list>
     </recent_temporary>
   </component>
@@ -136,7 +212,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1665309904900</updated>
-      <workItem from="1665309910630" duration="9699000" />
+      <workItem from="1665309910630" duration="29175000" />
     </task>
     <task id="LOCAL-00001" summary="teszt">
       <created>1665311331916</created>
@@ -159,7 +235,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665322245867</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add test">
+      <created>1665325585636</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665325585636</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,6 +263,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="teszt" />
     <MESSAGE value="-" />
-    <option name="LAST_COMMIT_MESSAGE" value="-" />
+    <MESSAGE value="add test" />
+    <option name="LAST_COMMIT_MESSAGE" value="add test" />
   </component>
 </project>
