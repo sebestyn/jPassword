@@ -24,6 +24,7 @@ public class GUI {
         return panel;
     }
 
+
     private JFrame init_JFrame(JPanel panel){
         JFrame frame = new JFrame();
         // Size

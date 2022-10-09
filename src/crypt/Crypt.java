@@ -1,6 +1,9 @@
 package crypt;
 
-public class Cryption {
+/**
+ * Include all cryption method
+ */
+public class Crypt {
 
     public String encrypt(String s){
         char[] chars = s.toCharArray();

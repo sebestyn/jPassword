@@ -1,6 +1,6 @@
 import java.io.IOException;
 
-import crypt.Cryption;
+import crypt.Crypt;
 import io.IO;
 import gui.GUI;
 
@@ -9,7 +9,7 @@ public class Main {
 
         new GUI();
 
-        Cryption cr = new Cryption();
+        Crypt cr = new Crypt();
         String pelda = cr.encrypt("alma");
 
         IO io = new IO();
