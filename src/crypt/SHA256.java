@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 /**
  * SHA256 kriptográfiai algoritmus (making hash from String)
  */
-public class SHA256 extends CryptAbs {
+public class SHA256 {
 
     /**
      * SHA256 Titkosító algoritmus
@@ -16,8 +16,7 @@ public class SHA256 extends CryptAbs {
      * @return A titkosított üzenet
      * @throws CryptoException Hiba a titkosítás közben
      */
-    @Override
-    public String encrypt(String message) throws CryptoException {
+    public static String encrypt(String message) throws CryptoException {
         try {
             return toHexString(getSHA(message));
         } catch (NoSuchAlgorithmException e) {
@@ -31,13 +30,12 @@ public class SHA256 extends CryptAbs {
      * @return A dekódolt üzenet
      * @throws CryptoException Hiba a dekódolás közben
      */
-    @Override
-    public String decrypt(String message) throws CryptoException {
+    public static String decrypt(String message) throws CryptoException {
         throw new CryptoException("Message encrypted with SHA256 can not be decrypted");
     }
 
     // Convert String to Hash bytes // Source: https://www.geeksforgeeks.org/sha-256-hash-in-java/
-    private byte[] getSHA(String input) throws NoSuchAlgorithmException {
+    private static byte[] getSHA(String input) throws NoSuchAlgorithmException {
         // Static getInstance method is called with hashing SHA
         MessageDigest md = MessageDigest.getInstance("SHA-256");
 
@@ -47,7 +45,7 @@ public class SHA256 extends CryptAbs {
         return md.digest(input.getBytes(StandardCharsets.UTF_8));
     }
     // Convert bytes to String // Source: https://www.geeksforgeeks.org/sha-256-hash-in-java/
-    private String toHexString(byte[] hash) {
+    private static String toHexString(byte[] hash) {
         // Convert byte array into signum representation
         BigInteger number = new BigInteger(1, hash);
 

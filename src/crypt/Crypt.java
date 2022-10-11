@@ -1,5 +1,15 @@
 package crypt;
 
+import dataTypes.MasterPassword;
+
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
 public class Crypt {
 
     /**
@@ -9,12 +19,17 @@ public class Crypt {
      * @return A titkosított üzenet
      * @throws CryptoException Hiba a titkosítás közben
      */
-    public String encrypt(CryptType cryptType, String message) throws CryptoException {
-
+    public static String encrypt(CryptType cryptType, String message) throws CryptoException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
+        if(message == null || message.equals("null")){
+            return null;
+        }
         switch (cryptType){
+            case NONE:
+                return message;
             case SHA256:
-                var sha256 = new SHA256();
-                return sha256.encrypt(message);
+                return SHA256.encrypt(message);
+            case AES:
+                return AES.encrypt(message);
             default:
                 throw new CryptoException("Invalid cryptType");
         }
@@ -26,8 +41,20 @@ public class Crypt {
      * @return A dekódolt üzenet
      * @throws CryptoException Hiba a dekódolás közben
      */
-    public String decrypt(CryptType cryptType, String message) throws CryptoException {
-        return null;
+    public static String decrypt(CryptType cryptType, String message) throws CryptoException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, InvalidKeySpecException {
+        if(message == null || message.equals("null")){
+            return null;
+        }
+        switch (cryptType){
+            case NONE:
+                return message;
+            case SHA256:
+                return SHA256.decrypt(message);
+            case AES:
+                return AES.decrypt(message);
+            default:
+                throw new CryptoException("Invalid cryptType");
+        }
     }
 
 }

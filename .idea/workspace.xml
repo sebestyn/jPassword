@@ -5,25 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="add test">
-      <change afterPath="$PROJECT_DIR$/data/master.encrypt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MainConsole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/crypt/AES.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/crypt/CryptAbs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/crypt/CryptType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/crypt/CryptoException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/crypt/SHA256.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dataTypes/MasterPassword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/io/MasterPasswordIO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tst/crypt/AESTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tst/crypt/SHA256Test.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tst/io/MasterPasswordIOTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/password.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dataTypes/Folder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dataTypes/Note.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dataTypes/Password.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/pelda.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/master.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/master.encrypt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jPassword.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jPassword.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/MainConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypt/AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/AES.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/crypt/Crypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/Crypt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/IO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tst/crypt/CryptTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypt/CryptAbs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypt/CryptType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/CryptType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypt/SHA256.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/SHA256.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataTypes/MasterPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/MasterPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/MasterPasswordIO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tst/crypt/AESTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tst/crypt/AESTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tst/io/MasterPasswordIOTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +33,8 @@
       <list>
         <option value="package-info" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -54,27 +52,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "OverrideImplement.generate.javadoc": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;OverrideImplement.generate.javadoc&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Zsolt Sebestyén\Videos\egyeb\HF\jPassword\src\main" />
@@ -92,7 +90,7 @@
       <recent name="gui" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AESTest">
+  <component name="RunManager" selected="Application.Console app">
     <configuration name="Console app" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="MainConsole" />
       <module name="jPassword" />
@@ -197,8 +195,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.AESTest" />
-        <item itemvalue="JUnit.AESTest.encrypt" />
         <item itemvalue="JUnit.MasterPasswordIOTest" />
+        <item itemvalue="JUnit.AESTest.encrypt" />
         <item itemvalue="JUnit.MasterPasswordIOTest.isAlreadyExist" />
         <item itemvalue="JUnit.SHA256Test" />
       </list>
@@ -213,6 +211,7 @@
       <option name="presentableId" value="Default" />
       <updated>1665309904900</updated>
       <workItem from="1665309910630" duration="29175000" />
+      <workItem from="1665506784045" duration="11915000" />
     </task>
     <task id="LOCAL-00001" summary="teszt">
       <created>1665311331916</created>
@@ -265,5 +264,15 @@
     <MESSAGE value="-" />
     <MESSAGE value="add test" />
     <option name="LAST_COMMIT_MESSAGE" value="add test" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

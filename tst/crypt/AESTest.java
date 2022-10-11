@@ -1,5 +1,6 @@
 package crypt;
 
+import dataTypes.MasterPassword;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
@@ -10,26 +11,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class AESTest {
 
-    AES aes = new AES("password123");
-
-    AESTest() throws NoSuchAlgorithmException, InvalidKeySpecException {}
-
-
     @Test
-    @Order(1)
-    void encrypt_and_decrypt() {
+    void encrypt_and_decrypt() throws NoSuchAlgorithmException, InvalidKeySpecException {
+        AES.generateKey(new MasterPassword("kuki"));
         try {
-            String encrypted = aes.encrypt("ez egy üzenet");
-            System.out.println(encrypted);
+            String encrypted = AES.encrypt("ez egy üzenet");
 
-            try {
-                String decrypted = aes.decrypt(encrypted);
-                System.out.println(decrypted);
-                assertEquals("ez egy üzenet", decrypted);
-            } catch (Exception e) {
-                fail("Could not decrypt: " + e.getMessage());
-            }
-
+            String decrypted = AES.decrypt(encrypted);
+            assertEquals("ez egy üzenet", decrypted);
         } catch (Exception e) {
             fail("Could not encrypt!");
         }
