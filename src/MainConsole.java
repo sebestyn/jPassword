@@ -4,6 +4,7 @@ import crypt.CryptType;
 import crypt.CryptoException;
 import dataTypes.Folder;
 import dataTypes.MasterPassword;
+import dataTypes.Note;
 import dataTypes.Password;
 
 import javax.crypto.BadPaddingException;
@@ -55,8 +56,6 @@ public class MainConsole {
             System.out.println("Sikeresen belépve!");
         }
 
-        AES.generateKey(masterPassword);
-
     }
     
     public static void main(String[] args) throws IOException {
@@ -68,26 +67,73 @@ public class MainConsole {
             throw new RuntimeException(e);
         }
 
-        System.out.println();
-
-        // Pelda jelszavak
-        mainFolder.addPassword(new Password("tiktok.com", "jelszo123"));
-        mainFolder.addPassword(new Password("google.com", "nagyonJoJelszo!"));
+        // Kriprográfia függvények beállítása a mester jelszóval
         try {
-            mainFolder.save();
-            mainFolder.load("data");
+            Crypt.init(masterPassword);
         } catch (Exception e) {
             System.err.println(e);
         }
 
+        // Adatok betoltese a mainFolder-ből
+        try {
+            mainFolder.load("./data");
+            System.out.println("Adatok sikeres betoltese");
+        } catch (Exception e) {
+            System.err.println(e);
+        }
+
+        // Menü futtatása
         menuloop:
         while(true){
-            // Menü
-            System.out.printf("list -> jelszavak listaja %nnew -> uj jelszo %nmp-rm -> mester jelszo torles");
+            System.out.printf("\n" +
+                    "pelda -> pelda adatok letrehozasa %n" +
+                    "save -> adatok kimentese %n" +
+                    "load -> adatok betoltese %n" +
+                    "list -> jelszavak listaja %n" +
+                    "new -> uj jelszo %n" +
+                    "mp-rm -> mester jelszo torles" +
+                    "\n");
             switch (reader.readLine()){
-                case "list":
+                case "pelda":
+                    // Pelda adatok
+                    mainFolder.addPassword(new Password("tiktok.com", "jelszo123"));
+                    mainFolder.addNote(new Note("bevásárlólista", "alma\nkörte\nbanán"));
+                    Folder tempFolder = new Folder("család");
+                    tempFolder.addPassword(new Password("gyerek", "passw"));
+                    tempFolder.addPassword(new Password(CryptType.SEBI,"google.com", "bela", "nagyonJoJelszo!"));
+                    tempFolder.addNote(new Note("nevem", "Béla vagyok"));
+                    tempFolder.addPFolder(new Folder("felesegem"));
+                    mainFolder.addPFolder(tempFolder);
                     break;
-                case "new":
+                case "save":
+                    try {
+                        mainFolder.save("./data");
+                    } catch (Exception e) {
+                        System.err.println(e);
+                    }
+                    break;
+                case "load":
+                    try {
+                        mainFolder.load("data");
+                    } catch (Exception e) {
+                        System.err.println(e);
+                    }
+                    break;
+                case "list":
+                    mainFolder.list();
+                    break;
+                case "new p":
+                    String name = reader.readLine();
+                    String password = reader.readLine();
+                    mainFolder.addPassword(new Password(name, password));
+                    break;
+                case "new n":
+                    String name2 = reader.readLine();
+                    String note = reader.readLine();
+                    mainFolder.addNote(new Note(name2, note));
+                    break;
+                case "remove f":
+                    mainFolder.remove();
                     break;
                 case "mp-rm":
                     masterPassword.removePassword();

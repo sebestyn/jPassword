@@ -12,6 +12,11 @@ import java.security.spec.InvalidKeySpecException;
 
 public class Crypt {
 
+    public static void init(MasterPassword masterPassword) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        AES.init(masterPassword);
+        SEBI.init(masterPassword);
+    }
+
     /**
      *
      * @param message Az üzenet amit titkosítani szeretnél
@@ -26,6 +31,8 @@ public class Crypt {
         switch (cryptType){
             case NONE:
                 return message;
+            case SEBI:
+                    return SEBI.encrypt(message);
             case SHA256:
                 return SHA256.encrypt(message);
             case AES:
@@ -48,6 +55,8 @@ public class Crypt {
         switch (cryptType){
             case NONE:
                 return message;
+            case SEBI:
+                return SEBI.decrypt(message);
             case SHA256:
                 return SHA256.decrypt(message);
             case AES:

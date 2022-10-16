@@ -15,9 +15,13 @@ import java.util.Base64;
 
 // Source: https://www.section.io/engineering-education/implementing-aes-encryption-and-decryption-in-java/#table-of-contents
 public class AES {
-    private static SecretKey key;
+    private static SecretKey key = null;
     private static final int DATA_LENGTH = 128;
     private static Cipher encryptionCipher;
+
+    public static void init(MasterPassword masterPassword) throws NoSuchAlgorithmException, InvalidKeySpecException {
+        AES.generateKey(masterPassword);
+    }
 
     /**
      * Titkosító algoritmus
