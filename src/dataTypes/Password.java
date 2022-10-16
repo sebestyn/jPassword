@@ -10,6 +10,7 @@ import javax.crypto.NoSuchPaddingException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.Objects;
 import java.util.UUID;
 
 public class Password {
@@ -23,6 +24,12 @@ public class Password {
         this.name = Global.oneLineString(name);
         this.password = Global.oneLineString(password);
     }
+    public Password(CryptType cryptType, String name, String password){
+        this.cryptType = cryptType;
+        this.name = Global.oneLineString(name);
+        this.password = Global.oneLineString(password);
+    }
+
     public Password(CryptType cryptType, String name, String username, String password){
         this.cryptType = cryptType;
         this.name = Global.oneLineString(name);
@@ -42,6 +49,13 @@ public class Password {
         return password;
     }
 
+    public String getEncrypted() throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException {
+        return  this.cryptType + "\n" +
+                Crypt.encrypt(this.cryptType, this.name) + "\n" +
+                Crypt.encrypt(this.cryptType, this.username) + "\n" +
+                Crypt.encrypt(this.cryptType, this.password) + "\n";
+    }
+
     @Override
     public String toString() {
         return "Password{" +
@@ -53,10 +67,16 @@ public class Password {
                 '}';
     }
 
-    public String getEncrypted() throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException {
-        return  this.cryptType + "\n" +
-                Crypt.encrypt(this.cryptType, this.name) + "\n" +
-                Crypt.encrypt(this.cryptType, this.username) + "\n" +
-                Crypt.encrypt(this.cryptType, this.password) + "\n";
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Password password1 = (Password) o;
+        return cryptType == password1.cryptType && name.equals(password1.name) && Objects.equals(username, password1.username) && password.equals(password1.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(cryptType, name, username, password);
     }
 }

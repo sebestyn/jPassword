@@ -1,7 +1,9 @@
 package dataTypes;
 
+import crypt.Crypt;
 import crypt.CryptType;
 import crypt.CryptoException;
+import org.jetbrains.annotations.NotNull;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -15,21 +17,19 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Scanner;
-import java.util.UUID;
+import java.util.*;
 
-public class Folder {
-    private UUID id = UUID.randomUUID();
+public class Folder implements Comparable{
+    //private UUID id = UUID.randomUUID();
     private String forderName;
-    private ArrayList<Password> passwords = new ArrayList<>();
-    private ArrayList<Note> notes = new ArrayList<>();
-    private ArrayList<Folder> folders = new ArrayList<>();
+    private HashSet<Password> passwords = new HashSet<>();
+    private HashSet<Note> notes = new HashSet<>();
+    private HashSet<Folder> folders = new HashSet<>();
 
     public Folder(String forderName){
         this.forderName = forderName;
     }
+
 
     public void addPassword(Password pass){
         passwords.add(pass);
@@ -39,17 +39,59 @@ public class Folder {
         folders.add(folder);
     }
 
+    public void load(String path) throws IOException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeySpecException, CryptoException, InvalidKeyException {
+        String folderPath = path + "/" + this.forderName;
+
+        // Ha nem letezik -> csak letrehozza
+        if(!Files.isDirectory(Paths.get(folderPath))){
+            new File(folderPath).mkdirs();
+            new File(folderPath + "/password.encrypt").createNewFile();
+            new File(folderPath + "/notes.encrypt").createNewFile();
+            return;
+        }
+
+        // Password
+        Scanner pass_reader = new Scanner(new File(folderPath + "/password.encrypt"));
+        while (pass_reader.hasNextLine()) {
+            CryptType cryptType = CryptType.valueOf(pass_reader.nextLine());
+            String  name = Crypt.decrypt(cryptType, pass_reader.nextLine());
+            String  username = Crypt.decrypt(cryptType, pass_reader.nextLine());
+            String  password = Crypt.decrypt(cryptType, pass_reader.nextLine());
+            Password readPassword = new Password(cryptType, name, username, password);
+            passwords.add(readPassword);
+        }
+        pass_reader.close();
+
+        // Notes
+        Scanner notes_reader = new Scanner(new File(folderPath + "/notes.encrypt"));
+        while (notes_reader.hasNextLine()) {
+            CryptType cryptType = CryptType.valueOf(notes_reader.nextLine());
+            String  name = Crypt.decrypt(cryptType, notes_reader.nextLine());
+            String  note = Crypt.decrypt(cryptType, notes_reader.nextLine());
+            Note readNote = new Note(cryptType, name, note);
+            notes.add(readNote);
+        }
+        notes_reader.close();
+
+        // Folders // Source: https://www.baeldung.com/java-list-directory-files
+        DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(folderPath));
+        for (Path childFolderPath : stream) {
+            if (Files.isDirectory(childFolderPath)) {
+                Folder childFolder = new Folder(childFolderPath.getFileName().toString());
+                childFolder.load(folderPath);
+                folders.add(childFolder);
+            }
+        }
+
+    }
 
     public void save(String path) throws IOException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException {
         String folderPath = path + "/" + this.forderName;
 
-        // Remove old datas // Source: https://softwarecave.org/2018/03/24/delete-directory-with-contents-in-java/
-        Files.walk(Paths.get(folderPath))
-                .sorted(Comparator.reverseOrder())
-                .map(Path::toFile)
-                .forEach(File::delete);
+        // Benne lévő mappák törlése
+        deleteDir(new File(folderPath));
 
-        // Make new folder
+        // Új üres mappa létrehozása
         new File(folderPath).mkdirs();
 
         // Passwords
@@ -68,47 +110,8 @@ public class Folder {
 
         // Folders
         for(Folder folder: folders){
-            System.out.println(folder.toString());
             folder.save(folderPath);
         }
-    }
-
-    public void load(String path) throws IOException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeySpecException, CryptoException, InvalidKeyException {
-        String folderPath = path + "/" + this.forderName;
-
-        // Password
-        Scanner pass_reader = new Scanner(new File(folderPath + "/password.encrypt"));
-        while (pass_reader.hasNextLine()) {
-            CryptType cryptType = CryptType.valueOf(pass_reader.nextLine());
-            String  name = pass_reader.nextLine();
-            String  username = pass_reader.nextLine();
-            String  password = pass_reader.nextLine();
-            Password readPassword = new Password(cryptType, name, username, password);
-            passwords.add(readPassword);
-        }
-        pass_reader.close();
-
-        // Notes
-        Scanner notes_reader = new Scanner(new File(folderPath + "/notes.encrypt"));
-        while (notes_reader.hasNextLine()) {
-            CryptType cryptType = CryptType.valueOf(notes_reader.nextLine());
-            String  name = notes_reader.nextLine();
-            String  note = notes_reader.nextLine();
-            Note readNote = new Note(cryptType, name, note);
-            notes.add(readNote);
-        }
-        notes_reader.close();
-
-        // Folders // Source: https://www.baeldung.com/java-list-directory-files
-        DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(folderPath));
-        for (Path childFolderPath : stream) {
-            if (Files.isDirectory(childFolderPath)) {
-                Folder childFolder = new Folder(childFolderPath.getFileName().toString());
-                childFolder.load(folderPath);
-                folders.add(childFolder);
-            }
-        }
-
     }
 
     public void remove(){
@@ -123,32 +126,65 @@ public class Folder {
         folders.clear();
     }
 
-    public void list() {
+    public void list(String level) {
         // Folder name
-        System.out.println("\n" + this);
+        System.out.println(level + this);
+        level += " -- ";
 
         // Passwords
         for(Password pass: passwords){
-            System.out.println(pass.toString());
+            System.out.println(level + pass.toString());
         }
         // Notes
         for(Note note: notes){
-            System.out.println(note.toString());
+            System.out.println(level + note.toString());
         }
         // Folders
         for(Folder folder: folders){
-            folder.list();
+            folder.list(level);
         }
     }
 
     @Override
     public String toString() {
         return "Folder{" +
-                "id=" + id +
-                ", forderName='" + forderName + '\'' +
+                "forderName='" + forderName + '\'' +
                 ", passwords=" + passwords.size() +
                 ", notes=" + notes.size() +
                 ", folders=" + folders.size() +
                 '}';
+    }
+
+    /**
+     * Az összes adat törlése egy mappán belül
+     * Forrás: https://stackoverflow.com/questions/20281835/how-to-delete-a-folder-with-files-using-java
+     * @param file
+     */
+    private void deleteDir(File file) {
+        File[] contents = file.listFiles();
+        if (contents != null) {
+            for (File f : contents) {
+                deleteDir(f);
+            }
+        }
+        file.delete();
+    }
+
+    @Override
+    public int compareTo(@NotNull Object o) {
+        return ((Folder) o).forderName.compareTo(this.forderName);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Folder folder = (Folder) o;
+        return forderName.equals(folder.forderName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(forderName);
     }
 }

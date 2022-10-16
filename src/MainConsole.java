@@ -79,7 +79,7 @@ public class MainConsole {
             mainFolder.load("./data");
             System.out.println("Adatok sikeres betoltese");
         } catch (Exception e) {
-            System.err.println(e);
+            throw new RuntimeException(e);
         }
 
         // Menü futtatása
@@ -90,8 +90,11 @@ public class MainConsole {
                     "save -> adatok kimentese %n" +
                     "load -> adatok betoltese %n" +
                     "list -> jelszavak listaja %n" +
-                    "new -> uj jelszo %n" +
-                    "mp-rm -> mester jelszo torles" +
+                    "new p-> uj jelszo %n" +
+                    "new n-> uj note %n" +
+                    "remove f-> mappa torlese %n" +
+                    "mp-rm -> mester jelszo torles %n" +
+                    "exit -> kilepes" +
                     "\n");
             switch (reader.readLine()){
                 case "pelda":
@@ -99,9 +102,9 @@ public class MainConsole {
                     mainFolder.addPassword(new Password("tiktok.com", "jelszo123"));
                     mainFolder.addNote(new Note("bevásárlólista", "alma\nkörte\nbanán"));
                     Folder tempFolder = new Folder("család");
-                    tempFolder.addPassword(new Password("gyerek", "passw"));
+                    tempFolder.addPassword(new Password(CryptType.SEBI,"gyerek", "passw"));
                     tempFolder.addPassword(new Password(CryptType.SEBI,"google.com", "bela", "nagyonJoJelszo!"));
-                    tempFolder.addNote(new Note("nevem", "Béla vagyok"));
+                    tempFolder.addNote(new Note(CryptType.SEBI,"nevem", "Béla vagyok"));
                     tempFolder.addPFolder(new Folder("felesegem"));
                     mainFolder.addPFolder(tempFolder);
                     break;
@@ -109,18 +112,19 @@ public class MainConsole {
                     try {
                         mainFolder.save("./data");
                     } catch (Exception e) {
-                        System.err.println(e);
+                        throw new RuntimeException(e);
                     }
+
                     break;
                 case "load":
                     try {
                         mainFolder.load("data");
                     } catch (Exception e) {
-                        System.err.println(e);
+                        throw new RuntimeException(e);
                     }
                     break;
                 case "list":
-                    mainFolder.list();
+                    mainFolder.list("");
                     break;
                 case "new p":
                     String name = reader.readLine();

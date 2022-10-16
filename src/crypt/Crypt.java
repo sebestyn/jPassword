@@ -10,6 +10,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
+
 public class Crypt {
 
     public static void init(MasterPassword masterPassword) throws NoSuchAlgorithmException, InvalidKeySpecException {
@@ -35,6 +36,8 @@ public class Crypt {
                     return SEBI.encrypt(message);
             case SHA256:
                 return SHA256.encrypt(message);
+            case BLOWFISH:
+                return BLOWFISH.encrypt(message);
             case AES:
                 return AES.encrypt(message);
             default:
@@ -59,6 +62,8 @@ public class Crypt {
                 return SEBI.decrypt(message);
             case SHA256:
                 return SHA256.decrypt(message);
+            case BLOWFISH:
+                return BLOWFISH.decrypt(message);
             case AES:
                 return AES.decrypt(message);
             default:
