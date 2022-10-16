@@ -1,28 +1,21 @@
-import crypt.AES;
 import crypt.Crypt;
 import crypt.CryptType;
-import crypt.CryptoException;
 import dataTypes.Folder;
 import dataTypes.MasterPassword;
 import dataTypes.Note;
 import dataTypes.Password;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 
 public class MainConsole {
     static MasterPassword masterPassword = new MasterPassword();
     static Folder mainFolder = new Folder("mainFolder");
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    private static void auth() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    private static void auth() {
         // Regisztráció: nincs még mester jelszó
         if(!masterPassword.isAlreadyExist()){
             try {
@@ -71,7 +64,7 @@ public class MainConsole {
         try {
             Crypt.init(masterPassword);
         } catch (Exception e) {
-            System.err.println(e);
+            throw new RuntimeException(e);
         }
 
         // Adatok betoltese a mainFolder-ből
@@ -85,17 +78,17 @@ public class MainConsole {
         // Menü futtatása
         menuloop:
         while(true){
-            System.out.printf("\n" +
-                    "pelda -> pelda adatok letrehozasa %n" +
-                    "save -> adatok kimentese %n" +
-                    "load -> adatok betoltese %n" +
-                    "list -> jelszavak listaja %n" +
-                    "new p-> uj jelszo %n" +
-                    "new n-> uj note %n" +
-                    "remove f-> mappa torlese %n" +
-                    "mp-rm -> mester jelszo torles %n" +
-                    "exit -> kilepes" +
-                    "\n");
+            System.out.print("""
+                    pelda -> pelda adatok letrehozasa
+                    save -> adatok kimentese
+                    load -> adatok betoltese
+                    list -> jelszavak listaja
+                    new p-> uj jelszo
+                    new n-> uj note
+                    remove f-> mappa torlese
+                    mp-rm -> mester jelszo torles
+                    exit -> kilepes
+                    """);
             switch (reader.readLine()){
                 case "pelda":
                     // Pelda adatok

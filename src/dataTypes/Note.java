@@ -11,13 +11,11 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Objects;
-import java.util.UUID;
 
 public class Note {
-    private UUID id = UUID.randomUUID();
     private CryptType cryptType = CryptType.NONE;
-    private String name = "";
-    private String note = "";
+    private final String name;
+    private final String note;
 
     public Note(String name, String note){
         this.name = Global.oneLineString(name);
@@ -39,8 +37,7 @@ public class Note {
     @Override
     public String toString() {
         return "Note{" +
-                "id=" + id +
-                ", cryptType=" + cryptType +
+                "cryptType=" + cryptType +
                 ", name='" + name + '\'' +
                 ", note='" + note + '\'' +
                 '}';

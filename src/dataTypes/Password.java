@@ -11,14 +11,12 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Objects;
-import java.util.UUID;
 
 public class Password {
-    private UUID id = UUID.randomUUID();
     private CryptType cryptType = CryptType.NONE;
-    private String name = "";
+    private final String name;
     private String username = "";
-    private String password = "";
+    private final String password;
 
     public Password(String name, String password){
         this.name = Global.oneLineString(name);
@@ -59,8 +57,7 @@ public class Password {
     @Override
     public String toString() {
         return "Password{" +
-                "id=" + id +
-                ", cryptType=" + cryptType +
+                "cryptType=" + cryptType +
                 ", name='" + name + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +

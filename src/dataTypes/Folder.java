@@ -3,7 +3,6 @@ package dataTypes;
 import crypt.Crypt;
 import crypt.CryptType;
 import crypt.CryptoException;
-import org.jetbrains.annotations.NotNull;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -19,12 +18,11 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.*;
 
-public class Folder implements Comparable{
-    //private UUID id = UUID.randomUUID();
-    private String forderName;
-    private HashSet<Password> passwords = new HashSet<>();
-    private HashSet<Note> notes = new HashSet<>();
-    private HashSet<Folder> folders = new HashSet<>();
+public class Folder{
+    private final String forderName;
+    private final HashSet<Password> passwords = new HashSet<>();
+    private final HashSet<Note> notes = new HashSet<>();
+    private final HashSet<Folder> folders = new HashSet<>();
 
     public Folder(String forderName){
         this.forderName = forderName;
@@ -157,8 +155,8 @@ public class Folder implements Comparable{
 
     /**
      * Az összes adat törlése egy mappán belül
-     * Forrás: https://stackoverflow.com/questions/20281835/how-to-delete-a-folder-with-files-using-java
-     * @param file
+     * Forrás: <a href="https://stackoverflow.com/questions/20281835/how-to-delete-a-folder-with-files-using-java">...</a>
+     * @param file Dir location
      */
     private void deleteDir(File file) {
         File[] contents = file.listFiles();
@@ -168,11 +166,6 @@ public class Folder implements Comparable{
             }
         }
         file.delete();
-    }
-
-    @Override
-    public int compareTo(@NotNull Object o) {
-        return ((Folder) o).forderName.compareTo(this.forderName);
     }
 
     @Override
