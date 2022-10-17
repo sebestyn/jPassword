@@ -4,22 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="szepites">
+    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="alap funkciok kesz">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/notes.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/család/notes.encrypt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/család/password.encrypt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/master.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/master.encrypt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainConsole.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/crypt/AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/AES.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crypt/BLOWFISH.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/BLOWFISH.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/crypt/Crypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/Crypt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crypt/SEBI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/SEBI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataTypes/Folder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/Folder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataTypes/MasterPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/MasterPassword.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataTypes/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/Note.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataTypes/Password.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/Password.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tst/crypt/SHA256Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/tst/crypt/SHA256Test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tst/crypt/AESTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tst/crypt/AESTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +129,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AESTest.encrypt_and_decrypt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jPassword" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="crypt.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="crypt" />
+      <option name="MAIN_CLASS_NAME" value="crypt.AESTest" />
+      <option name="METHOD_NAME" value="encrypt_and_decrypt" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="MasterPasswordIOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jPassword" />
       <extension name="coverage">
@@ -167,37 +177,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SHA256Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="jPassword" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="crypt.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="crypt" />
-      <option name="MAIN_CLASS_NAME" value="crypt.SHA256Test" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.GUI app" />
       <item itemvalue="Application.Console app" />
+      <item itemvalue="JUnit.AESTest.encrypt_and_decrypt" />
       <item itemvalue="JUnit.AESTest" />
       <item itemvalue="JUnit.AESTest.encrypt" />
       <item itemvalue="JUnit.MasterPasswordIOTest" />
       <item itemvalue="JUnit.MasterPasswordIOTest.isAlreadyExist" />
-      <item itemvalue="JUnit.SHA256Test" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AESTest.encrypt_and_decrypt" />
         <item itemvalue="JUnit.AESTest" />
         <item itemvalue="JUnit.MasterPasswordIOTest" />
         <item itemvalue="JUnit.AESTest.encrypt" />
         <item itemvalue="JUnit.MasterPasswordIOTest.isAlreadyExist" />
-        <item itemvalue="JUnit.SHA256Test" />
       </list>
     </recent_temporary>
   </component>
@@ -214,7 +209,8 @@
       <workItem from="1665921385087" duration="4468000" />
       <workItem from="1665926273964" duration="12624000" />
       <workItem from="1666020449013" duration="4897000" />
-      <workItem from="1666030199946" duration="1864000" />
+      <workItem from="1666030199946" duration="2078000" />
+      <workItem from="1666038445136" duration="2134000" />
     </task>
     <task id="LOCAL-00001" summary="teszt">
       <created>1665311331916</created>
@@ -265,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665956221893</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="alap funkciok kesz">
+      <created>1666032266438</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1666032266439</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +293,8 @@
     <MESSAGE value="folder, pass ,not can be added" />
     <MESSAGE value="minden HashSet-ben, alap funkciok" />
     <MESSAGE value="szepites" />
-    <option name="LAST_COMMIT_MESSAGE" value="szepites" />
+    <MESSAGE value="alap funkciok kesz" />
+    <option name="LAST_COMMIT_MESSAGE" value="alap funkciok kesz" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

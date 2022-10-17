@@ -8,6 +8,7 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import java.io.*;
+import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -33,7 +34,7 @@ public class MasterPassword {
     /**
      * Mester-jelszó elmentése fájlba
      */
-    public void savePassword() throws IOException, CryptoException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, InvalidKeyException {
+    public void savePassword() throws IOException, CryptoException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, InvalidKeyException, InvalidAlgorithmParameterException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath));
         writer.write(Crypt.encrypt(this.cryptType, this.value));
         writer.close();
@@ -65,7 +66,7 @@ public class MasterPassword {
         }
     }
 
-    public boolean isInputEqualsHash(String input, String hash) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException {
+    public boolean isInputEqualsHash(String input, String hash) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException, InvalidAlgorithmParameterException {
         return Crypt.encrypt(CryptType.SHA256, input).equals(hash);
     }
     /**

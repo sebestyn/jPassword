@@ -12,6 +12,7 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -86,7 +87,7 @@ public class Folder{
         ).collect(Collectors.toCollection(HashSet::new));
     }
 
-    public void load(String path) throws IOException, CryptoException {
+    public void load(String path) throws IOException, CryptoException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         String folderPath = path + "/" + this.forderName;
 
         // Ha nem letezik -> csak letrehozza
@@ -132,7 +133,7 @@ public class Folder{
 
     }
 
-    public void save(String path) throws IOException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException {
+    public void save(String path) throws IOException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException, InvalidAlgorithmParameterException {
         String folderPath = path + "/" + this.forderName;
 
         // Benne lévő mappák törlése

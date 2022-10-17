@@ -95,6 +95,7 @@ public class MainConsole {
             switch (reader.readLine()){
                 case "pelda":
                     // Pelda adatok
+                    mainFolder.addPassword(new Password(CryptType.AES,"instagram","nevem", "jelszooo"));
                     mainFolder.addPassword(new Password("tiktok.com", "jelszo123"));
                     mainFolder.addNote(new Note("bevásárlólista", "alma\nkörte\nbanán"));
                     Folder tempFolder = new Folder("család", mainFolder);

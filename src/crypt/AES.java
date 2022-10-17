@@ -16,12 +16,14 @@ import java.util.Base64;
 // Source: https://www.section.io/engineering-education/implementing-aes-encryption-and-decryption-in-java/#table-of-contents
 public class AES {
     private static SecretKey key = null;
-    private static final int DATA_LENGTH = 128;
-    private static Cipher encryptionCipher;
+    static private final int KEY_SIZE = 128;
+    static private final int T_LEN = 128;
+    private static byte[] IV;
 
     public static void init(MasterPassword masterPassword) throws NoSuchAlgorithmException, InvalidKeySpecException {
         // Create key
         key = AES.generateKey(masterPassword);
+        IV = decode("e3IYYJC2hxe24/EO");
     }
 
     /**
@@ -30,12 +32,13 @@ public class AES {
      * @param message Az üzenet amit titkosítani szeretnél
      * @return A titkosított üzenet
      */
-    public static String encrypt(String message) throws NoSuchPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
+    public static String encrypt(String message) throws NoSuchPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, InvalidAlgorithmParameterException {
         byte[] dataInBytes = message.getBytes();
-        encryptionCipher = Cipher.getInstance("AES/GCM/NoPadding");
-        encryptionCipher.init(Cipher.ENCRYPT_MODE, key);
+        Cipher encryptionCipher = Cipher.getInstance("AES/GCM/NoPadding");
+        GCMParameterSpec spec = new GCMParameterSpec(T_LEN, IV);
+        encryptionCipher.init(Cipher.ENCRYPT_MODE, key, spec);
         byte[] encryptedBytes = encryptionCipher.doFinal(dataInBytes);
-        return Base64.getEncoder().encodeToString(encryptedBytes);
+        return encode(encryptedBytes);
     }
 
     /**
@@ -45,10 +48,9 @@ public class AES {
      * @return A dekódolt üzenet
      */
     public static String decrypt(String message) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
-
-        byte[] dataInBytes = Base64.getDecoder().decode(message);
+        byte[] dataInBytes = decode(message);
         Cipher decryptionCipher = Cipher.getInstance("AES/GCM/NoPadding");
-        GCMParameterSpec spec = new GCMParameterSpec(DATA_LENGTH, encryptionCipher.getIV());
+        GCMParameterSpec spec = new GCMParameterSpec(T_LEN, IV);
         decryptionCipher.init(Cipher.DECRYPT_MODE, key, spec);
         byte[] decryptedBytes = decryptionCipher.doFinal(dataInBytes);
         return new String(decryptedBytes);
@@ -58,9 +60,16 @@ public class AES {
     public static SecretKey generateKey(MasterPassword masterPassword) throws NoSuchAlgorithmException, InvalidKeySpecException {
         byte[] salt = {(byte)0xc7, (byte)0x73, (byte)0x21, (byte)0x8c, (byte)0x7e, (byte)0xc8, (byte)0xee, (byte)0x99};
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-        KeySpec spec = new PBEKeySpec(masterPassword.getValue().toCharArray(), salt, 128*128, 128);
+        KeySpec spec = new PBEKeySpec(masterPassword.getValue().toCharArray(), salt, KEY_SIZE*KEY_SIZE, KEY_SIZE);
         return new SecretKeySpec(factory.generateSecret(spec).getEncoded(), "AES");
     }
 
+    private static String encode(byte[] data) {
+        return Base64.getEncoder().encodeToString(data);
+    }
+
+    private static byte[] decode(String data) {
+        return Base64.getDecoder().decode(data);
+    }
 
 }
