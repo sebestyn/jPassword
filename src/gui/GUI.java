@@ -5,8 +5,8 @@ import java.awt.*;
 
 public class GUI {
 
-    private JFrame frame;
-    private JPanel panel;
+    private final JFrame frame;
+    private final JPanel panel;
 
     public GUI(){
         // Create panel

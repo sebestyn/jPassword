@@ -35,17 +35,20 @@ public class Password {
         this.password = Global.oneLineString(password);
     }
 
+    public CryptType getCryptType(){
+        return cryptType;
+    }
     public String getName(){
         return name;
     }
-
     public String getUsername(){
         return username;
     }
-
     public String getPassword(){
         return password;
     }
+
+
 
     public String getEncrypted() throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException {
         return  this.cryptType + "\n" +

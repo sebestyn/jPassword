@@ -20,7 +20,8 @@ public class AES {
     private static Cipher encryptionCipher;
 
     public static void init(MasterPassword masterPassword) throws NoSuchAlgorithmException, InvalidKeySpecException {
-        AES.generateKey(masterPassword);
+        // Create key
+        key = AES.generateKey(masterPassword);
     }
 
     /**
@@ -28,15 +29,13 @@ public class AES {
      *
      * @param message Az üzenet amit titkosítani szeretnél
      * @return A titkosított üzenet
-     * @throws CryptoException Hiba a titkosítás közben
      */
     public static String encrypt(String message) throws NoSuchPaddingException, NoSuchAlgorithmException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
         byte[] dataInBytes = message.getBytes();
         encryptionCipher = Cipher.getInstance("AES/GCM/NoPadding");
         encryptionCipher.init(Cipher.ENCRYPT_MODE, key);
         byte[] encryptedBytes = encryptionCipher.doFinal(dataInBytes);
-        String encryptedString = Base64.getEncoder().encodeToString(encryptedBytes);
-        return encryptedString;
+        return Base64.getEncoder().encodeToString(encryptedBytes);
     }
 
     /**
@@ -44,7 +43,6 @@ public class AES {
      *
      * @param message Az üzenet amit dekódolni szeretnél
      * @return A dekódolt üzenet
-     * @throws CryptoException Hiba a dekódolás közben
      */
     public static String decrypt(String message) throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException {
 
@@ -57,11 +55,11 @@ public class AES {
     }
 
     // Generate key // Source https://stackoverflow.com/questions/9536827/generate-key-from-string
-    public static void generateKey(MasterPassword masterPassword) throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public static SecretKey generateKey(MasterPassword masterPassword) throws NoSuchAlgorithmException, InvalidKeySpecException {
         byte[] salt = {(byte)0xc7, (byte)0x73, (byte)0x21, (byte)0x8c, (byte)0x7e, (byte)0xc8, (byte)0xee, (byte)0x99};
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
         KeySpec spec = new PBEKeySpec(masterPassword.getValue().toCharArray(), salt, 128*128, 128);
-        key = new SecretKeySpec(factory.generateSecret(spec).getEncoded(), "AES");
+        return new SecretKeySpec(factory.generateSecret(spec).getEncoded(), "AES");
     }
 
 

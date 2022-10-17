@@ -12,21 +12,23 @@ public class SEBI {
     }
 
     public static String encrypt(String message){
-        String encrypted = "";
+        StringBuilder encrypted = new StringBuilder();
         for(int i =0; i<message.length(); i++){
-            encrypted += (int) message.charAt(i) + i * key.length() + (int) key.charAt(i % key.length()) + " ";
+            String encChar = (int) message.charAt(i) + i * key.length() + (int) key.charAt(i % key.length()) + " ";
+            encrypted.append(encChar);
         }
-        return encrypted;
+        return encrypted.toString();
     }
 
     public static String decrypt(String message){
         if(message != null && message.length() > 0){
-            String decrypted = "";
+            StringBuilder decrypted = new StringBuilder();
             int[] message_ints = Arrays.stream(message.split(" ")).mapToInt(Integer::parseInt).toArray();
             for(int i =0; i<message_ints.length; i++){
-                decrypted += (char)(message_ints[i] - i * key.length() - (int) key.charAt(i % key.length())) + "";
+                String decChar = (char)(message_ints[i] - i * key.length() - (int) key.charAt(i % key.length())) + "";
+                decrypted.append(decChar);
             }
-            return decrypted;
+            return decrypted.toString();
         }
         return message;
     }

@@ -5,7 +5,6 @@ import dataTypes.MasterPassword;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
@@ -29,20 +28,13 @@ public class Crypt {
         if(message == null || message.equals("null")){
             return null;
         }
-        switch (cryptType){
-            case NONE:
-                return message;
-            case SEBI:
-                    return SEBI.encrypt(message);
-            case SHA256:
-                return SHA256.encrypt(message);
-            case BLOWFISH:
-                return BLOWFISH.encrypt(message);
-            case AES:
-                return AES.encrypt(message);
-            default:
-                throw new CryptoException("Invalid cryptType");
-        }
+        return switch (cryptType) {
+            case NONE -> message;
+            case SEBI -> SEBI.encrypt(message);
+            case SHA256 -> SHA256.encrypt(message);
+            case BLOWFISH -> BLOWFISH.encrypt(message);
+            case AES -> message; //AES.encrypt(message);
+        };
     }
 
     /**
@@ -51,24 +43,17 @@ public class Crypt {
      * @return A dekódolt üzenet
      * @throws CryptoException Hiba a dekódolás közben
      */
-    public static String decrypt(CryptType cryptType, String message) throws CryptoException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, InvalidKeySpecException {
+    public static String decrypt(CryptType cryptType, String message) throws CryptoException {
         if(message == null || message.equals("null")){
             return null;
         }
-        switch (cryptType){
-            case NONE:
-                return message;
-            case SEBI:
-                return SEBI.decrypt(message);
-            case SHA256:
-                return SHA256.decrypt(message);
-            case BLOWFISH:
-                return BLOWFISH.decrypt(message);
-            case AES:
-                return AES.decrypt(message);
-            default:
-                throw new CryptoException("Invalid cryptType");
-        }
+        return switch (cryptType) {
+            case NONE -> message;
+            case SEBI -> SEBI.decrypt(message);
+            case SHA256 -> SHA256.decrypt(message);
+            case BLOWFISH -> BLOWFISH.decrypt(message);
+            case AES -> message; //AES.decrypt(message);
+        };
     }
 
 }

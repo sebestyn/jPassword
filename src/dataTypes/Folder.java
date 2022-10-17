@@ -12,32 +12,81 @@ import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Folder{
     private final String forderName;
+    private final Folder parentFolder;
     private final HashSet<Password> passwords = new HashSet<>();
     private final HashSet<Note> notes = new HashSet<>();
     private final HashSet<Folder> folders = new HashSet<>();
 
-    public Folder(String forderName){
+    public Folder(String forderName, Folder parentFolder){
         this.forderName = forderName;
+        this.parentFolder = parentFolder;
     }
-
 
     public void addPassword(Password pass){
         passwords.add(pass);
     }
     public void addNote(Note note){ notes.add(note); }
-    public void addPFolder(Folder folder){
+    public void addFolder(Folder folder){
         folders.add(folder);
     }
 
-    public void load(String path) throws IOException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeySpecException, CryptoException, InvalidKeyException {
+    public Folder getParentFolder(){
+        return this.parentFolder;
+    }
+    public Folder getFolder(String selectedFolderName){
+        for (Folder f : folders) {
+            if (f.forderName.equals(selectedFolderName)){
+                return f;
+            }
+        }
+        return this;
+    }
+
+    public void removePassword(Password password){
+        passwords.remove(password);
+    }
+    public void removeNote(Note note){
+        notes.remove(note);
+    }
+    public void removeFolder(Folder folder){
+        folder.makeEmpty();
+        folders.remove(folder);
+    }
+
+    public HashSet<Password> searchPassword(String value){
+        final String finalValue = value.toLowerCase();
+        return passwords.stream().filter(
+                pass ->
+                        (
+                                pass.getCryptType().toString().toLowerCase().contains(finalValue) ||
+                                        pass.getName().toLowerCase().contains(finalValue) ||
+                                        pass.getUsername().toLowerCase().contains(finalValue) ||
+                                        pass.getPassword().toLowerCase().contains(finalValue)
+                        )
+        ).collect(Collectors.toCollection(HashSet::new));
+    }
+
+    public HashSet<Note> searchNote(String value){
+        final String finalValue = value.toLowerCase();
+        return notes.stream().filter(
+                note ->
+                        (
+                                note.getCryptType().toString().toLowerCase().contains(finalValue) ||
+                                        note.getName().toLowerCase().contains(finalValue) ||
+                                        note.getNote().toLowerCase().contains(finalValue)
+                        )
+        ).collect(Collectors.toCollection(HashSet::new));
+    }
+
+    public void load(String path) throws IOException, CryptoException {
         String folderPath = path + "/" + this.forderName;
 
         // Ha nem letezik -> csak letrehozza
@@ -75,7 +124,7 @@ public class Folder{
         DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(folderPath));
         for (Path childFolderPath : stream) {
             if (Files.isDirectory(childFolderPath)) {
-                Folder childFolder = new Folder(childFolderPath.getFileName().toString());
+                Folder childFolder = new Folder(childFolderPath.getFileName().toString(), this);
                 childFolder.load(folderPath);
                 folders.add(childFolder);
             }
@@ -112,14 +161,14 @@ public class Folder{
         }
     }
 
-    public void remove(){
+    public void makeEmpty(){
         // Passwords
         passwords.clear();
         // Notes
         notes.clear();
         // Folders
         for(Folder folder: folders){
-            folder.remove();
+            folder.makeEmpty();
         }
         folders.clear();
     }

@@ -4,15 +4,15 @@ import dataTypes.Folder;
 import dataTypes.MasterPassword;
 import dataTypes.Note;
 import dataTypes.Password;
-
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class MainConsole {
     static MasterPassword masterPassword = new MasterPassword();
-    static Folder mainFolder = new Folder("mainFolder");
+    static Folder mainFolder = new Folder("mainFolder", null);
+    static final String mainFolderPath = "./data";
+    static Folder actualFolder = mainFolder;
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     private static void auth() {
@@ -69,7 +69,7 @@ public class MainConsole {
 
         // Adatok betoltese a mainFolder-ből
         try {
-            mainFolder.load("./data");
+            mainFolder.load(mainFolderPath);
             System.out.println("Adatok sikeres betoltese");
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -79,14 +79,17 @@ public class MainConsole {
         menuloop:
         while(true){
             System.out.print("""
+                    
+                    MENU
                     pelda -> pelda adatok letrehozasa
                     save -> adatok kimentese
                     load -> adatok betoltese
                     list -> jelszavak listaja
-                    new p-> uj jelszo
-                    new n-> uj note
-                    remove f-> mappa torlese
-                    mp-rm -> mester jelszo torles
+                    cd f -> egy mappa kivalasztasa
+                    cd .. -> egy mappa-val vissza
+                    search p/n -> kereses jelszo/note
+                    new p/n/f-> uj jelszo/note/mappa
+                    rm p/n/f/mp ->  torles jelszo/note/mappa/mester-jelszo
                     exit -> kilepes
                     """);
             switch (reader.readLine()){
@@ -94,16 +97,16 @@ public class MainConsole {
                     // Pelda adatok
                     mainFolder.addPassword(new Password("tiktok.com", "jelszo123"));
                     mainFolder.addNote(new Note("bevásárlólista", "alma\nkörte\nbanán"));
-                    Folder tempFolder = new Folder("család");
+                    Folder tempFolder = new Folder("család", mainFolder);
                     tempFolder.addPassword(new Password(CryptType.SEBI,"gyerek", "passw"));
                     tempFolder.addPassword(new Password(CryptType.SEBI,"google.com", "bela", "nagyonJoJelszo!"));
                     tempFolder.addNote(new Note(CryptType.SEBI,"nevem", "Béla vagyok"));
-                    tempFolder.addPFolder(new Folder("felesegem"));
-                    mainFolder.addPFolder(tempFolder);
+                    tempFolder.addFolder(new Folder("felesegem", tempFolder));
+                    mainFolder.addFolder(tempFolder);
                     break;
                 case "save":
                     try {
-                        mainFolder.save("./data");
+                        mainFolder.save(mainFolderPath);
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
@@ -117,22 +120,54 @@ public class MainConsole {
                     }
                     break;
                 case "list":
-                    mainFolder.list("");
+                    actualFolder.list("");
+                    break;
+                case "cd f":
+                    String selectedFolderName = reader.readLine();
+                    actualFolder = actualFolder.getFolder(selectedFolderName);
+                    break;
+                case "cd ..":
+                    actualFolder = actualFolder.getParentFolder();
+                    break;
+                case "search p":
+                    System.out.println(actualFolder.searchPassword(reader.readLine()));
+                    break;
+                case "search n":
+                    System.out.println(actualFolder.searchNote(reader.readLine()));
                     break;
                 case "new p":
+                    CryptType cryptType = CryptType.valueOf(reader.readLine());
                     String name = reader.readLine();
+                    String username = reader.readLine();
                     String password = reader.readLine();
-                    mainFolder.addPassword(new Password(name, password));
+                    actualFolder.addPassword(new Password(cryptType, name, username, password));
                     break;
                 case "new n":
+                    CryptType cryptType2 = CryptType.valueOf(reader.readLine());
                     String name2 = reader.readLine();
                     String note = reader.readLine();
-                    mainFolder.addNote(new Note(name2, note));
+                    actualFolder.addNote(new Note(cryptType2, name2, note));
                     break;
-                case "remove f":
-                    mainFolder.remove();
+                case "new f":
+                    String name3 = reader.readLine();
+                    actualFolder.addFolder(new Folder(name3, actualFolder));
                     break;
-                case "mp-rm":
+                case "rm p":
+                    actualFolder.removePassword(new Password(CryptType.valueOf(reader.readLine()), reader.readLine(), reader.readLine(), reader.readLine()));
+                    break;
+                case "rm n":
+                    actualFolder.removeNote(new Note(CryptType.valueOf(reader.readLine()), reader.readLine(), reader.readLine()));
+                    break;
+                case "rm f":
+                    actualFolder.removeFolder(new Folder(reader.readLine(), actualFolder));
+                    break;
+                case "rm mp":
+                    mainFolder.makeEmpty();
+                    try {
+                        mainFolder.save(mainFolderPath);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
                     masterPassword.removePassword();
                     System.exit(1);
                     break;

@@ -14,16 +14,12 @@ import java.security.spec.InvalidKeySpecException;
 
 public class MasterPassword {
     private final CryptType cryptType = CryptType.SHA256;
-    String filePath = "data/master.encrypt";
+    final String filePath = "data/master.encrypt";
     private String value;
 
     public MasterPassword(){}
     public MasterPassword(String value){
         this.value = value;
-    }
-
-    public CryptType getCryptType() {
-        return cryptType;
     }
 
     public String getValue() {
@@ -32,10 +28,6 @@ public class MasterPassword {
 
     public void setValue(String value) {
         this.value = value;
-    }
-
-    public void setFilePath(String f) {
-        filePath = f;
     }
 
     /**
@@ -79,10 +71,10 @@ public class MasterPassword {
     /**
      * Mester-jelszó törlése (egész fájl-t törli). Vigyázz: új jelszó létrehozásakor elvesznek a mentett jeslzavak
      */
-    public void removePassword() {
+    public boolean removePassword() {
         this.value = null;
         File mpFile = new File(filePath);
-        mpFile.delete();
+        return mpFile.delete();
     }
 
 

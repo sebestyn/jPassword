@@ -28,6 +28,17 @@ public class Note {
         this. note = Global.oneLineString(note);
     }
 
+    public CryptType getCryptType(){
+        return cryptType;
+    }
+    public String getName(){
+        return name;
+    }
+    public String getNote(){
+        return note;
+    }
+
+
     public String getEncrypted() throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException {
         return  this.cryptType + "\n" +
                 Crypt.encrypt(this.cryptType, this.name) + "\n" +
