@@ -4,16 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="alap funkciok kesz">
+    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="AES megoldva">
+      <change afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/felesegem/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/család/felesegem/password.encrypt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/MainConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crypt/AES.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/AES.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/crypt/Crypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/Crypt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataTypes/Folder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/Folder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/dataTypes/MasterPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/MasterPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataTypes/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/Note.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataTypes/Password.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/Password.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tst/crypt/AESTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tst/crypt/AESTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Button.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +82,7 @@
       <recent name="gui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Console app">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Console app" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="MainConsole" />
       <module name="jPassword" />
@@ -92,6 +91,13 @@
       </method>
     </configuration>
     <configuration name="GUI app" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="jPassword" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="jPassword" />
       <method v="2">
@@ -178,6 +184,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Main" />
       <item itemvalue="Application.GUI app" />
       <item itemvalue="Application.Console app" />
       <item itemvalue="JUnit.AESTest.encrypt_and_decrypt" />
@@ -210,7 +217,7 @@
       <workItem from="1665926273964" duration="12624000" />
       <workItem from="1666020449013" duration="4897000" />
       <workItem from="1666030199946" duration="2078000" />
-      <workItem from="1666038445136" duration="2134000" />
+      <workItem from="1666038445136" duration="4105000" />
     </task>
     <task id="LOCAL-00001" summary="teszt">
       <created>1665311331916</created>
@@ -268,7 +275,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666032266439</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="AES megoldva">
+      <created>1666040723617</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1666040723617</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,7 +308,8 @@
     <MESSAGE value="minden HashSet-ben, alap funkciok" />
     <MESSAGE value="szepites" />
     <MESSAGE value="alap funkciok kesz" />
-    <option name="LAST_COMMIT_MESSAGE" value="alap funkciok kesz" />
+    <MESSAGE value="AES megoldva" />
+    <option name="LAST_COMMIT_MESSAGE" value="AES megoldva" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

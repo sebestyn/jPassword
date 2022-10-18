@@ -14,12 +14,13 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 public class MasterPassword {
-    private final CryptType cryptType = CryptType.SHA256;
-    final String filePath = "data/master.encrypt";
-    private String value;
+    final CryptType cryptType = CryptType.SHA256;
+    final String filePath;
+    String value;
 
-    public MasterPassword(){}
-    public MasterPassword(String value){
+    public MasterPassword(String path){ this.filePath = path + "/master.encrypt"; }
+    public MasterPassword(String path, String value){
+        this.filePath = path + "/master.encrypt";
         this.value = value;
     }
 

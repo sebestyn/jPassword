@@ -9,9 +9,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class MainConsole {
-    static MasterPassword masterPassword = new MasterPassword();
-    static Folder mainFolder = new Folder("mainFolder", null);
     static final String mainFolderPath = "./data";
+    static MasterPassword masterPassword = new MasterPassword(mainFolderPath);
+    static Folder mainFolder = new Folder("mainFolder", null);
     static Folder actualFolder = mainFolder;
     static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 

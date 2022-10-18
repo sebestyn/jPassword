@@ -5,13 +5,12 @@ import java.awt.*;
 
 public class GUI {
 
-    private final JFrame frame;
-    private final JPanel panel;
+    private JFrame frame;
+    private JPanel panel;
 
     public GUI(){
         // Create panel
         panel = init_JPanel();
-        panel.add(new Button("Click me"));
 
         // Create frame and add panel to it
         frame = init_JFrame(panel);
@@ -20,7 +19,7 @@ public class GUI {
     private JPanel init_JPanel(){
         JPanel panel = new JPanel();
         panel.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
-        panel.setLayout(new GridLayout(0, 1));
+        panel.setLayout(new GridLayout(3, 1));
         return panel;
     }
 
@@ -40,5 +39,11 @@ public class GUI {
         //frame.setState(Frame.ICONIFIED);
         //frame.setState(Frame.NORMAL);
         return frame;
+    }
+
+    public void showAuthPage() {
+        panel.add(new JTextField(20));
+        panel.add(new JButton("Belépés"));
+        frame = init_JFrame(panel);
     }
 }
