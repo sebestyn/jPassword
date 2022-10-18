@@ -5,45 +5,31 @@ import java.awt.*;
 
 public class GUI {
 
-    private JFrame frame;
-    private JPanel panel;
+    private final JFrame frame;
 
     public GUI(){
-        // Create panel
-        panel = init_JPanel();
-
-        // Create frame and add panel to it
-        frame = init_JFrame(panel);
-    }
-
-    private JPanel init_JPanel(){
-        JPanel panel = new JPanel();
-        panel.setBorder(BorderFactory.createEmptyBorder(20,20,20,20));
-        panel.setLayout(new GridLayout(3, 1));
-        return panel;
+        // Create frame
+        frame = init_JFrame();
     }
 
 
-    private JFrame init_JFrame(JPanel panel){
+    private JFrame init_JFrame(){
         JFrame frame = new JFrame();
         // Size
         frame.setPreferredSize(new Dimension(800,500));
         frame.setMinimumSize(new Dimension(400,250));
-        frame.pack();
         // Info
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setTitle("JPassword");
-        // Add Panel and make visible
-        frame.add(panel, BorderLayout.CENTER);
-        frame.setVisible(true);
-        //frame.setState(Frame.ICONIFIED);
-        //frame.setState(Frame.NORMAL);
         return frame;
     }
 
     public void showAuthPage() {
-        panel.add(new JTextField(20));
-        panel.add(new JButton("Belépés"));
-        frame = init_JFrame(panel);
+        LoginPage loginPage = new LoginPage(frame);
+        loginPage.show();
+
     }
+
+
+
 }

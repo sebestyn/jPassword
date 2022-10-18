@@ -4,14 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="AES megoldva">
-      <change afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="GUI start">
+      <change afterPath="$PROJECT_DIR$/src/gui/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/felesegem/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/család/felesegem/password.encrypt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MainConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MainConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dataTypes/MasterPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/MasterPassword.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Button.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/felesegem/notes.encrypt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/felesegem/password.encrypt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/notes.encrypt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/password.encrypt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/notes.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/notes.encrypt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/password.encrypt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/GUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -217,7 +218,8 @@
       <workItem from="1665926273964" duration="12624000" />
       <workItem from="1666020449013" duration="4897000" />
       <workItem from="1666030199946" duration="2078000" />
-      <workItem from="1666038445136" duration="4105000" />
+      <workItem from="1666038445136" duration="5871000" />
+      <workItem from="1666088929873" duration="4153000" />
     </task>
     <task id="LOCAL-00001" summary="teszt">
       <created>1665311331916</created>
@@ -282,7 +284,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666040723617</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="GUI start">
+      <created>1666077510862</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1666077510862</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,7 +318,8 @@
     <MESSAGE value="szepites" />
     <MESSAGE value="alap funkciok kesz" />
     <MESSAGE value="AES megoldva" />
-    <option name="LAST_COMMIT_MESSAGE" value="AES megoldva" />
+    <MESSAGE value="GUI start" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI start" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
