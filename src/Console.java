@@ -8,7 +8,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class MainConsole {
+public class Console {
     static final String mainFolderPath = "./data";
     static MasterPassword masterPassword = new MasterPassword(mainFolderPath);
     static Folder mainFolder = new Folder("mainFolder", null);

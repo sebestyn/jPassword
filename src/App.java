@@ -1,47 +1,20 @@
-import crypt.CryptoException;
-import dataTypes.Folder;
-import dataTypes.MasterPassword;
-import gui.GUI;
+import gui.Controller;
+import gui.Model;
+import gui.View;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-import java.io.IOException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-
+// https://stackoverflow.com/questions/5831388/what-is-the-controller-in-java-swing
 public class App {
-    String mainFolderPath = "./data";
-    MasterPassword masterPassword;
-    Folder mainFolder;
-    Folder actualFolder;
-
-    public void init(){
-        masterPassword = new MasterPassword(mainFolderPath);
-        mainFolder= new Folder("mainFolder", null);
-        actualFolder = mainFolder;
-    }
-
-    public void init(String mainFolderPath){
-        this.mainFolderPath = mainFolderPath;
-        this.init();
-    }
-
-    public void register(String passwordInput) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, IOException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException {
-        masterPassword.setValue(passwordInput);
-        masterPassword.savePassword();
-    }
-
-    public boolean login(String passwordInput, String passwordHash) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException {
-        return masterPassword.isInputEqualsHash(passwordInput, passwordHash);
-    }
+    Model model;
+    View view;
+    Controller controller;
 
     public void runGUI(){
-        GUI mainGUI = new GUI();
-        mainGUI.showAuthPage();
 
+        model = new Model();
+        view = new View(model);
+        controller = new Controller(model, view);
+
+        view.setVisible(true);
     }
 
     public void runConsole(){
