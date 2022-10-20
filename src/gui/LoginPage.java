@@ -16,36 +16,40 @@ public class LoginPage extends JPanel  {
      */
     public LoginPage(){
         // Title
-        JPanel titlePanel = new JPanel();
-        titlePanel.setLayout(new FlowLayout());
-        JLabel title = new JLabel("JPassword", SwingConstants.CENTER);
-        // ImageIcon logo = new ImageIcon("./doc/logo/logo.png)");
-        // title.setIcon(logo);
+        JLabel title = new JLabel("JPassword");
+        ImageIcon logo = new ImageIcon("./doc/logo/100x100.png");
+        title.setIcon(logo);
         title.setFont(new Font("Calibri", Font.BOLD, 30));
-        titlePanel.add(title);
-        titlePanel.setBackground(new Color(100,120,180));
+        title.setVerticalTextPosition(JLabel.BOTTOM);
+        title.setHorizontalTextPosition(JLabel.CENTER);
+        title.setBackground(new Color(141, 137, 203));
+        title.setOpaque(true);
+        title.setVerticalAlignment(JLabel.BOTTOM);
+        title.setHorizontalAlignment(JLabel.CENTER);
 
         // Password Input, Button
         JPanel inputPanel = new JPanel();
-        titlePanel.setLayout(new FlowLayout());
+        inputPanel.setLayout(new FlowLayout());
         loginButton = new JButton("Belépés");
+        loginButton.setPreferredSize(new Dimension(150, 30));
         passwordInput = new JTextField("", 20);
+        messageLabel = new JLabel("");
         inputPanel.add(passwordInput);
         inputPanel.add(loginButton);
+        inputPanel.add(messageLabel);
         inputPanel.setBackground(new Color(197, 115, 160));
+        inputPanel.setBorder(BorderFactory.createEmptyBorder(10,250,1,250));
 
         // Login message
-        JPanel messagePanel = new JPanel();
-        messagePanel.setLayout(new FlowLayout());
-        messageLabel = new JLabel("");
-        messagePanel.add(messageLabel);
-        messagePanel.setBackground(new Color(121, 201, 133));
+//        JPanel messagePanel = new JPanel();
+//        messagePanel.setLayout(new FlowLayout());
+//        messagePanel.setBackground(new Color(121, 201, 133));
 
         // Main Login Panel
-        this.setLayout(new GridLayout(3,1));
-        this.add(titlePanel);
+        this.setLayout(new GridLayout(2,1));
+        this.add(title);
         this.add(inputPanel);
-        this.add(messagePanel);
+        //this.add(messagePanel);
     }
 
     /**

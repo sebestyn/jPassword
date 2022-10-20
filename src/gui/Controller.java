@@ -33,6 +33,7 @@ public class Controller {
 
         // Show Login Page
         view.toggleLoginPage(true);
+        view.setVisible(true);
 
     }
 

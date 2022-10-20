@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="GUI login page kész">
-      <change afterPath="$PROJECT_DIR$/data/mainFolder/notes.encrypt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/mainFolder/password.encrypt" afterDir="false" />
+    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="run gui or console">
+      <change afterPath="$PROJECT_DIR$/doc/logo/100x100.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/logo/eredeti.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/logo/trans.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/logo/120x120.png" beforeDir="false" afterPath="$PROJECT_DIR$/doc/logo/120x120.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/logo/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/logo/logo_t.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -225,7 +229,7 @@
       <workItem from="1666177753976" duration="219000" />
       <workItem from="1666199859193" duration="5194000" />
       <workItem from="1666290579526" duration="8417000" />
-      <workItem from="1666300537881" duration="426000" />
+      <workItem from="1666300537881" duration="3370000" />
     </task>
     <task id="LOCAL-00001" summary="teszt">
       <created>1665311331916</created>
@@ -311,7 +315,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666299054369</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="run gui or console">
+      <created>1666300976773</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1666300976774</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -341,7 +352,8 @@
     <MESSAGE value="GUI start" />
     <MESSAGE value="login page" />
     <MESSAGE value="GUI login page kész" />
-    <option name="LAST_COMMIT_MESSAGE" value="GUI login page kész" />
+    <MESSAGE value="run gui or console" />
+    <option name="LAST_COMMIT_MESSAGE" value="run gui or console" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

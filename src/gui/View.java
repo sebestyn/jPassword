@@ -19,15 +19,15 @@ public class View extends JFrame {
         // Set model
         this.model = model;
         // Size
-        this.setPreferredSize(new Dimension(1000,700));
+        this.setPreferredSize(new Dimension(700,500));
+        this.setSize(new Dimension(700,500));
         this.setMinimumSize(new Dimension(400,250));
         // Exit
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Header
         this.setTitle("JPassword");
-        ImageIcon logo = new ImageIcon("./doc/logo.png");
+        ImageIcon logo = new ImageIcon("./doc/logo/trans.png");
         this.setIconImage(logo.getImage());
-        this.setVisible(true);
     }
 
     /**
