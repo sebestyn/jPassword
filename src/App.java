@@ -2,6 +2,8 @@ import gui.Controller;
 import gui.Model;
 import gui.View;
 
+import java.io.IOException;
+
 // https://stackoverflow.com/questions/5831388/what-is-the-controller-in-java-swing
 public class App {
     Model model;
@@ -9,15 +11,17 @@ public class App {
     Controller controller;
 
     public void runGUI(){
-
         model = new Model();
         view = new View(model);
         controller = new Controller(model, view);
-
-        view.setVisible(true);
     }
 
     public void runConsole(){
-
+        try {
+            ConsoleApp consoleApp = new ConsoleApp();
+            consoleApp.run();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

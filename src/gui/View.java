@@ -27,6 +27,7 @@ public class View extends JFrame {
         this.setTitle("JPassword");
         ImageIcon logo = new ImageIcon("./doc/logo.png");
         this.setIconImage(logo.getImage());
+        this.setVisible(true);
     }
 
     /**

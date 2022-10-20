@@ -8,14 +8,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Console {
-    static final String mainFolderPath = "./data";
-    static MasterPassword masterPassword = new MasterPassword(mainFolderPath);
-    static Folder mainFolder = new Folder("mainFolder", null);
-    static Folder actualFolder = mainFolder;
-    static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+public class ConsoleApp {
+    final String mainFolderPath = "./data";
+    MasterPassword masterPassword = new MasterPassword(mainFolderPath);
+    Folder mainFolder = new Folder("mainFolder", null);
+    Folder actualFolder = mainFolder;
+    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    private static void auth() {
+    private void auth() {
         // Regisztráció: nincs még mester jelszó
         if(!masterPassword.isAlreadyExist()){
             try {
@@ -51,7 +51,7 @@ public class Console {
 
     }
     
-    public static void main(String[] args) throws IOException {
+    public void run() throws IOException {
 
         // Login / register
         try {
@@ -84,7 +84,7 @@ public class Console {
                     pelda -> pelda adatok letrehozasa
                     save -> adatok kimentese
                     load -> adatok betoltese
-                    list -> jelszavak listaja
+                    list ->  elemek listazasa a mappaban
                     cd f -> egy mappa kivalasztasa
                     cd .. -> egy mappa-val vissza
                     search p/n -> kereses jelszo/note
