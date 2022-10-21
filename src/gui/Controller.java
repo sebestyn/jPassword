@@ -22,18 +22,17 @@ public class Controller {
         this.model = model;
         this.view = view;
 
-        // Listeners -> Login Page
+        /* Login */
+        // Listeners
         view.addLoginListener(new LoginListener());
         view.addLoginPasswordEnterListener(new LoginPasswordEnterListener());
-
-        // Check if need change to registration mode
+        // Check if need change login page to registration mode
         if(model.need_to_regigster()){
             view.getLoginPage().setToRegistration();
         }
-
         // Show Login Page
         view.toggleLoginPage(true);
-        view.setVisible(true);
+
 
     }
 
@@ -45,10 +44,12 @@ public class Controller {
         try {
             boolean successLogin = model.login(passwordInput);
             if(successLogin){
-                view.toggleLoginPage(false);
+                view.clear();
+                view.toggleMenuPanel(true);
                 view.toggleDashboardPage(true);
             } else {
                 view.getLoginPage().setMessage("Invalid password");
+                view.getLoginPage().getPasswordInput().setText("");
             }
         }  catch (Exception ex) {
             view.getLoginPage().setMessage(ex.getMessage());
@@ -62,7 +63,8 @@ public class Controller {
         String passwordInput = view.getLoginPage().getPasswordInput().getText();
         try{
             model.register(passwordInput);
-            view.toggleLoginPage(false);
+            view.clear();
+            view.toggleMenuPanel(true);
             view.toggleDashboardPage(true);
         } catch (Exception ex){
             view.getLoginPage().setMessage(ex.getMessage());
@@ -87,10 +89,11 @@ public class Controller {
     class LoginPasswordEnterListener implements KeyListener{
         @Override
         public void keyPressed(KeyEvent e) {
-            if (e.getKeyCode() == KeyEvent.VK_ENTER){
+            if (e.getKeyCode() == KeyEvent.VK_ENTER && view.getLoginPage().getPasswordInput().getText().length() > 0){
                 if(view.getLoginPage().getRegistration()){
                     runRegistration();
                 } else {
+
                     runLogin();
                 }
             }

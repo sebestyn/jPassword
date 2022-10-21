@@ -41,7 +41,7 @@ public class LoginPage extends JPanel  {
         inputPanel.setBorder(BorderFactory.createEmptyBorder(10,250,1,250));
 
         // Login message
-//        JPanel messagePanel = new JPanel();
+//            JPanel messagePanel = new JPanel();
 //        messagePanel.setLayout(new FlowLayout());
 //        messagePanel.setBackground(new Color(121, 201, 133));
 
@@ -71,7 +71,8 @@ public class LoginPage extends JPanel  {
      * @param message üzenet
      */
     public void setMessage(String message) {
-            messageLabel.setText(message);
+        JOptionPane.showMessageDialog(this, message, "Oh nooo", JOptionPane.ERROR_MESSAGE);
+        //messageLabel.setText(message);
     }
 
     /**

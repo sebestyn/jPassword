@@ -9,6 +9,7 @@ public class View extends JFrame {
 
     Model model;
     LoginPage loginPage = new LoginPage();
+    MenuPanel menuPanel = new MenuPanel();
     DashboradPage dashboradPage = new DashboradPage();
 
     /**
@@ -31,8 +32,16 @@ public class View extends JFrame {
     }
 
     /**
+     * Az összes elem törlése az ablakból
+     */
+    public void clear(){
+        this.getContentPane().removeAll();
+        this.getContentPane().repaint();
+    }
+
+    /**
      * Login Page: oldal lathatóságának állítása
-     * @param visible true if visible
+     * @param visible true ha látható
      */
     public void toggleLoginPage(boolean visible){
         if(visible){
@@ -40,6 +49,7 @@ public class View extends JFrame {
         } else {
             this.remove(loginPage);
         }
+        this.setVisible(true);
     }
 
     /**
@@ -67,9 +77,27 @@ public class View extends JFrame {
 
     /**
      * Dashboard Page: a dashboard láthatóság állítása
-     * @param visible
+     * @param visible true ha látható
      */
     public void toggleDashboardPage(boolean visible) {
-        System.out.println("Ide jon a dashboard");
+        if(visible){
+            this.add(dashboradPage);
+        } else {
+            this.remove(dashboradPage);
+        }
+        this.setVisible(true);
+    }
+
+    /**
+     * Menu: a felső menü láthatóságát állítja
+     * @param visible true ha látható
+     */
+    public void toggleMenuPanel(boolean visible) {
+        if(visible){
+            this.setJMenuBar(menuPanel);
+        } else {
+            this.setJMenuBar(null);
+        }
+        this.setVisible(true);
     }
 }
