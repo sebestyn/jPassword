@@ -12,14 +12,14 @@ public class LoginPage extends JPanel  {
     boolean registration = false;
 
     /**
-     * Login Page konstruktora: beállítja az alap megjelenítést
+     * Login Page konstruktora: beállítja az alap elemeket megjelenítést
      */
     public LoginPage(){
         // Title
         JLabel title = new JLabel("JPassword");
         ImageIcon logo = new ImageIcon("./doc/logo/100x100.png");
         title.setIcon(logo);
-        title.setFont(new Font("Calibri", Font.BOLD, 30));
+        title.setFont(new Font("Calibri", Font.BOLD, 40));
         title.setVerticalTextPosition(JLabel.BOTTOM);
         title.setHorizontalTextPosition(JLabel.CENTER);
         title.setBackground(new Color(141, 137, 203));
@@ -32,24 +32,18 @@ public class LoginPage extends JPanel  {
         inputPanel.setLayout(new FlowLayout());
         loginButton = new JButton("Belépés");
         loginButton.setPreferredSize(new Dimension(150, 30));
-        passwordInput = new JTextField("", 20);
-        messageLabel = new JLabel("");
+        passwordInput = new JTextField("", 15);
+        passwordInput.setFont(new Font("Calibri", Font.PLAIN, 20));
+        passwordInput.setHorizontalAlignment(JTextField.CENTER);
         inputPanel.add(passwordInput);
         inputPanel.add(loginButton);
-        inputPanel.add(messageLabel);
         inputPanel.setBackground(new Color(197, 115, 160));
         inputPanel.setBorder(BorderFactory.createEmptyBorder(10,250,1,250));
-
-        // Login message
-//            JPanel messagePanel = new JPanel();
-//        messagePanel.setLayout(new FlowLayout());
-//        messagePanel.setBackground(new Color(121, 201, 133));
 
         // Main Login Panel
         this.setLayout(new GridLayout(2,1));
         this.add(title);
         this.add(inputPanel);
-        //this.add(messagePanel);
     }
 
     /**

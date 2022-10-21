@@ -1,6 +1,9 @@
 package gui;
 
+import dataTypes.Folder;
+
 import javax.swing.*;
+import javax.swing.event.TreeSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
@@ -66,28 +69,23 @@ public class View extends JFrame {
     public void addLoginPasswordEnterListener(KeyListener lis){
         loginPage.getPasswordInput().addKeyListener(lis);
     }
-    /**
-     * Visszaadja a Login Page-t
-     * @return
-     */
-    public LoginPage getLoginPage(){
-        return this.loginPage;
-    }
 
 
     /**
      * Dashboard Page: a dashboard láthatóság állítása
-     * @param visible true ha látható
+     *
+     * @param visible    true ha látható
+     * @param mainFolder
      */
-    public void toggleDashboardPage(boolean visible) {
+    public void toggleDashboardPage(boolean visible, Folder mainFolder) {
         if(visible){
+            dashboradPage.setup(mainFolder);
             this.add(dashboradPage);
         } else {
             this.remove(dashboradPage);
         }
         this.setVisible(true);
     }
-
     /**
      * Menu: a felső menü láthatóságát állítja
      * @param visible true ha látható
@@ -100,4 +98,13 @@ public class View extends JFrame {
         }
         this.setVisible(true);
     }
+
+    public void addFolderItemSelectListener(TreeSelectionListener lis) {
+        dashboradPage.folderTree.addTreeSelectionListener(lis);
+    }
+
+    /**
+     * Visszaadja a Dashboard Page-et
+     * @return Dashboard Page
+     */
 }

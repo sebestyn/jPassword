@@ -4,12 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="gui login">
-      <change afterPath="$PROJECT_DIR$/src/gui/MenuPanel.java" afterDir="false" />
+    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="menu, dash">
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/család/felesegem/notes.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/család/felesegem/password.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/család/notes.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/család/password.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/gui/Global.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/notes.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/notes.encrypt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/password.encrypt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataTypes/Folder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/Folder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/DashboradPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DashboradPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MenuPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -225,7 +235,8 @@
       <workItem from="1666177753976" duration="219000" />
       <workItem from="1666199859193" duration="5194000" />
       <workItem from="1666290579526" duration="8417000" />
-      <workItem from="1666300537881" duration="7662000" />
+      <workItem from="1666300537881" duration="9824000" />
+      <workItem from="1666355258062" duration="10769000" />
     </task>
     <task id="LOCAL-00001" summary="teszt">
       <created>1665311331916</created>
@@ -325,7 +336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666304217879</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="menu, dash">
+      <created>1666340368852</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1666340368852</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -357,7 +375,8 @@
     <MESSAGE value="GUI login page kész" />
     <MESSAGE value="run gui or console" />
     <MESSAGE value="gui login" />
-    <option name="LAST_COMMIT_MESSAGE" value="gui login" />
+    <MESSAGE value="menu, dash" />
+    <option name="LAST_COMMIT_MESSAGE" value="menu, dash" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

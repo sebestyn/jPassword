@@ -1,5 +1,6 @@
 package gui;
 
+import crypt.Crypt;
 import crypt.CryptoException;
 import dataTypes.Folder;
 import dataTypes.MasterPassword;
@@ -27,6 +28,18 @@ public class Model {
         masterPassword = new MasterPassword(mainFolderPath);
         mainFolder= new Folder("mainFolder", null);
         actualFolder = mainFolder;
+    }
+
+    /**
+     * Adatok betöltése és dekódolása fájlokból
+     * @param passwordInput
+     */
+    public void loadData(String passwordInput) throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, IOException, BadPaddingException, CryptoException, InvalidKeyException {
+        this.masterPassword.setValue(passwordInput);
+        // Kriprográfia függvények beállítása a mester jelszóval
+        Crypt.init(masterPassword);
+        // Adatok betoltese a mainFolder-ből
+        mainFolder.load(mainFolderPath);
     }
 
     /**

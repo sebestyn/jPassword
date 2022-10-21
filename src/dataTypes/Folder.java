@@ -39,6 +39,9 @@ public class Folder{
         folders.add(folder);
     }
 
+    public String getName() {
+        return forderName;
+    }
     public Folder getParentFolder(){
         return this.parentFolder;
     }
@@ -49,6 +52,15 @@ public class Folder{
             }
         }
         return this;
+    }
+    public HashSet<Folder> getFolders(){
+        return this.folders;
+    }
+    public HashSet<Password> getPasswords() {
+        return this.passwords;
+    }
+    public HashSet<Note> getNotes() {
+        return this.notes;
     }
 
     public void removePassword(Password password){
@@ -230,4 +242,5 @@ public class Folder{
     public int hashCode() {
         return Objects.hash(forderName);
     }
+
 }
