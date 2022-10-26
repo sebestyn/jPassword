@@ -15,13 +15,16 @@ import java.util.Iterator;
 public class DashboradPage extends JPanel {
     JPanel leftPanel = new JPanel();
     JPanel rightPanel = new JPanel();
+
     JTree folderTree = new JTree();;
+    JButton newFolderButton = new JButton();
     JScrollPane scrollTable;
 
     public DashboradPage(){
 
         this.setLayout(new BorderLayout());
 
+        leftPanel.setLayout(new BorderLayout());
         leftPanel.setBackground(Color.red);
         leftPanel.setPreferredSize(new Dimension(200,100));
         leftPanel.setLayout(new GridLayout(1,1));
@@ -48,7 +51,9 @@ public class DashboradPage extends JPanel {
 
         folderTree.setRootVisible(false);
         folderTree.setBackground(Color.LIGHT_GRAY);
-        leftPanel.add(folderTree);
+        newFolderButton.setText("Új Folder");
+        leftPanel.add(folderTree, BorderLayout.NORTH);
+        leftPanel.add(newFolderButton, BorderLayout.SOUTH);
 
         // First show main Passwords
         this.togglePasswordsItem(true, mainFolder.getPasswords());
