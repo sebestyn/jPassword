@@ -113,7 +113,7 @@
       <recent name="gui" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AESTest">
+  <component name="RunManager" selected="JUnit.SHA256Test">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="jPassword" />
@@ -208,9 +208,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SHA256Test" />
         <item itemvalue="JUnit.AESTest" />
         <item itemvalue="JUnit.SEBITest" />
-        <item itemvalue="JUnit.SHA256Test" />
         <item itemvalue="JUnit.FolderTest" />
         <item itemvalue="JUnit.MasterPasswordTest" />
       </list>
