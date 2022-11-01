@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="search">
-      <change afterPath="$PROJECT_DIR$/data/mainFolder/család/felesegem/notes.encrypt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/mainFolder/család/felesegem/password.encrypt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/mainFolder/család/notes.encrypt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/mainFolder/család/password.encrypt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mainFolder/notes.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/notes.encrypt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mainFolder/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/password.encrypt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/Specifikáció.docx" beforeDir="false" afterPath="$PROJECT_DIR$/doc/Specifikáció.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/doc/Specifikáció.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/doc/Specifikáció.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controller.java" afterDir="false" />
+    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="search, design">
       <change beforePath="$PROJECT_DIR$/src/gui/DashboradPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DashboradPage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -380,7 +370,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667328638198</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="search, design">
+      <created>1667330068894</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1667330068894</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,7 +415,8 @@
     <MESSAGE value="jelszo/note uj/torles" />
     <MESSAGE value="settings" />
     <MESSAGE value="search" />
-    <option name="LAST_COMMIT_MESSAGE" value="search" />
+    <MESSAGE value="search, design" />
+    <option name="LAST_COMMIT_MESSAGE" value="search, design" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -5,22 +5,15 @@ import dataTypes.Note;
 import dataTypes.Password;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.TreePath;
 import java.awt.*;
-import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Iterator;
-import java.util.stream.Stream;
-
-import crypt.CryptType;
 
 public class DashboradPage extends JPanel {
     JPanel leftPanel = new JPanel();
     JPanel rightPanel = new JPanel();
 
-    JTree folderTree = new JTree();;
+    JTree folderTree = new JTree();
     JButton newFolderButton = new JButton("Új mappa");
     JButton removeFolderButton = new JButton("Mappa törlése");
     JTable table = new JTable();
@@ -60,7 +53,7 @@ public class DashboradPage extends JPanel {
 
     /**
      * Megjeleníti a Folder listát
-     * @param mainFolder
+     * @param mainFolder Folder aminek az elemeit megjeleníti
      */
     public void showFolderListItem(Folder mainFolder) {
 
