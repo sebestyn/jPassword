@@ -56,6 +56,7 @@ public class Controller {
         view.menuPanel.saveMenu.addActionListener(new MenuSaveListener());
         view.menuPanel.loadMenu.addActionListener(new MenuLoadListener());
         view.menuPanel.resetMenu.addActionListener(new MenuResetListener());
+        view.menuPanel.resetOn3InvalidLogin.addActionListener(new MenuResetAfter3AttempsListener());
     }
 
     /**
@@ -64,12 +65,19 @@ public class Controller {
     private void runLogin() {
         String passwordInput = view.loginPage.getPasswordInput().getText();
         try {
-            boolean successLogin = model.login(passwordInput);
-            if(successLogin){
+            String successLogin = model.login(passwordInput);
+            if(successLogin.equals("success")){
                 model.loadData(passwordInput);
                 this.runDashboard();
-            } else {
-                JOptionPane.showMessageDialog(view.loginPage, "Helytelen jelszó", "Oh nooo", JOptionPane.ERROR_MESSAGE);
+            }
+            else if(successLogin.equals("factoryReset")){
+                JOptionPane.showMessageDialog(view.loginPage, "3 hibás próbálkozás miatt mindent töröltünk!", "Oh nooo", JOptionPane.ERROR_MESSAGE);
+                view.removeAll();
+                view.setVisible(false);
+                view.dispose();
+            }
+            else {
+                JOptionPane.showMessageDialog(view.loginPage, successLogin, "Oh nooo", JOptionPane.ERROR_MESSAGE);
                 view.loginPage.getPasswordInput().setText("");
             }
         }  catch (Exception ex) {
@@ -170,7 +178,6 @@ public class Controller {
             // Ha mappa
             if(selectedItemType != "passwords" && selectedItemType != "notes"){
                 model.setActualFolder(selectedIFolder.getFolder(selectedItemType));
-                System.out.println(model.getActualFolder().toString());
                 return;
             }
 
@@ -199,7 +206,6 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent e) {
             String folderName = JOptionPane.showInputDialog("Új Folder neve:");
-            System.out.println(model.getActualFolder());
             model.getActualFolder().addFolder(new Folder(folderName, model.getActualFolder()));
             view.dashboradPage.showFolderListItem(model.getMainFolder());
             view.dashboradPage.folderTree.addTreeSelectionListener(new FolderItemSelectListener());
@@ -305,7 +311,6 @@ public class Controller {
             }
 
             Password newPass = new Password(crypt_type, name, username, password);
-            System.out.println(newPass);
 
             model.getActualFolder().addPassword(newPass);
             view.dashboradPage.removeRightPanel();
@@ -331,7 +336,6 @@ public class Controller {
             }
 
             Note newNote = new Note(crypt_type, name, note);
-            System.out.println(newNote);
 
             model.getActualFolder().addNote(newNote);
             view.dashboradPage.removeRightPanel();
@@ -394,6 +398,15 @@ public class Controller {
             }
         }
     }
-
+    /**
+     * Menu: Factory reset after 3 attemps
+     */
+    class MenuResetAfter3AttempsListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            boolean isReset = view.menuPanel.resetOn3InvalidLogin.isSelected();
+            model.settings.setFactoryReset(isReset);
+        }
+    }
 
 }

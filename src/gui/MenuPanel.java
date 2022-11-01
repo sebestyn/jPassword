@@ -1,5 +1,7 @@
 package gui;
 
+import dataTypes.Settings;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -24,6 +26,10 @@ public class MenuPanel extends JMenuBar {
 
         this.add(FileMenu);
         this.add(settingsMenu);
+    }
+
+    public void init(Settings settings){
+        resetOn3InvalidLogin.setSelected(settings.getFactoryReset());
     }
 
 }

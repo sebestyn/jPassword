@@ -4,6 +4,7 @@ import crypt.Crypt;
 import crypt.CryptoException;
 import dataTypes.Folder;
 import dataTypes.MasterPassword;
+import dataTypes.Settings;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -15,16 +16,19 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 public class Model {
-
+    Settings settings;
     private String mainFolderPath = "./data";
     private MasterPassword masterPassword;
     private Folder mainFolder;
     private Folder actualFolder;
+    private int loginAttemp = 0;
 
     /**
      * Az adatokat és funkciókat tartalmazó Model konstruktor
      */
-    public Model(){
+    public Model() throws IOException {
+        settings = new Settings(mainFolderPath);
+        settings.load();
         masterPassword = new MasterPassword(mainFolderPath);
         mainFolder= new Folder("mainFolder", null);
         actualFolder = mainFolder;
@@ -46,12 +50,17 @@ public class Model {
         Crypt.init(masterPassword);
         // Adatok betoltese a mainFolder-ből
         mainFolder.load(mainFolderPath);
+        // Beállítások betöltése
+
     }
 
     /**
      * Adatok kódolása és kimentése fájlokba
      */
     public void saveData() throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, IOException, BadPaddingException, CryptoException, InvalidKeyException {
+        // Save settings
+        settings.save();
+        // Save data
         mainFolder.save(mainFolderPath);
     }
 
@@ -68,9 +77,20 @@ public class Model {
      * @param passwordInput megadott meseter jelszó
      * @return helyes-e a mester jelszó
      */
-    public boolean login(String passwordInput) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException, IOException {
+    public String login(String passwordInput) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException, IOException {
+        loginAttemp += 1;
         String passwordHash = masterPassword.loadPassword();
-        return masterPassword.isInputEqualsHash(passwordInput, passwordHash);
+        if(masterPassword.isInputEqualsHash(passwordInput, passwordHash)){
+            return "success";
+        }
+        else if(loginAttemp>=3 && settings.getFactoryReset()){
+            this.factoryReset();
+            return "factoryReset";
+        }
+        else if(settings.getFactoryReset()){
+            return "Helytelen jelszó (törlés "+ (3-loginAttemp) +" próbálkozás után)";
+        }
+        return "Helytelen jelszó";
     }
 
     /**

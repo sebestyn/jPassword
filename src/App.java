@@ -10,7 +10,7 @@ public class App {
     View view;
     Controller controller;
 
-    public void runGUI(){
+    public void runGUI() throws IOException {
         model = new Model();
         view = new View(model);
         controller = new Controller(model, view);

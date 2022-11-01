@@ -36,13 +36,18 @@ public class ConsoleApp {
         else {
             try {
                 System.out.print("Belépéshez adja meg a jelszót: ");
-                boolean successLogin = false;
-                while(!successLogin){
+                String successLogin = "fail";
+                while(!successLogin.equals("success")){
                     String typedPassword = reader.readLine();
                     successLogin = model.login(typedPassword);
-                    if(successLogin){
+                    if(successLogin.equals("success")){
                         model.loadData(typedPassword);
-                    } else {
+                    }
+                    else if(successLogin.equals("factoryReset")){
+                        System.out.print("Minden törölve!");
+                        System.exit(1);
+                    }
+                    else {
                         System.out.print("Hibás jelszó! Add meg ujra: ");
                     }
                 }

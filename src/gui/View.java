@@ -41,7 +41,7 @@ public class View extends JFrame {
         this.setTitle("JPassword");
         ImageIcon logo = new ImageIcon("./doc/logo/trans.png");
         this.setIconImage(logo.getImage());
-        // Exit - save data
+        // Exit - save
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent ev) {
@@ -99,6 +99,7 @@ public class View extends JFrame {
      */
     public void toggleMenuPanel(boolean visible) {
         if(visible){
+            menuPanel.init(model.settings);
             this.setJMenuBar(menuPanel);
         } else {
             this.setJMenuBar(null);
