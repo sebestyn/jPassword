@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="megtekintés megvan">
+      <change afterPath="$PROJECT_DIR$/src/gui/PasswordInputPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/család/password.encrypt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/password.encrypt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConsoleApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/DashboradPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DashboradPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MenuPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,7 +61,7 @@
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "extract.method.default.visibility": "private",
-    "last_opened_file_path": "C:/Users/Zsolt Sebestyén/Videos/egyeb/prog3/lab_7",
+    "last_opened_file_path": "C:/Users/Zsolt Sebestyén/Videos/filerun/3_felev/prog3/HF/jPassword",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",

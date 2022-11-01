@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 public class LoginPage extends JPanel  {
     JTextField passwordInput;
     JButton loginButton;
-    JLabel messageLabel;
     boolean registration = false;
 
     /**
@@ -32,7 +31,7 @@ public class LoginPage extends JPanel  {
         inputPanel.setLayout(new FlowLayout());
         loginButton = new JButton("Belépés");
         loginButton.setPreferredSize(new Dimension(150, 30));
-        passwordInput = new JTextField("", 15);
+        passwordInput = new JPasswordField("", 15);
         passwordInput.setFont(new Font("Calibri", Font.PLAIN, 20));
         passwordInput.setHorizontalAlignment(JTextField.CENTER);
         inputPanel.add(passwordInput);
@@ -47,26 +46,11 @@ public class LoginPage extends JPanel  {
     }
 
     /**
-     * Visszaadja a belépés gombot
-     * @return belépés gomb
-     */
-    JButton getLoginButton(){
-        return loginButton;
-    }
-    /**
      * Visszaadja a jelszó bemenet mezőt
      * @return jelszó bemenet
      */
     public JTextField getPasswordInput() {
         return passwordInput;
-    }
-    /**
-     * Beállítja az üzenet mezőt
-     * @param message üzenet
-     */
-    public void setMessage(String message) {
-        JOptionPane.showMessageDialog(this, message, "Oh nooo", JOptionPane.ERROR_MESSAGE);
-        //messageLabel.setText(message);
     }
 
     /**

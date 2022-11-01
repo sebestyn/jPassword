@@ -18,7 +18,7 @@ public class App {
 
     public void runConsole(){
         try {
-            ConsoleApp consoleApp = new ConsoleApp();
+            ConsoleApp consoleApp = new ConsoleApp(model);
             consoleApp.run();
         } catch (IOException e) {
             throw new RuntimeException(e);

@@ -1,28 +1,30 @@
 import crypt.Crypt;
 import crypt.CryptType;
 import dataTypes.Folder;
-import dataTypes.MasterPassword;
 import dataTypes.Note;
 import dataTypes.Password;
+import gui.Model;
+
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ConsoleApp {
-    final String mainFolderPath = "./data";
-    MasterPassword masterPassword = new MasterPassword(mainFolderPath);
-    Folder mainFolder = new Folder("mainFolder", null);
-    Folder actualFolder = mainFolder;
+    Model model;
     BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
+    public ConsoleApp(Model m){
+        this.model = m;
+    }
+    
     private void auth() {
         // Regisztráció: nincs még mester jelszó
-        if(!masterPassword.isAlreadyExist()){
+        if(model.need_to_regigster()){
             try {
                 System.out.print("Adj meg egy mester jelszot: ");
                 String typedPassword = reader.readLine();
-                masterPassword.setValue(typedPassword);
-                masterPassword.savePassword();
+                model.register(typedPassword);
                 System.out.println("Jelszó sikeresen elmentve!");
             } catch (Exception e) {
                 System.out.println("Could not save password: " + e.getMessage());
@@ -34,14 +36,16 @@ public class ConsoleApp {
         else {
             try {
                 System.out.print("Belépéshez adja meg a jelszót: ");
-                String typedPassword = reader.readLine();
-                String loadedHash = masterPassword.loadPassword();
-
-                while(!masterPassword.isInputEqualsHash(typedPassword, loadedHash)){
-                    System.out.print("Hibás jelszó! Add meg ujra: ");
-                    typedPassword = reader.readLine();
+                boolean successLogin = false;
+                while(!successLogin){
+                    String typedPassword = reader.readLine();
+                    successLogin = model.login(typedPassword);
+                    if(successLogin){
+                        model.loadData(typedPassword);
+                    } else {
+                        System.out.print("Hibás jelszó! Add meg ujra: ");
+                    }
                 }
-                masterPassword.setValue(typedPassword);
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 System.exit(1);
@@ -56,21 +60,6 @@ public class ConsoleApp {
         // Login / register
         try {
             auth();
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-        // Kriprográfia függvények beállítása a mester jelszóval
-        try {
-            Crypt.init(masterPassword);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-
-        // Adatok betoltese a mainFolder-ből
-        try {
-            mainFolder.load(mainFolderPath);
-            System.out.println("Adatok sikeres betoltese");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -95,19 +84,19 @@ public class ConsoleApp {
             switch (reader.readLine()){
                 case "pelda":
                     // Pelda adatok
-                    mainFolder.addPassword(new Password(CryptType.AES,"instagram","nevem", "jelszooo"));
-                    mainFolder.addPassword(new Password("tiktok.com", "jelszo123"));
-                    mainFolder.addNote(new Note("bevásárlólista", "alma\nkörte\nbanán"));
-                    Folder tempFolder = new Folder("család", mainFolder);
+                    model.getMainFolder().addPassword(new Password(CryptType.AES,"instagram","nevem", "jelszooo"));
+                    model.getMainFolder().addPassword(new Password("tiktok.com", "jelszo123"));
+                    model.getMainFolder().addNote(new Note("bevásárlólista", "alma\nkörte\nbanán"));
+                    Folder tempFolder = new Folder("család", model.getMainFolder());
                     tempFolder.addPassword(new Password(CryptType.SEBI,"gyerek", "passw"));
                     tempFolder.addPassword(new Password(CryptType.SEBI,"google.com", "bela", "nagyonJoJelszo!"));
                     tempFolder.addNote(new Note(CryptType.SEBI,"nevem", "Béla vagyok"));
                     tempFolder.addFolder(new Folder("felesegem", tempFolder));
-                    mainFolder.addFolder(tempFolder);
+                    model.getMainFolder().addFolder(tempFolder);
                     break;
                 case "save":
                     try {
-                        mainFolder.save(mainFolderPath);
+                        model.getMainFolder().save(model.getMainFolderPath());
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
@@ -115,61 +104,61 @@ public class ConsoleApp {
                     break;
                 case "load":
                     try {
-                        mainFolder.load("data");
+                        model.getMainFolder().load("data");
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
                     break;
                 case "list":
-                    actualFolder.list("");
+                    model.getActualFolder().list("");
                     break;
                 case "cd f":
                     String selectedFolderName = reader.readLine();
-                    actualFolder = actualFolder.getFolder(selectedFolderName);
+                    model.setActualFolder(model.getActualFolder().getFolder(selectedFolderName));
                     break;
                 case "cd ..":
-                    actualFolder = actualFolder.getParentFolder();
+                    model.setActualFolder(model.getActualFolder().getParentFolder());
                     break;
                 case "search p":
-                    System.out.println(actualFolder.searchPassword(reader.readLine()));
+                    System.out.println(model.getActualFolder().searchPassword(reader.readLine()));
                     break;
                 case "search n":
-                    System.out.println(actualFolder.searchNote(reader.readLine()));
+                    System.out.println(model.getActualFolder().searchNote(reader.readLine()));
                     break;
                 case "new p":
                     CryptType cryptType = CryptType.valueOf(reader.readLine());
                     String name = reader.readLine();
                     String username = reader.readLine();
                     String password = reader.readLine();
-                    actualFolder.addPassword(new Password(cryptType, name, username, password));
+                    model.getActualFolder().addPassword(new Password(cryptType, name, username, password));
                     break;
                 case "new n":
                     CryptType cryptType2 = CryptType.valueOf(reader.readLine());
                     String name2 = reader.readLine();
                     String note = reader.readLine();
-                    actualFolder.addNote(new Note(cryptType2, name2, note));
+                    model.getActualFolder().addNote(new Note(cryptType2, name2, note));
                     break;
                 case "new f":
                     String name3 = reader.readLine();
-                    actualFolder.addFolder(new Folder(name3, actualFolder));
+                    model.getActualFolder().addFolder(new Folder(name3, model.getActualFolder()));
                     break;
                 case "rm p":
-                    actualFolder.removePassword(new Password(CryptType.valueOf(reader.readLine()), reader.readLine(), reader.readLine(), reader.readLine()));
+                    model.getActualFolder().removePassword(new Password(CryptType.valueOf(reader.readLine()), reader.readLine(), reader.readLine(), reader.readLine()));
                     break;
                 case "rm n":
-                    actualFolder.removeNote(new Note(CryptType.valueOf(reader.readLine()), reader.readLine(), reader.readLine()));
+                    model.getActualFolder().removeNote(new Note(CryptType.valueOf(reader.readLine()), reader.readLine(), reader.readLine()));
                     break;
                 case "rm f":
-                    actualFolder.removeFolder(new Folder(reader.readLine(), actualFolder));
+                    model.getActualFolder().removeFolder(new Folder(reader.readLine(), model.getActualFolder()));
                     break;
                 case "rm mp":
-                    mainFolder.makeEmpty();
+                    model.getMainFolder().makeEmpty();
                     try {
-                        mainFolder.save(mainFolderPath);
+                        model.getMainFolder().save(model.getMainFolderPath());
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }
-                    masterPassword.removePassword();
+                    model.getMasterPassword().removePassword();
                     System.exit(1);
                     break;
                 case "exit":

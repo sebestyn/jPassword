@@ -1,12 +1,23 @@
 package gui;
 
+import crypt.CryptoException;
 import dataTypes.Folder;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.swing.*;
 import javax.swing.event.TreeSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
 public class View extends JFrame {
 
@@ -26,13 +37,23 @@ public class View extends JFrame {
         this.setPreferredSize(new Dimension(700,500));
         this.setSize(new Dimension(700,500));
         this.setMinimumSize(new Dimension(400,250));
-        // Exit
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         // Header
         this.setTitle("JPassword");
         ImageIcon logo = new ImageIcon("./doc/logo/trans.png");
         this.setIconImage(logo.getImage());
+        // Exit - save data
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.addWindowListener(new WindowAdapter() {
+            public void windowClosing(WindowEvent ev) {
+                try {
+                    model.saveData();
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(new JPanel(), e.getMessage(), "Oh nooo", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
     }
+
 
     /**
      * Az összes elem törlése az ablakból
@@ -55,20 +76,6 @@ public class View extends JFrame {
         this.setVisible(true);
     }
 
-    /**
-     * Login Page: Listener hozzáadása a belépés gombhoz
-     * @param lis listener
-     */
-    public void addLoginListener(ActionListener lis){
-        loginPage.getLoginButton().addActionListener(lis);
-    }
-    /**
-     * Login Page: Listener hozzáadása a jelszó bevitel enter gombhoz
-     * @param lis listener
-     */
-    public void addLoginPasswordEnterListener(KeyListener lis){
-        loginPage.getPasswordInput().addKeyListener(lis);
-    }
 
 
     /**
@@ -79,7 +86,7 @@ public class View extends JFrame {
      */
     public void toggleDashboardPage(boolean visible, Folder mainFolder) {
         if(visible){
-            dashboradPage.setup(mainFolder);
+            dashboradPage.showFolderListItem(mainFolder);
             this.add(dashboradPage);
         } else {
             this.remove(dashboradPage);
@@ -99,12 +106,5 @@ public class View extends JFrame {
         this.setVisible(true);
     }
 
-    public void addFolderItemSelectListener(TreeSelectionListener lis) {
-        dashboradPage.folderTree.addTreeSelectionListener(lis);
-    }
 
-    /**
-     * Visszaadja a Dashboard Page-et
-     * @return Dashboard Page
-     */
 }

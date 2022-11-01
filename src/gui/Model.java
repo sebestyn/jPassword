@@ -16,10 +16,10 @@ import java.security.spec.InvalidKeySpecException;
 
 public class Model {
 
-    String mainFolderPath = "./data";
-    MasterPassword masterPassword;
-    Folder mainFolder;
-    Folder actualFolder;
+    private String mainFolderPath = "./data";
+    private MasterPassword masterPassword;
+    private Folder mainFolder;
+    private Folder actualFolder;
 
     /**
      * Az adatokat és funkciókat tartalmazó Model konstruktor
@@ -29,6 +29,12 @@ public class Model {
         mainFolder= new Folder("mainFolder", null);
         actualFolder = mainFolder;
     }
+
+    public String getMainFolderPath() { return mainFolderPath; }
+    public MasterPassword getMasterPassword() { return masterPassword; }
+    public Folder getMainFolder() { return mainFolder; }
+    public Folder getActualFolder() { return actualFolder; }
+    public void setActualFolder(Folder f) { actualFolder = f; }
 
     /**
      * Adatok betöltése és dekódolása fájlokból
@@ -40,6 +46,13 @@ public class Model {
         Crypt.init(masterPassword);
         // Adatok betoltese a mainFolder-ből
         mainFolder.load(mainFolderPath);
+    }
+
+    /**
+     * Adatok kódolása és kimentése fájlokba
+     */
+    public void saveData() throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, IOException, BadPaddingException, CryptoException, InvalidKeyException {
+        mainFolder.save(mainFolderPath);
     }
 
     /**
