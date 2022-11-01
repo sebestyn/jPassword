@@ -24,7 +24,7 @@ public class NoteInputPage extends JPanel{
         this.add(sor1);
 
         JPanel sor2 = new JPanel(new FlowLayout());
-        sor2.add(new JLabel("Jegyzet:"));
+        sor2.add(new JLabel("Leírás:"));
         noteInput.setPreferredSize(new Dimension(150, 20));
         sor2.add(noteInput);
         this.add(sor2);

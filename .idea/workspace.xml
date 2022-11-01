@@ -4,18 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="jelszo/note uj/torles">
-      <change afterPath="$PROJECT_DIR$/data/settings.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dataTypes/Settings.java" afterDir="false" />
+    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="settings">
+      <change afterPath="$PROJECT_DIR$/doc/~$ecifikáció.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/doc/~WRL2044.tmp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tst/crypt/SEBITest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tst/dataTypes/FolderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tst/dataTypes/MasterPasswordTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tst/dataTypes/NoteTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/master.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/master.encrypt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsoleApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/password.encrypt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/Specifikáció.docx" beforeDir="false" afterPath="$PROJECT_DIR$/doc/Specifikáció.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc/Specifikáció.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/doc/Specifikáció.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypt/BLOWFISH.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypt/Crypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/Crypt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypt/CryptType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/CryptType.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MenuPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/DashboradPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DashboradPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/NoteInputPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/NoteInputPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tst/crypt/AESTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tst/crypt/AESTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tst/crypt/SHA256Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/tst/crypt/SHA256Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,8 +34,8 @@
       <list>
         <option value="package-info" />
         <option value="Enum" />
-        <option value="JUnit5 Test Class" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -85,6 +92,7 @@
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="dataTypes" />
       <recent name="crypt" />
       <recent name="io" />
       <recent name="gui" />
@@ -112,80 +120,78 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AESTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="FolderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jPassword" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="crypt.*" />
+          <option name="PATTERN" value="dataTypes.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="crypt" />
-      <option name="MAIN_CLASS_NAME" value="crypt.AESTest" />
+      <option name="PACKAGE_NAME" value="dataTypes" />
+      <option name="MAIN_CLASS_NAME" value="dataTypes.FolderTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AESTest.encrypt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MasterPasswordTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jPassword" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="crypt.*" />
+          <option name="PATTERN" value="dataTypes.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="crypt" />
-      <option name="MAIN_CLASS_NAME" value="crypt.AESTest" />
-      <option name="METHOD_NAME" value="encrypt" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AESTest.encrypt_and_decrypt" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="jPassword" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="crypt.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="crypt" />
-      <option name="MAIN_CLASS_NAME" value="crypt.AESTest" />
-      <option name="METHOD_NAME" value="encrypt_and_decrypt" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="MasterPasswordIOTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="jPassword" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="io.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="io" />
-      <option name="MAIN_CLASS_NAME" value="io.MasterPasswordIOTest" />
-      <option name="METHOD_NAME" value="" />
+      <option name="PACKAGE_NAME" value="dataTypes" />
+      <option name="MAIN_CLASS_NAME" value="dataTypes.MasterPasswordTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MasterPasswordIOTest.isAlreadyExist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="MasterPasswordTest.isInputEqualsHash" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jPassword" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="io.*" />
+          <option name="PATTERN" value="dataTypes.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="io" />
-      <option name="MAIN_CLASS_NAME" value="io.MasterPasswordIOTest" />
-      <option name="METHOD_NAME" value="isAlreadyExist" />
+      <option name="PACKAGE_NAME" value="dataTypes" />
+      <option name="MAIN_CLASS_NAME" value="dataTypes.MasterPasswordTest" />
+      <option name="METHOD_NAME" value="isInputEqualsHash" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NoteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jPassword" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataTypes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataTypes" />
+      <option name="MAIN_CLASS_NAME" value="dataTypes.NoteTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NoteTest.getEncrypted" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jPassword" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataTypes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataTypes" />
+      <option name="MAIN_CLASS_NAME" value="dataTypes.NoteTest" />
+      <option name="METHOD_NAME" value="getEncrypted" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -195,19 +201,19 @@
       <item itemvalue="Application.Main" />
       <item itemvalue="Application.GUI app" />
       <item itemvalue="Application.Console app" />
-      <item itemvalue="JUnit.AESTest.encrypt_and_decrypt" />
-      <item itemvalue="JUnit.AESTest" />
-      <item itemvalue="JUnit.AESTest.encrypt" />
-      <item itemvalue="JUnit.MasterPasswordIOTest" />
-      <item itemvalue="JUnit.MasterPasswordIOTest.isAlreadyExist" />
+      <item itemvalue="JUnit.FolderTest" />
+      <item itemvalue="JUnit.MasterPasswordTest" />
+      <item itemvalue="JUnit.MasterPasswordTest.isInputEqualsHash" />
+      <item itemvalue="JUnit.NoteTest" />
+      <item itemvalue="JUnit.NoteTest.getEncrypted" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.AESTest.encrypt_and_decrypt" />
-        <item itemvalue="JUnit.AESTest" />
-        <item itemvalue="JUnit.MasterPasswordIOTest" />
-        <item itemvalue="JUnit.AESTest.encrypt" />
-        <item itemvalue="JUnit.MasterPasswordIOTest.isAlreadyExist" />
+        <item itemvalue="JUnit.NoteTest" />
+        <item itemvalue="JUnit.NoteTest.getEncrypted" />
+        <item itemvalue="JUnit.MasterPasswordTest.isInputEqualsHash" />
+        <item itemvalue="JUnit.MasterPasswordTest" />
+        <item itemvalue="JUnit.FolderTest" />
       </list>
     </recent_temporary>
   </component>
@@ -367,7 +373,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667321743706</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="settings">
+      <created>1667325056446</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1667325056446</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -403,7 +416,8 @@
     <MESSAGE value="megtekintés megvan" />
     <MESSAGE value="uj/torles mappa, uj jelszo" />
     <MESSAGE value="jelszo/note uj/torles" />
-    <option name="LAST_COMMIT_MESSAGE" value="jelszo/note uj/torles" />
+    <MESSAGE value="settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="settings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -27,6 +27,7 @@ public class DashboradPage extends JPanel {
     JScrollPane scrollTable = new JScrollPane();
     JButton newItemButton = new JButton("Új elem");
     JButton removeItemButton = new JButton("Elem törlése");
+    JTextField searchInput = new JTextField();
 
     PasswordInputPage passwordInputPage = new PasswordInputPage();
     NoteInputPage noteInputPage = new NoteInputPage();
@@ -79,7 +80,11 @@ public class DashboradPage extends JPanel {
         if(scrollTable.getParent() == rightPanel){
             leftPanel.remove(scrollTable);
         }
-        //rightPanel.removeAll();
+        // Search input
+        JPanel rightNorthPanel = new JPanel(new GridLayout(1,1));
+        rightNorthPanel.add(searchInput);
+        rightPanel.add(rightNorthPanel, BorderLayout.NORTH);
+
         // Password-Note Table
         table = new JTable(datas, columnNames);
         table.setShowHorizontalLines(true);

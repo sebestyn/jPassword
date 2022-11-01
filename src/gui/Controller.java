@@ -146,6 +146,7 @@ public class Controller {
         view.dashboradPage.removeFolderButton.addActionListener(new RemoveFolderButtonClickListener());
         view.dashboradPage.newItemButton.addActionListener(new NewItemButtonClickListener());
         view.dashboradPage.removeItemButton.addActionListener(new RemoveItemButtonClickListener());
+        view.dashboradPage.searchInput.addKeyListener(new SearchInputKeyListener());
     }
     /**
      * Dashboard page: A Folder fa elem kiválasztása listener
@@ -183,6 +184,7 @@ public class Controller {
 
             // Jelszavak kilistazasa
             if(selectedItemType == "passwords"){
+                view.dashboradPage.searchInput.setText("");
                 model.setActualFolder(selectedIFolder);
                 HashSet<Password> passwords = selectedIFolder.getPasswords();
                 view.dashboradPage.showPasswordsItem(passwords);
@@ -191,6 +193,7 @@ public class Controller {
 
             // Notes kilistazasa
             if(selectedItemType == "notes"){
+                view.dashboradPage.searchInput.setText("");
                 model.setActualFolder(selectedIFolder);
                 HashSet<Note> notes = selectedIFolder.getNotes();
                 view.dashboradPage.showNotesItem(notes);
@@ -213,10 +216,9 @@ public class Controller {
         }
     }
     /**
-     * Dashboard page: Új mappa gomb megnyomása listener
+     * Dashboard page: Mappa törlése gomb megnyomása listener
      */
     class RemoveFolderButtonClickListener implements ActionListener{
-
         @Override
         public void actionPerformed(ActionEvent e) {
             if(model.getActualFolder() == model.getMainFolder()){
@@ -225,6 +227,43 @@ public class Controller {
             model.getActualFolder().getParentFolder().removeFolder(model.getActualFolder());
             view.dashboradPage.showFolderListItem(model.getMainFolder());
             view.dashboradPage.folderTree.addTreeSelectionListener(new FolderItemSelectListener());
+            view.setVisible(true);
+        }
+    }
+    /**
+     * Dashboard page: Keresés input listener
+     */
+    class SearchInputKeyListener implements KeyListener{
+        @Override
+        public void keyTyped(KeyEvent e) {
+
+        }
+        @Override
+        public void keyPressed(KeyEvent e) {
+
+        }
+        @Override
+        public void keyReleased(KeyEvent e) {
+            String searchInput = view.dashboradPage.searchInput.getText();
+            // Get page type
+            DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.dashboradPage.folderTree.getLastSelectedPathComponent();
+            String pageType = node.toString();
+            // Ha Passwords
+            if(pageType == "passwords"){
+                HashSet<Password> filteredPasswords = model.getActualFolder().searchPassword(searchInput);
+                view.dashboradPage.removeRightPanel();
+                view.dashboradPage.showPasswordsItem(filteredPasswords);
+                view.dashboradPage.searchInput.requestFocus();
+            }
+
+            // Ha Notes
+            else if(pageType == "notes"){
+                HashSet<Note> filteredNotes = model.getActualFolder().searchNote(searchInput);
+                view.dashboradPage.removeRightPanel();
+                view.dashboradPage.showNotesItem(filteredNotes);
+                view.dashboradPage.searchInput.requestFocus();
+            }
+
             view.setVisible(true);
         }
     }

@@ -33,7 +33,6 @@ public class Crypt {
             case NONE -> message;
             case SEBI -> SEBI.encrypt(message);
             case SHA256 -> SHA256.encrypt(message);
-            case BLOWFISH -> BLOWFISH.encrypt(message);
             case AES -> AES.encrypt(message);
         };
     }
@@ -52,7 +51,6 @@ public class Crypt {
             case NONE -> message;
             case SEBI -> SEBI.decrypt(message);
             case SHA256 -> SHA256.decrypt(message);
-            case BLOWFISH -> BLOWFISH.decrypt(message);
             case AES -> AES.decrypt(message);
         };
     }
