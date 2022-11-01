@@ -82,4 +82,12 @@ public class Model {
         masterPassword.savePassword();
     }
 
+    /**
+     * Minden adat törlése
+     */
+    public void factoryReset() throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, IOException, BadPaddingException, CryptoException, InvalidKeyException {
+        mainFolder.makeEmpty();
+        this.saveData();
+        this.masterPassword.removePassword();
+    }
 }

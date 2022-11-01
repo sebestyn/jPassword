@@ -4,19 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="megtekintés megvan">
-      <change afterPath="$PROJECT_DIR$/src/gui/PasswordInputPage.java" afterDir="false" />
+    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="uj/torles mappa, uj jelszo">
+      <change afterPath="$PROJECT_DIR$/src/gui/NoteInputPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/család/password.encrypt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/a/notes.encrypt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/a/password.encrypt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/felesegem/notes.encrypt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/felesegem/password.encrypt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/notes.encrypt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/password.encrypt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/notes.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/notes.encrypt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/mainFolder/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/password.encrypt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ConsoleApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/master.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/master.encrypt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypt/SHA256.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/SHA256.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/DashboradPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DashboradPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoginPage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MenuPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -347,7 +351,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666366930090</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="uj/torles mappa, uj jelszo">
+      <created>1667316019217</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1667316019217</updated>
+    </task>
+    <task id="LOCAL-00018" summary="uj/torles mappa, uj jelszo">
+      <created>1667316038898</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1667316038898</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -381,7 +399,8 @@
     <MESSAGE value="gui login" />
     <MESSAGE value="menu, dash" />
     <MESSAGE value="megtekintés megvan" />
-    <option name="LAST_COMMIT_MESSAGE" value="megtekintés megvan" />
+    <MESSAGE value="uj/torles mappa, uj jelszo" />
+    <option name="LAST_COMMIT_MESSAGE" value="uj/torles mappa, uj jelszo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

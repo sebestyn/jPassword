@@ -1,11 +1,15 @@
 package gui;
 
 import crypt.CryptType;
+import crypt.CryptoException;
 import dataTypes.Folder;
 import dataTypes.Note;
 import dataTypes.Password;
 import org.jetbrains.annotations.NotNull;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -14,6 +18,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
@@ -43,6 +52,10 @@ public class Controller {
         // Show Login Page
         view.toggleLoginPage(true);
 
+        /* Menu */
+        view.menuPanel.saveMenu.addActionListener(new MenuSaveListener());
+        view.menuPanel.loadMenu.addActionListener(new MenuLoadListener());
+        view.menuPanel.resetMenu.addActionListener(new MenuResetListener());
     }
 
     /**
@@ -163,6 +176,7 @@ public class Controller {
 
             // Jelszavak kilistazasa
             if(selectedItemType == "passwords"){
+                model.setActualFolder(selectedIFolder);
                 HashSet<Password> passwords = selectedIFolder.getPasswords();
                 view.dashboradPage.showPasswordsItem(passwords);
                 return;
@@ -170,6 +184,7 @@ public class Controller {
 
             // Notes kilistazasa
             if(selectedItemType == "notes"){
+                model.setActualFolder(selectedIFolder);
                 HashSet<Note> notes = selectedIFolder.getNotes();
                 view.dashboradPage.showNotesItem(notes);
                 return;
@@ -213,9 +228,22 @@ public class Controller {
     class NewItemButtonClickListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            view.dashboradPage.showNewPasswordPage();
-            // Listener
-            view.dashboradPage.passwordInputPage.saveButton.addActionListener(new SaveNewPasswordButtonClickListener());
+            // Get page type
+            DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.dashboradPage.folderTree.getLastSelectedPathComponent();
+            String pageType = node.toString();
+            // Ha Passwords
+            if(pageType == "passwords"){
+                view.dashboradPage.showNewPasswordPage();
+                // Listener
+                view.dashboradPage.passwordInputPage.saveButton.addActionListener(new SaveNewPasswordButtonClickListener());
+            }
+
+            // Ha Notes
+            else if(pageType == "notes"){
+                view.dashboradPage.showNewNotePage();
+                // Listener
+                view.dashboradPage.noteInputPage.saveButton.addActionListener(new SaveNewNoteButtonClickListener());
+            }
 
             view.setVisible(true);
         }
@@ -227,7 +255,35 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent e) {
             int row = view.dashboradPage.table.getSelectedRow();
-            System.out.println(row);
+            if(row<0){
+                return;
+            }
+            // Get page type
+            DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.dashboradPage.folderTree.getLastSelectedPathComponent();
+            String pageType = node.toString();
+            // Ha Passwords
+            if(pageType == "passwords"){
+                String name = view.dashboradPage.table.getModel().getValueAt(row, 0).toString();
+                String username = view.dashboradPage.table.getModel().getValueAt(row, 1).toString();
+                String password = view.dashboradPage.table.getModel().getValueAt(row, 2).toString();
+                String crypt_type_string = String.valueOf(view.dashboradPage.table.getModel().getValueAt(row, 3).toString());
+                CryptType crypt_type = CryptType.valueOf(crypt_type_string);
+                model.getActualFolder().removePassword(new Password(crypt_type, name, username, password));
+                view.dashboradPage.removeRightPanel();
+                view.dashboradPage.showPasswordsItem(model.getActualFolder().getPasswords());
+            }
+
+            // Ha Notes
+            else if(pageType == "notes"){
+                String name = view.dashboradPage.table.getModel().getValueAt(row, 0).toString();
+                String note = view.dashboradPage.table.getModel().getValueAt(row, 1).toString();
+                String crypt_type_string = String.valueOf(view.dashboradPage.table.getModel().getValueAt(row, 2).toString());
+                CryptType crypt_type = CryptType.valueOf(crypt_type_string);
+                model.getActualFolder().removeNote(new Note(crypt_type, name, note));
+                view.dashboradPage.removeRightPanel();
+                view.dashboradPage.showNotesItem(model.getActualFolder().getNotes());
+            }
+
             view.setVisible(true);
         }
     }
@@ -245,14 +301,8 @@ public class Controller {
             CryptType crypt_type = CryptType.valueOf(crypt_type_string);
 
             if(name.equals("") || password.equals("")){
-                System.out.println("Üres");
                 return;
             }
-
-            System.out.println(name);
-            System.out.println(username);
-            System.out.println(password);
-            System.out.println(crypt_type_string);
 
             Password newPass = new Password(crypt_type, name, username, password);
             System.out.println(newPass);
@@ -262,6 +312,86 @@ public class Controller {
             view.dashboradPage.showPasswordsItem(model.getActualFolder().getPasswords());
 
             view.setVisible(true);
+        }
+    }
+
+    /**
+     * New Note page: Note mentése gomb listener
+     */
+    class SaveNewNoteButtonClickListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            String name = view.dashboradPage.noteInputPage.nameInput.getText();
+            String note = view.dashboradPage.noteInputPage.noteInput.getText();
+            String crypt_type_string = String.valueOf(view.dashboradPage.noteInputPage.cryptType_list.getSelectedItem());
+            CryptType crypt_type = CryptType.valueOf(crypt_type_string);
+
+            if(name.equals("") || note.equals("")){
+                return;
+            }
+
+            Note newNote = new Note(crypt_type, name, note);
+            System.out.println(newNote);
+
+            model.getActualFolder().addNote(newNote);
+            view.dashboradPage.removeRightPanel();
+            view.dashboradPage.showNotesItem(model.getActualFolder().getNotes());
+
+            view.setVisible(true);
+        }
+    }
+
+    /**
+     * Menu: Save data to files listener
+     */
+    class MenuSaveListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                model.saveData();
+                JOptionPane.showMessageDialog(view, "Sikeresen elmentve", "Oh yess", JOptionPane.PLAIN_MESSAGE);
+                view.setVisible(true);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(view, ex.getMessage(), "Oh nooo", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+    /**
+     * Menu: Load data to files listener
+     */
+    class MenuLoadListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            try {
+                model.getMainFolder().makeEmpty();
+                model.loadData(model.getMasterPassword().getValue());
+                view.dashboradPage.removeRightPanel();
+                view.dashboradPage.showFolderListItem(model.getMainFolder());
+                view.dashboradPage.folderTree.addTreeSelectionListener(new FolderItemSelectListener());
+                view.setVisible(true);
+                JOptionPane.showMessageDialog(view, "Sikeresen betöltve", "Oh yess", JOptionPane.PLAIN_MESSAGE);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(view, ex.getMessage(), "Oh nooo", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }
+    /**
+     * Menu: Factory reset
+     */
+    class MenuResetListener implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            int biztos = JOptionPane.showConfirmDialog(view, "Biztos törölsz mindent?", "Vigyázz", JOptionPane.YES_NO_OPTION);
+            if (biztos == JOptionPane.YES_OPTION) {
+                try {
+                    model.factoryReset();
+                    view.removeAll();
+                    view.setVisible(false);
+                    view.dispose();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(view, ex.getMessage(), "Oh nooo", JOptionPane.ERROR_MESSAGE);
+                }
+            }
         }
     }
 

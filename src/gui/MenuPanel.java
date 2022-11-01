@@ -5,19 +5,20 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 
 public class MenuPanel extends JMenuBar {
+    JMenuItem saveMenu = new JMenuItem("Save");
+    JMenuItem loadMenu = new JMenuItem("Load");
+    JRadioButtonMenuItem resetOn3InvalidLogin = new JRadioButtonMenuItem("Factory reset after 3 invalid login");
+    JMenuItem resetMenu = new JMenuItem("Factory reset");
+
     public MenuPanel(){
 
         // File
         JMenu FileMenu = new JMenu("File");
-        JMenuItem saveMenu = new JMenuItem("Save");
-        JMenuItem loadMenu = new JMenuItem("Load");
         FileMenu.add(saveMenu);
         FileMenu.add(loadMenu);
 
         // Settings
         JMenu settingsMenu = new JMenu("Settings");
-        JRadioButtonMenuItem resetOn3InvalidLogin = new JRadioButtonMenuItem("Reset in 3 invalid login attemps");
-        JMenuItem resetMenu = new JMenuItem("Reset now");
         settingsMenu.add(resetOn3InvalidLogin);
         settingsMenu.add(resetMenu);
 

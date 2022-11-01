@@ -30,8 +30,8 @@ public class SHA256 {
      * @return A dekódolt üzenet
      * @throws CryptoException Hiba a dekódolás közben
      */
-    public static String decrypt(String message) throws CryptoException {
-        throw new CryptoException("Message encrypted with SHA256 can not be decrypted");
+    public static String decrypt(String message) {
+        return message;
     }
 
     // Convert String to Hash bytes // Source: https://www.geeksforgeeks.org/sha-256-hash-in-java/

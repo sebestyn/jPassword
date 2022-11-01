@@ -29,6 +29,8 @@ public class DashboradPage extends JPanel {
     JButton removeItemButton = new JButton("Elem törlése");
 
     PasswordInputPage passwordInputPage = new PasswordInputPage();
+    NoteInputPage noteInputPage = new NoteInputPage();
+
 
     public DashboradPage(){
 
@@ -127,4 +129,9 @@ public class DashboradPage extends JPanel {
         rightPanel.add(passwordInputPage);
     }
 
+    public void showNewNotePage() {
+        this.removeRightPanel();
+        noteInputPage = new NoteInputPage();
+        rightPanel.add(noteInputPage);
+    }
 }
