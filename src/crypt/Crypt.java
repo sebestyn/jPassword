@@ -25,7 +25,7 @@ public class Crypt {
      * @return A titkosított üzenet
      * @throws CryptoException Hiba a titkosítás közben
      */
-    public static String encrypt(CryptType cryptType, String message) throws CryptoException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, InvalidAlgorithmParameterException {
+    public static String encrypt(CryptType cryptType, String message) throws CryptoException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException, InvalidAlgorithmParameterException {
         if(message == null || message.equals("null")){
             return null;
         }
@@ -41,9 +41,8 @@ public class Crypt {
      * @param message   Az üzenet amit dekódolni szeretnél
      * @param cryptType A titkosító algoritmus típusa
      * @return A dekódolt üzenet
-     * @throws CryptoException Hiba a dekódolás közben
      */
-    public static String decrypt(CryptType cryptType, String message) throws CryptoException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+    public static String decrypt(CryptType cryptType, String message) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         if(message == null || message.equals("null")){
             return null;
         }

@@ -1,34 +1,24 @@
 package gui;
 
 import crypt.CryptType;
-import crypt.CryptoException;
 import dataTypes.Folder;
 import dataTypes.Note;
 import dataTypes.Password;
 import org.jetbrains.annotations.NotNull;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
-import javax.swing.table.TableCellEditor;
 import javax.swing.tree.DefaultMutableTreeNode;
 import java.awt.event.*;
-import java.io.IOException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.util.ArrayList;
 import java.util.HashSet;
 
 
 public class Controller {
 
-    Model model;
-    View view;
+    final Model model;
+    final View view;
 
     /**
      * Konstruktor a model és view összekötő Controller-hez
@@ -175,13 +165,13 @@ public class Controller {
             }
 
             // Ha mappa
-            if(selectedItemType != "passwords" && selectedItemType != "notes"){
+            if(!selectedItemType.equals("passwords") && !selectedItemType.equals("notes")){
                 model.setActualFolder(selectedIFolder.getFolder(selectedItemType));
                 return;
             }
 
             // Jelszavak kilistazasa
-            if(selectedItemType == "passwords"){
+            if(selectedItemType.equals("passwords")){
                 view.dashboradPage.searchInput.setText("");
                 model.setActualFolder(selectedIFolder);
                 HashSet<Password> passwords = selectedIFolder.getPasswords();
@@ -189,7 +179,7 @@ public class Controller {
             }
 
             // Notes kilistazasa
-            else if(selectedItemType == "notes"){
+            else {
                 view.dashboradPage.searchInput.setText("");
                 model.setActualFolder(selectedIFolder);
                 HashSet<Note> notes = selectedIFolder.getNotes();
@@ -205,6 +195,9 @@ public class Controller {
         @Override
         public void actionPerformed(ActionEvent e) {
             String folderName = JOptionPane.showInputDialog("Új Folder neve:");
+            if(folderName.equals("passwords") || folderName.equals("notes")){
+                return;
+            }
             model.getActualFolder().addFolder(new Folder(folderName, model.getActualFolder()));
             view.dashboradPage.showFolderListItem(model.getMainFolder());
             view.dashboradPage.folderTree.addTreeSelectionListener(new FolderItemSelectListener());
@@ -245,7 +238,7 @@ public class Controller {
             DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.dashboradPage.folderTree.getLastSelectedPathComponent();
             String pageType = node.toString();
             // Ha Passwords
-            if(pageType == "passwords"){
+            if(pageType.equals("passwords")){
                 HashSet<Password> filteredPasswords = model.getActualFolder().searchPassword(searchInput);
                 view.dashboradPage.removeRightPanel();
                 view.dashboradPage.showPasswordsItem(filteredPasswords);
@@ -253,7 +246,7 @@ public class Controller {
             }
 
             // Ha Notes
-            else if(pageType == "notes"){
+            else if(pageType.equals("notes")){
                 HashSet<Note> filteredNotes = model.getActualFolder().searchNote(searchInput);
                 view.dashboradPage.removeRightPanel();
                 view.dashboradPage.showNotesItem(filteredNotes);
@@ -273,14 +266,14 @@ public class Controller {
             DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.dashboradPage.folderTree.getLastSelectedPathComponent();
             String pageType = node.toString();
             // Ha Passwords
-            if(pageType == "passwords"){
+            if(pageType.equals("passwords")){
                 view.dashboradPage.showNewPasswordPage();
                 // Listener
                 view.dashboradPage.passwordInputPage.saveButton.addActionListener(new SaveNewPasswordButtonClickListener());
             }
 
             // Ha Notes
-            else if(pageType == "notes"){
+            else if(pageType.equals("notes")){
                 view.dashboradPage.showNewNotePage();
                 // Listener
                 view.dashboradPage.noteInputPage.saveButton.addActionListener(new SaveNewNoteButtonClickListener());
@@ -303,7 +296,7 @@ public class Controller {
             DefaultMutableTreeNode node = (DefaultMutableTreeNode) view.dashboradPage.folderTree.getLastSelectedPathComponent();
             String pageType = node.toString();
             // Ha Passwords
-            if(pageType == "passwords"){
+            if(pageType.equals("passwords")){
                 String name = view.dashboradPage.table.getModel().getValueAt(row, 0).toString();
                 String username = view.dashboradPage.table.getModel().getValueAt(row, 1).toString();
                 String password = view.dashboradPage.table.getModel().getValueAt(row, 2).toString();
@@ -315,7 +308,7 @@ public class Controller {
             }
 
             // Ha Notes
-            else if(pageType == "notes"){
+            else if(pageType.equals("notes")){
                 String name = view.dashboradPage.table.getModel().getValueAt(row, 0).toString();
                 String note = view.dashboradPage.table.getModel().getValueAt(row, 1).toString();
                 String crypt_type_string = String.valueOf(view.dashboradPage.table.getModel().getValueAt(row, 2).toString());

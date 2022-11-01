@@ -1,30 +1,17 @@
 package gui;
 
-import crypt.CryptoException;
 import dataTypes.Folder;
-
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.swing.*;
-import javax.swing.event.TreeSelectionListener;
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.io.IOException;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 
 public class View extends JFrame {
 
-    Model model;
-    LoginPage loginPage = new LoginPage();
-    MenuPanel menuPanel = new MenuPanel();
-    DashboradPage dashboradPage = new DashboradPage();
+    final Model model;
+    final LoginPage loginPage = new LoginPage();
+    final MenuPanel menuPanel = new MenuPanel();
+    final DashboradPage dashboradPage = new DashboradPage();
 
     /**
      * Konstruktor a View megjelenítő ablakhoz
@@ -82,7 +69,7 @@ public class View extends JFrame {
      * Dashboard Page: a dashboard láthatóság állítása
      *
      * @param visible    true ha látható
-     * @param mainFolder
+     * @param mainFolder Folder amit meg akarunk jeleníteni
      */
     public void toggleDashboardPage(boolean visible, Folder mainFolder) {
         if(visible){

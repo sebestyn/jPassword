@@ -9,7 +9,7 @@ import java.security.spec.InvalidKeySpecException;
 import static org.junit.jupiter.api.Assertions.*;
 
 class AESTest {
-    MasterPassword mp = new MasterPassword("./data","mester");
+    final MasterPassword mp = new MasterPassword("./data","mester");
 
     @Test
     void encrypt_and_decrypt() throws NoSuchAlgorithmException, InvalidKeySpecException {

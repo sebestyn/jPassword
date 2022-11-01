@@ -8,10 +8,10 @@ import java.util.stream.Stream;
 
 public class NoteInputPage extends JPanel{
 
-    JTextField nameInput = new JTextField();
-    JTextField noteInput = new JTextField();
-    JComboBox cryptType_list;
-    JButton saveButton = new JButton("Mentés");
+    final JTextField nameInput = new JTextField();
+    final JTextField noteInput = new JTextField();
+    JComboBox<String> cryptType_list;
+    final JButton saveButton = new JButton("Mentés");
 
     public NoteInputPage() {
 
@@ -31,8 +31,8 @@ public class NoteInputPage extends JPanel{
 
         JPanel sor3 = new JPanel(new FlowLayout());
         String[] crypt_types = Stream.of(CryptType.values()).map(Enum::name).toArray(String[]::new);
-        if(crypt_types != null && crypt_types.length>0){
-            cryptType_list = new JComboBox(crypt_types);
+        if(crypt_types.length>0){
+            cryptType_list = new JComboBox<>(crypt_types);
             sor3.add(cryptType_list);
         }
         this.add(sor3);

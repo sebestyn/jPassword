@@ -4,8 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="search, design">
+    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="fix warnings, sort table">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/felesegem/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/család/felesegem/password.encrypt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/notes.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/család/notes.encrypt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/család/password.encrypt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/notes.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/notes.encrypt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/password.encrypt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConsoleApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypt/Crypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/Crypt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/crypt/SHA256.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/crypt/SHA256.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataTypes/Folder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/Folder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataTypes/MasterPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/MasterPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataTypes/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataTypes/Password.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/Password.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataTypes/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/gui/DashboradPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/DashboradPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Global.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/MenuPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/NoteInputPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/NoteInputPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/PasswordInputPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/PasswordInputPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tst/crypt/AESTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tst/crypt/AESTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tst/crypt/SEBITest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tst/crypt/SEBITest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tst/dataTypes/FolderTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tst/dataTypes/FolderTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tst/dataTypes/MasterPasswordTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tst/dataTypes/MasterPasswordTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tst/dataTypes/NoteTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tst/dataTypes/NoteTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tst/gui/GUITest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +56,9 @@
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2FtSUO2HHgFtamvyeT9lmyS9i5M" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -81,24 +113,25 @@
       <recent name="gui" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
-    <configuration name="Console app" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="MainConsole" />
-      <module name="jPassword" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="GUI app" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="jPassword" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.AESTest">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="jPassword" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AESTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jPassword" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="crypt.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="crypt" />
+      <option name="MAIN_CLASS_NAME" value="crypt.AESTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -113,6 +146,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="dataTypes" />
       <option name="MAIN_CLASS_NAME" value="dataTypes.FolderTest" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -128,75 +162,57 @@
       </extension>
       <option name="PACKAGE_NAME" value="dataTypes" />
       <option name="MAIN_CLASS_NAME" value="dataTypes.MasterPasswordTest" />
+      <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MasterPasswordTest.isInputEqualsHash" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SEBITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jPassword" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dataTypes.*" />
+          <option name="PATTERN" value="crypt.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="dataTypes" />
-      <option name="MAIN_CLASS_NAME" value="dataTypes.MasterPasswordTest" />
-      <option name="METHOD_NAME" value="isInputEqualsHash" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NoteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="jPassword" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="dataTypes.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="dataTypes" />
-      <option name="MAIN_CLASS_NAME" value="dataTypes.NoteTest" />
+      <option name="PACKAGE_NAME" value="crypt" />
+      <option name="MAIN_CLASS_NAME" value="crypt.SEBITest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NoteTest.getEncrypted" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SHA256Test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jPassword" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dataTypes.*" />
+          <option name="PATTERN" value="crypt.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="dataTypes" />
-      <option name="MAIN_CLASS_NAME" value="dataTypes.NoteTest" />
-      <option name="METHOD_NAME" value="getEncrypted" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="PACKAGE_NAME" value="crypt" />
+      <option name="MAIN_CLASS_NAME" value="crypt.SHA256Test" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="Application.GUI app" />
-      <item itemvalue="Application.Console app" />
+      <item itemvalue="JUnit.AESTest" />
+      <item itemvalue="JUnit.SEBITest" />
+      <item itemvalue="JUnit.SHA256Test" />
       <item itemvalue="JUnit.FolderTest" />
       <item itemvalue="JUnit.MasterPasswordTest" />
-      <item itemvalue="JUnit.MasterPasswordTest.isInputEqualsHash" />
-      <item itemvalue="JUnit.NoteTest" />
-      <item itemvalue="JUnit.NoteTest.getEncrypted" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NoteTest" />
-        <item itemvalue="JUnit.NoteTest.getEncrypted" />
-        <item itemvalue="JUnit.MasterPasswordTest.isInputEqualsHash" />
-        <item itemvalue="JUnit.MasterPasswordTest" />
+        <item itemvalue="JUnit.AESTest" />
+        <item itemvalue="JUnit.SEBITest" />
+        <item itemvalue="JUnit.SHA256Test" />
         <item itemvalue="JUnit.FolderTest" />
+        <item itemvalue="JUnit.MasterPasswordTest" />
       </list>
     </recent_temporary>
   </component>
@@ -377,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667330068894</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="search, design">
+      <created>1667330148824</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1667330148824</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -416,7 +439,8 @@
     <MESSAGE value="settings" />
     <MESSAGE value="search" />
     <MESSAGE value="search, design" />
-    <option name="LAST_COMMIT_MESSAGE" value="search, design" />
+    <MESSAGE value="fix warnings, sort table" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix warnings, sort table" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

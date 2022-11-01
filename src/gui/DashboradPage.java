@@ -10,17 +10,17 @@ import java.awt.*;
 import java.util.HashSet;
 
 public class DashboradPage extends JPanel {
-    JPanel leftPanel = new JPanel();
-    JPanel rightPanel = new JPanel();
+    final JPanel leftPanel = new JPanel();
+    final JPanel rightPanel = new JPanel();
 
     JTree folderTree = new JTree();
-    JButton newFolderButton = new JButton("Új mappa");
-    JButton removeFolderButton = new JButton("Mappa törlése");
+    final JButton newFolderButton = new JButton("Új mappa");
+    final JButton removeFolderButton = new JButton("Mappa törlése");
     JTable table = new JTable();
     JScrollPane scrollTable = new JScrollPane();
-    JButton newItemButton = new JButton("Új elem");
-    JButton removeItemButton = new JButton("Elem törlése");
-    JTextField searchInput = new JTextField();
+    final JButton newItemButton = new JButton("Új elem");
+    final JButton removeItemButton = new JButton("Elem törlése");
+    final JTextField searchInput = new JTextField();
 
     PasswordInputPage passwordInputPage = new PasswordInputPage();
     NoteInputPage noteInputPage = new NoteInputPage();
@@ -79,6 +79,7 @@ public class DashboradPage extends JPanel {
 
         // Password-Note Table
         table = new JTable(datas, columnNames);
+        table.setAutoCreateRowSorter(true);
         table.setDefaultEditor(Object.class, null);
         table.setShowHorizontalLines(true);
         table.setGridColor(Color.orange);

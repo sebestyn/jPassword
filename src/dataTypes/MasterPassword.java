@@ -11,7 +11,6 @@ import java.io.*;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 
 public class MasterPassword {
     final CryptType cryptType = CryptType.SHA256;
@@ -35,7 +34,7 @@ public class MasterPassword {
     /**
      * Mester-jelszó elmentése fájlba
      */
-    public void savePassword() throws IOException, CryptoException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, InvalidKeyException, InvalidAlgorithmParameterException {
+    public void savePassword() throws IOException, CryptoException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException, InvalidAlgorithmParameterException {
         BufferedWriter writer = new BufferedWriter(new FileWriter(this.filePath));
         writer.write(Crypt.encrypt(this.cryptType, this.value));
         writer.close();
@@ -67,16 +66,17 @@ public class MasterPassword {
         }
     }
 
-    public boolean isInputEqualsHash(String input, String hash) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException, InvalidAlgorithmParameterException {
+    public boolean isInputEqualsHash(String input, String hash) throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, CryptoException, InvalidKeyException, InvalidAlgorithmParameterException {
         return Crypt.encrypt(CryptType.SHA256, input).equals(hash);
     }
     /**
      * Mester-jelszó törlése (egész fájl-t törli). Vigyázz: új jelszó létrehozásakor elvesznek a mentett jeslzavak
      */
-    public boolean removePassword() {
+    public void removePassword() {
         this.value = null;
         File mpFile = new File(filePath);
-        return mpFile.delete();
+        boolean successRemove = mpFile.delete();
+        System.out.println(successRemove);
     }
 
 

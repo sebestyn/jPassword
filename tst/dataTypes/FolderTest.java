@@ -1,12 +1,11 @@
 package dataTypes;
 
-import crypt.CryptType;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class FolderTest {
-    Folder main = new Folder("main", null);
+    final Folder main = new Folder("main", null);
 
     @Test
     void addPassword() {

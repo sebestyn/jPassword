@@ -15,7 +15,6 @@ import java.nio.file.Paths;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -99,14 +98,18 @@ public class Folder{
         ).collect(Collectors.toCollection(HashSet::new));
     }
 
-    public void load(String path) throws IOException, CryptoException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
+    public void load(String path) throws IOException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, InvalidKeyException {
         String folderPath = path + "/" + this.forderName;
 
         // Ha nem letezik -> csak letrehozza
-        if(!Files.isDirectory(Paths.get(folderPath))){
-            new File(folderPath).mkdirs();
-            new File(folderPath + "/password.encrypt").createNewFile();
-            new File(folderPath + "/notes.encrypt").createNewFile();
+        Path dir_path = Paths.get(folderPath);
+        if(!Files.isDirectory(dir_path)){
+            boolean createDirs = new File(folderPath).mkdirs();
+            boolean createPasswordFile = new File(folderPath + "/password.encrypt").createNewFile();
+            boolean createNoteFile = new File(folderPath + "/notes.encrypt").createNewFile();
+            if(!createDirs || !createPasswordFile || !createNoteFile){
+                throw new IOException("Coldn make files");
+            }
             return;
         }
 
@@ -134,7 +137,7 @@ public class Folder{
         notes_reader.close();
 
         // Folders // Source: https://www.baeldung.com/java-list-directory-files
-        DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(folderPath));
+        DirectoryStream<Path> stream = Files.newDirectoryStream(dir_path);
         for (Path childFolderPath : stream) {
             if (Files.isDirectory(childFolderPath)) {
                 Folder childFolder = new Folder(childFolderPath.getFileName().toString(), this);
@@ -145,14 +148,17 @@ public class Folder{
 
     }
 
-    public void save(String path) throws IOException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException, InvalidAlgorithmParameterException {
+    public void save(String path) throws IOException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, CryptoException, InvalidKeyException, InvalidAlgorithmParameterException {
         String folderPath = path + "/" + this.forderName;
 
         // Benne lévő mappák törlése
         deleteDir(new File(folderPath));
 
         // Új üres mappa létrehozása
-        new File(folderPath).mkdirs();
+        boolean folerDirMake = new File(folderPath).mkdirs();
+        if(!folerDirMake){
+            throw new IOException("Could not make folder dir");
+        }
 
         // Passwords
         BufferedWriter pass_writer = new BufferedWriter(new FileWriter(folderPath + "/password.encrypt"));
@@ -220,14 +226,19 @@ public class Folder{
      * Forrás: <a href="https://stackoverflow.com/questions/20281835/how-to-delete-a-folder-with-files-using-java">...</a>
      * @param file Dir location
      */
-    private void deleteDir(File file) {
+    private void deleteDir(File file) throws IOException {
         File[] contents = file.listFiles();
         if (contents != null) {
             for (File f : contents) {
                 deleteDir(f);
             }
         }
-        file.delete();
+        if(file.exists()){
+            boolean deleteDirSuccess = file.delete();
+            if(!deleteDirSuccess){
+                throw new IOException("Could not delete Folder dir");
+            }
+        }
     }
 
     @Override

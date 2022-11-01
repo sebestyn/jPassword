@@ -1,18 +1,16 @@
-import crypt.Crypt;
 import crypt.CryptType;
 import dataTypes.Folder;
 import dataTypes.Note;
 import dataTypes.Password;
 import gui.Model;
 
-import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ConsoleApp {
-    Model model;
-    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    final Model model;
+    final BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
     public ConsoleApp(Model m){
         this.model = m;
@@ -89,15 +87,30 @@ public class ConsoleApp {
             switch (reader.readLine()){
                 case "pelda":
                     // Pelda adatok
-                    model.getMainFolder().addPassword(new Password(CryptType.AES,"instagram","nevem", "jelszooo"));
+                    model.getMainFolder().addPassword(new Password(CryptType.AES,"instagram.com","bela", "jelszooo"));
+                    model.getMainFolder().addPassword(new Password(CryptType.SEBI,"facebook.com","bela", "ezeegyjelszo19"));
+                    model.getMainFolder().addPassword(new Password(CryptType.SEBI,"baratnokereso.hu","bela", "123456789"));
+                    model.getMainFolder().addPassword(new Password(CryptType.AES,"vanenet.hu","van", "gé656"));
+                    model.getMainFolder().addPassword(new Password(CryptType.NONE,"tinder.com","nagyafal", "E.6fds+f"));
                     model.getMainFolder().addPassword(new Password("tiktok.com", "jelszo123"));
                     model.getMainFolder().addNote(new Note("bevásárlólista", "alma\nkörte\nbanán"));
-                    Folder tempFolder = new Folder("család", model.getMainFolder());
-                    tempFolder.addPassword(new Password(CryptType.SEBI,"gyerek", "passw"));
-                    tempFolder.addPassword(new Password(CryptType.SEBI,"google.com", "bela", "nagyonJoJelszo!"));
-                    tempFolder.addNote(new Note(CryptType.SEBI,"nevem", "Béla vagyok"));
-                    tempFolder.addFolder(new Folder("felesegem", tempFolder));
-                    model.getMainFolder().addFolder(tempFolder);
+                    model.getMainFolder().addNote(new Note(CryptType.SEBI,"nevem", "Béla vagyok"));
+                    model.getMainFolder().addNote(new Note(CryptType.SEBI,"címem", "1934 Bp. Harsfa utca 234/B"));
+                    model.getMainFolder().addNote(new Note(CryptType.AES,"bankártya", "3452 5463 4359 1234"));
+                    model.getMainFolder().addNote(new Note(CryptType.NONE,"barátom", "nincs"));
+                    model.getMainFolder().addNote(new Note(CryptType.NONE,"barátnőm", "nincs"));
+                    model.getMainFolder().addNote(new Note("milyen nap is van", "nézd meg a naptárban!"));
+                    Folder csalad = new Folder("család", model.getMainFolder());
+                    csalad.addPassword(new Password(CryptType.NONE,"gyerek", "passw123"));
+                    csalad.addPassword(new Password(CryptType.SEBI,"google.com", "bela.szabo", "nagyon.Jo.Jelszo!"));
+                    csalad.addNote(new Note("mennyire szeretem a családom?", "nagyon"));
+                    csalad.addNote(new Note("kell barátnő?", "kell"));
+                    Folder felesegem = new Folder("felesegem", csalad);
+                    felesegem.addPassword(new Password("megcsal-e-a-ferjem.org", "remelemNemTeFal"));
+                    felesegem.addPassword(new Password(CryptType.AES,"gmail.com", "Barbi", "szeretemAFerjem12"));
+                    csalad.addFolder(felesegem);
+                    csalad.addFolder(new Folder("gyerekeim", csalad));
+                    model.getMainFolder().addFolder(csalad);
                     break;
                 case "save":
                     try {

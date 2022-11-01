@@ -10,7 +10,6 @@ import javax.crypto.NoSuchPaddingException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 import java.util.Objects;
 
 public class Note {
@@ -40,7 +39,7 @@ public class Note {
     }
 
 
-    public String getEncrypted() throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException, InvalidAlgorithmParameterException {
+    public String getEncrypted() throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, CryptoException, InvalidKeyException, InvalidAlgorithmParameterException {
         return  this.cryptType + "\n" +
                 Crypt.encrypt(this.cryptType, this.name) + "\n" +
                 Crypt.encrypt(this.cryptType, this.note) + "\n";

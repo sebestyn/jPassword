@@ -3,14 +3,12 @@ package gui;
 import dataTypes.Settings;
 
 import javax.swing.*;
-import java.awt.*;
-import java.awt.event.KeyEvent;
 
 public class MenuPanel extends JMenuBar {
-    JMenuItem saveMenu = new JMenuItem("Save");
-    JMenuItem loadMenu = new JMenuItem("Load");
-    JRadioButtonMenuItem resetOn3InvalidLogin = new JRadioButtonMenuItem("Factory reset after 3 invalid login");
-    JMenuItem resetMenu = new JMenuItem("Factory reset");
+    final JMenuItem saveMenu = new JMenuItem("Save");
+    final JMenuItem loadMenu = new JMenuItem("Load");
+    final JRadioButtonMenuItem resetOn3InvalidLogin = new JRadioButtonMenuItem("Factory reset after 3 invalid login");
+    final JMenuItem resetMenu = new JMenuItem("Factory reset");
 
     public MenuPanel(){
 

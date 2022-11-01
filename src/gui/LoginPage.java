@@ -2,12 +2,10 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class LoginPage extends JPanel  {
-    JTextField passwordInput;
-    JButton loginButton;
+    final JTextField passwordInput;
+    final JButton loginButton;
     boolean registration = false;
 
     /**

@@ -1,12 +1,10 @@
 package dataTypes;
 
-import crypt.Crypt;
-
 import java.io.*;
 import java.util.Scanner;
 
 public class Settings {
-    private String filePath;
+    private final String filePath;
     private boolean factoryReset = false;
 
     public Settings(String path){ this.filePath = path + "/settings.txt"; }

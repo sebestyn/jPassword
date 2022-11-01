@@ -28,7 +28,6 @@ public class SHA256 {
      * Nincs Dekódoló algoritmusa!
      * @param message Az üzenet amit dekódolni szeretnél
      * @return A dekódolt üzenet
-     * @throws CryptoException Hiba a dekódolás közben
      */
     public static String decrypt(String message) {
         return message;

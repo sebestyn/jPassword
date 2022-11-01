@@ -16,10 +16,10 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 public class Model {
-    Settings settings;
-    private String mainFolderPath = "./data";
-    private MasterPassword masterPassword;
-    private Folder mainFolder;
+    final Settings settings;
+    private final String mainFolderPath = "./data";
+    private final MasterPassword masterPassword;
+    private final Folder mainFolder;
     private Folder actualFolder;
     private int loginAttemp = 0;
 
@@ -42,9 +42,9 @@ public class Model {
 
     /**
      * Adatok betöltése és dekódolása fájlokból
-     * @param passwordInput
+     * @param passwordInput Jelszo ami kikódolja az adatot
      */
-    public void loadData(String passwordInput) throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, IOException, BadPaddingException, CryptoException, InvalidKeyException {
+    public void loadData(String passwordInput) throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, IOException, BadPaddingException, InvalidKeyException {
         this.masterPassword.setValue(passwordInput);
         // Kriprográfia függvények beállítása a mester jelszóval
         Crypt.init(masterPassword);
@@ -57,7 +57,7 @@ public class Model {
     /**
      * Adatok kódolása és kimentése fájlokba
      */
-    public void saveData() throws NoSuchAlgorithmException, InvalidKeySpecException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, IOException, BadPaddingException, CryptoException, InvalidKeyException {
+    public void saveData() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, IOException, BadPaddingException, CryptoException, InvalidKeyException {
         // Save settings
         settings.save();
         // Save data
@@ -77,7 +77,7 @@ public class Model {
      * @param passwordInput megadott meseter jelszó
      * @return helyes-e a mester jelszó
      */
-    public String login(String passwordInput) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException, IOException {
+    public String login(String passwordInput) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, CryptoException, InvalidKeyException, IOException {
         loginAttemp += 1;
         String passwordHash = masterPassword.loadPassword();
         if(masterPassword.isInputEqualsHash(passwordInput, passwordHash)){
@@ -97,7 +97,7 @@ public class Model {
      * Regisztráció: mester jelszó elmentése
      * @param passwordInput mester jelszó
      */
-    public void register(String passwordInput) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, IOException, NoSuchAlgorithmException, InvalidKeySpecException, BadPaddingException, CryptoException, InvalidKeyException {
+    public void register(String passwordInput) throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, IOException, NoSuchAlgorithmException, BadPaddingException, CryptoException, InvalidKeyException {
         masterPassword.setValue(passwordInput);
         masterPassword.savePassword();
     }
@@ -105,7 +105,7 @@ public class Model {
     /**
      * Minden adat törlése
      */
-    public void factoryReset() throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, InvalidKeySpecException, IOException, BadPaddingException, CryptoException, InvalidKeyException {
+    public void factoryReset() throws InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, IOException, BadPaddingException, CryptoException, InvalidKeyException {
         mainFolder.makeEmpty();
         this.saveData();
         this.masterPassword.removePassword();

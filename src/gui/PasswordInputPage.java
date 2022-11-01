@@ -8,11 +8,11 @@ import java.util.stream.Stream;
 
 public class PasswordInputPage extends JPanel {
 
-    JTextField nameInput = new JTextField();
-    JTextField usernameInput = new JTextField();
-    JTextField passwordInput = new JTextField();
-    JComboBox cryptType_list;
-    JButton saveButton = new JButton("Mentés");
+    final JTextField nameInput = new JTextField();
+    final JTextField usernameInput = new JTextField();
+    final JTextField passwordInput = new JTextField();
+    JComboBox<String> cryptType_list;
+    final JButton saveButton = new JButton("Mentés");
 
     public PasswordInputPage() {
 
@@ -38,8 +38,8 @@ public class PasswordInputPage extends JPanel {
 
         JPanel sor4 = new JPanel(new FlowLayout());
         String[] crypt_types = Stream.of(CryptType.values()).map(Enum::name).toArray(String[]::new);
-        if(crypt_types != null && crypt_types.length>0){
-            cryptType_list = new JComboBox(crypt_types);
+        if(crypt_types.length>0){
+            cryptType_list = new JComboBox<>(crypt_types);
             sor4.add(cryptType_list);
         }
         this.add(sor4);
