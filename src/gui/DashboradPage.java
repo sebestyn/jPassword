@@ -38,7 +38,7 @@ public class DashboradPage extends JPanel {
         this.setLayout(new BorderLayout());
 
         leftPanel.setLayout(new BorderLayout());
-        leftPanel.setBackground(Color.red);
+        //leftPanel.setBackground(Color.red);
         leftPanel.setPreferredSize(new Dimension(200,100));
         leftPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         JPanel leftSouthPanel = new JPanel(new GridLayout(3,1));
@@ -49,7 +49,7 @@ public class DashboradPage extends JPanel {
 
         //rightPanel.setLayout(new GridLayout(1,1));
         rightPanel.setLayout(new BorderLayout());
-        rightPanel.setBackground(Color.orange);
+        rightPanel.setBackground(new Color(141, 137, 203));
         rightPanel.setPreferredSize(new Dimension(100,100));
         rightPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
 
@@ -71,7 +71,6 @@ public class DashboradPage extends JPanel {
         // Folder Tree
         DefaultMutableTreeNode root = Global.convertFolderToTreeNode(mainFolder);
         folderTree = new JTree(root);
-        folderTree.setBackground(Color.LIGHT_GRAY);
         leftPanel.add(folderTree, BorderLayout.NORTH);
         leftPanel.repaint();
     }
@@ -87,6 +86,7 @@ public class DashboradPage extends JPanel {
 
         // Password-Note Table
         table = new JTable(datas, columnNames);
+        table.setDefaultEditor(Object.class, null);
         table.setShowHorizontalLines(true);
         table.setGridColor(Color.orange);
         table.setRowSelectionAllowed(true);

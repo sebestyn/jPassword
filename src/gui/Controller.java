@@ -13,11 +13,9 @@ import javax.crypto.NoSuchPaddingException;
 import javax.swing.*;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
+import javax.swing.table.TableCellEditor;
 import javax.swing.tree.DefaultMutableTreeNode;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -188,16 +186,14 @@ public class Controller {
                 model.setActualFolder(selectedIFolder);
                 HashSet<Password> passwords = selectedIFolder.getPasswords();
                 view.dashboradPage.showPasswordsItem(passwords);
-                return;
             }
 
             // Notes kilistazasa
-            if(selectedItemType == "notes"){
+            else if(selectedItemType == "notes"){
                 view.dashboradPage.searchInput.setText("");
                 model.setActualFolder(selectedIFolder);
                 HashSet<Note> notes = selectedIFolder.getNotes();
                 view.dashboradPage.showNotesItem(notes);
-                return;
             }
 
         }
@@ -333,6 +329,7 @@ public class Controller {
         }
     }
 
+
     /**
      * New Password page: Jelszó mentése gomb listener
      */
@@ -358,7 +355,6 @@ public class Controller {
             view.setVisible(true);
         }
     }
-
     /**
      * New Note page: Note mentése gomb listener
      */
@@ -383,6 +379,7 @@ public class Controller {
             view.setVisible(true);
         }
     }
+
 
     /**
      * Menu: Save data to files listener
