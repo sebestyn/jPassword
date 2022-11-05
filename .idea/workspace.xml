@@ -4,28 +4,46 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="search">
-      <change afterPath="$PROJECT_DIR$/data/mainFolder/család/notes.encrypt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/mainFolder/család/password.encrypt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/data/master.encrypt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/Controller/DashboardController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/Controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/Controller/MenuController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/View/DataNotes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/gui/View/DataPasswords.java" afterDir="false" />
+    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="struct szetszedve">
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/adf/notes.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/adf/password.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/af/notes.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/af/password.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/cds/notes.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/cds/password.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/család/felesegem/notes.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/család/felesegem/password.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/család/gyerekeim/notes.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/család/gyerekeim/password.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/d/notes.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/d/password.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/hzr/notes.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/hzr/password.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/re/notes.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/re/password.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/ret/notes.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/ret/password.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/sfv/notes.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/sfv/password.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/z/notes.encrypt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/data/mainFolder/z/password.encrypt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/notes.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/család/notes.encrypt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/mainFolder/notes.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/notes.encrypt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data/mainFolder/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/password.encrypt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/settings.txt" beforeDir="false" afterPath="$PROJECT_DIR$/data/settings.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/DashboradPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View/DashboradPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View/LoginPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/MenuPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View/MenuPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/NoteInputPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View/NoteInputPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/PasswordInputPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View/PasswordInputPage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ConsoleApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ConsoleApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataTypes/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dataTypes/Password.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dataTypes/Password.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Controller/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controller/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Controller/MenuController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controller/MenuController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/Global.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Global.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/View/DashboradPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View/DashboradPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/View/DataNotes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View/DataNotes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/View/DataPasswords.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View/DataPasswords.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/View/LoginPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View/LoginPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/gui/View/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/View/View.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +67,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectId" id="2FtSUO2HHgFtamvyeT9lmyS9i5M" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -112,21 +130,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AESTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="jPassword" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="crypt.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="crypt" />
-      <option name="MAIN_CLASS_NAME" value="crypt.AESTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="FolderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="jPassword" />
       <extension name="coverage">
@@ -153,7 +156,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="dataTypes" />
       <option name="MAIN_CLASS_NAME" value="dataTypes.MasterPasswordTest" />
-      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NoteTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="jPassword" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dataTypes.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="dataTypes" />
+      <option name="MAIN_CLASS_NAME" value="dataTypes.NoteTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -191,7 +208,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.AESTest" />
+      <item itemvalue="JUnit.NoteTest" />
       <item itemvalue="JUnit.SEBITest" />
       <item itemvalue="JUnit.SHA256Test" />
       <item itemvalue="JUnit.FolderTest" />
@@ -199,11 +216,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.SHA256Test" />
-        <item itemvalue="JUnit.AESTest" />
-        <item itemvalue="JUnit.SEBITest" />
-        <item itemvalue="JUnit.FolderTest" />
+        <item itemvalue="JUnit.NoteTest" />
         <item itemvalue="JUnit.MasterPasswordTest" />
+        <item itemvalue="JUnit.FolderTest" />
+        <item itemvalue="JUnit.SHA256Test" />
+        <item itemvalue="JUnit.SEBITest" />
       </list>
     </recent_temporary>
   </component>
@@ -231,7 +248,7 @@
       <workItem from="1666605564864" duration="2231000" />
       <workItem from="1667383750068" duration="1161000" />
       <workItem from="1667586729346" duration="66000" />
-      <workItem from="1667643376237" duration="5348000" />
+      <workItem from="1667643376237" duration="9467000" />
     </task>
     <task id="LOCAL-00001" summary="teszt">
       <created>1665311331916</created>
@@ -415,7 +432,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667643412504</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="struct szetszedve">
+      <created>1667648806763</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1667648806763</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -456,7 +480,8 @@
     <MESSAGE value="fix warnings, sort table" />
     <MESSAGE value="fix warnings" />
     <MESSAGE value="search" />
-    <option name="LAST_COMMIT_MESSAGE" value="search" />
+    <MESSAGE value="struct szetszedve" />
+    <option name="LAST_COMMIT_MESSAGE" value="struct szetszedve" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -475,5 +500,10 @@
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/jPassword$gui_Controller_in_jPassword.ic" NAME="gui.Controller in jPassword Coverage Results" MODIFIED="1667652164126" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>gui.Controller.*</FILTER>
+    </SUITE>
   </component>
 </project>

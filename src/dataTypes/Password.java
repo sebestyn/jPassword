@@ -14,9 +14,9 @@ import java.util.Objects;
 
 public class Password {
     private CryptType cryptType = CryptType.NONE;
-    private final String name;
+    private String name;
     private String username = "";
-    private final String password;
+    private String password;
 
     public Password(String name, String password){
         this.name = Global.oneLineString(name);
@@ -47,7 +47,15 @@ public class Password {
     public String getPassword(){
         return password;
     }
-
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
 
     public String getEncrypted() throws NoSuchPaddingException, IllegalBlockSizeException, NoSuchAlgorithmException, BadPaddingException, CryptoException, InvalidKeyException, InvalidAlgorithmParameterException {

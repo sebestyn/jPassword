@@ -92,6 +92,16 @@ public class ConsoleApp {
                     model.getMainFolder().addPassword(new Password(CryptType.SEBI,"baratnokereso.hu","bela", "123456789"));
                     model.getMainFolder().addPassword(new Password(CryptType.AES,"vanenet.hu","van", "gé656"));
                     model.getMainFolder().addPassword(new Password(CryptType.NONE,"tinder.com","nagyafal", "E.6fds+f"));
+                    model.getMainFolder().addPassword(new Password(CryptType.AES,"instagram.com2","bela", "jelszooo"));
+                    model.getMainFolder().addPassword(new Password(CryptType.SEBI,"facebook.com2","bela", "ezeegyjelszo19"));
+                    model.getMainFolder().addPassword(new Password(CryptType.SEBI,"baratnokereso.hu2","bela", "123456789"));
+                    model.getMainFolder().addPassword(new Password(CryptType.AES,"vanenet.hu2","van", "gé656"));
+                    model.getMainFolder().addPassword(new Password(CryptType.NONE,"tinder.com2","nagyafal", "E.6fds+f"));
+                    model.getMainFolder().addPassword(new Password(CryptType.AES,"instagram.com3","bela", "jelszooo"));
+                    model.getMainFolder().addPassword(new Password(CryptType.SEBI,"facebook.com3","bela", "ezeegyjelszo19"));
+                    model.getMainFolder().addPassword(new Password(CryptType.SEBI,"baratnokereso.hu3","bela", "123456789"));
+                    model.getMainFolder().addPassword(new Password(CryptType.AES,"vanenet.hu3","van", "gé656"));
+                    model.getMainFolder().addPassword(new Password(CryptType.NONE,"tinder.com3","nagyafal", "E.6fds+f"));
                     model.getMainFolder().addPassword(new Password("tiktok.com", "jelszo123"));
                     model.getMainFolder().addNote(new Note("bevásárlólista", "alma\nkörte\nbanán"));
                     model.getMainFolder().addNote(new Note(CryptType.SEBI,"nevem", "Béla vagyok"));

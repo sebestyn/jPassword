@@ -11,9 +11,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class LoginController {
-    Model model;
-    View view;
-    LoginPage loginPage;
+    final Model model;
+    final View view;
+    final LoginPage loginPage;
 
     /**
      * Konstruktor a model és a Login view-t összekötő Controllerhez

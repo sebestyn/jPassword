@@ -14,8 +14,8 @@ import java.util.Objects;
 
 public class Note {
     private CryptType cryptType = CryptType.NONE;
-    private final String name;
-    private final String note;
+    private String name;
+    private String note;
 
     public Note(String name, String note){
         this.name = Global.oneLineString(name);
@@ -36,6 +36,12 @@ public class Note {
     }
     public String getNote(){
         return note;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setNote(String note) {
+        this.note = note;
     }
 
 

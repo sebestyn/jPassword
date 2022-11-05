@@ -17,10 +17,6 @@ public class View extends JFrame {
     final DashboradPage dashboradPage = new DashboradPage();
 
     // Get
-    public Model getModel() {
-        return model;
-    }
-
     public LoginPage getLoginPage() {
         return loginPage;
     }

@@ -4,17 +4,13 @@ import javax.swing.*;
 import java.awt.*;
 
 public class LoginPage extends JPanel  {
-    public JButton getLoginButton() {
-        return loginButton;
-    }
-
-    public boolean isRegistration() {
-        return registration;
-    }
-
     final JTextField passwordInput;
     final JButton loginButton;
     boolean registration = false;
+
+    public JButton getLoginButton() {
+        return loginButton;
+    }
 
     /**
      * Login Page konstruktora: beállítja az alap elemeket megjelenítést

@@ -20,9 +20,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 
 public class DashboardController {
-    Model model;
-    View view;
-    DashboradPage dashboradPage;
+    final Model model;
+    final View view;
+    final DashboradPage dashboradPage;
 
     /**
      * Konstruktor a model és a Dashboard view-t összekötő Controllerhez
@@ -110,7 +110,7 @@ public class DashboardController {
         @Override
         public void actionPerformed(ActionEvent e) {
             String folderName = JOptionPane.showInputDialog("Új Folder neve:");
-            if(folderName.equals("passwords") || folderName.equals("notes")){
+            if(folderName.trim().equals("") || folderName.equals("passwords") || folderName.equals("notes")){
                 JOptionPane.showMessageDialog(dashboradPage, "Ilyen nevű mappát nem lehet létrehozni!");
                 return;
             }
@@ -212,15 +212,16 @@ public class DashboardController {
             if(row<0){
                 return;
             }
+            int actual_row = (dashboradPage.getTable().getRowSorter().convertRowIndexToModel(row));
             // Get page type
             DefaultMutableTreeNode node = (DefaultMutableTreeNode) dashboradPage.getFolderTree().getLastSelectedPathComponent();
             String pageType = node.toString();
             // Ha Passwords
             if(pageType.equals("passwords")){
-                String name = dashboradPage.getTable().getModel().getValueAt(row, 0).toString();
-                String username = dashboradPage.getTable().getModel().getValueAt(row, 1).toString();
-                String password = dashboradPage.getTable().getModel().getValueAt(row, 2).toString();
-                String crypt_type_string = String.valueOf(dashboradPage.getTable().getModel().getValueAt(row, 3).toString());
+                String name = dashboradPage.getTable().getModel().getValueAt(actual_row, 0).toString();
+                String username = dashboradPage.getTable().getModel().getValueAt(actual_row, 1).toString();
+                String password = dashboradPage.getTable().getModel().getValueAt(actual_row, 2).toString();
+                String crypt_type_string = String.valueOf(dashboradPage.getTable().getModel().getValueAt(actual_row, 3).toString());
                 CryptType crypt_type = CryptType.valueOf(crypt_type_string);
                 model.getActualFolder().removePassword(new Password(crypt_type, name, username, password));
                 dashboradPage.removeRightPanel();
@@ -229,9 +230,9 @@ public class DashboardController {
 
             // Ha Notes
             else if(pageType.equals("notes")){
-                String name = dashboradPage.getTable().getModel().getValueAt(row, 0).toString();
-                String note = dashboradPage.getTable().getModel().getValueAt(row, 1).toString();
-                String crypt_type_string = String.valueOf(dashboradPage.getTable().getModel().getValueAt(row, 2).toString());
+                String name = dashboradPage.getTable().getModel().getValueAt(actual_row, 0).toString();
+                String note = dashboradPage.getTable().getModel().getValueAt(actual_row, 1).toString();
+                String crypt_type_string = String.valueOf(dashboradPage.getTable().getModel().getValueAt(actual_row, 2).toString());
                 CryptType crypt_type = CryptType.valueOf(crypt_type_string);
                 model.getActualFolder().removeNote(new Note(crypt_type, name, note));
                 dashboradPage.removeRightPanel();
@@ -261,7 +262,9 @@ public class DashboardController {
 
             Password newPass = new Password(crypt_type, name, username, password);
 
-            model.getActualFolder().addPassword(newPass);
+            dashboradPage.getDataPasswords().addPassword(newPass);
+
+            //model.getActualFolder().addPassword(newPass);
             dashboradPage.removeRightPanel();
             dashboradPage.showPasswordsItem(model.getActualFolder().getPasswords());
 
@@ -285,7 +288,9 @@ public class DashboardController {
 
             Note newNote = new Note(crypt_type, name, note);
 
-            model.getActualFolder().addNote(newNote);
+            dashboradPage.getDataNotes().addNote(newNote);
+
+            //model.getActualFolder().addNote(newNote);k
             dashboradPage.removeRightPanel();
             dashboradPage.showNotesItem(model.getActualFolder().getNotes());
 

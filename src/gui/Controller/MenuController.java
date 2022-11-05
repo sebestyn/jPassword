@@ -1,8 +1,6 @@
 package gui.Controller;
 
 import gui.Model;
-import gui.View.DashboradPage;
-import gui.View.LoginPage;
 import gui.View.MenuPanel;
 import gui.View.View;
 
@@ -11,10 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MenuController {
-    Model model;
-    View view;
-    MenuPanel menuPanel;
-    DashboardController dashboardController;
+    final Model model;
+    final View view;
+    final MenuPanel menuPanel;
+    final DashboardController dashboardController;
 
     /**
      * Konstruktor a model és a Menu-t összekötő Controllerhez
@@ -28,10 +26,10 @@ public class MenuController {
         this.menuPanel = view.getMenuPanel();
 
         /* Menu */
-        view.getMenuPanel().getSaveMenu().addActionListener(new MenuSaveListener());
-        view.getMenuPanel().getLoadMenu().addActionListener(new MenuLoadListener());
-        view.getMenuPanel().getResetMenu().addActionListener(new MenuResetListener());
-        view.getMenuPanel().getResetOn3InvalidLogin().addActionListener(new MenuResetAfter3AttempsListener());
+        menuPanel.getSaveMenu().addActionListener(new MenuSaveListener());
+        menuPanel.getLoadMenu().addActionListener(new MenuLoadListener());
+        menuPanel.getResetMenu().addActionListener(new MenuResetListener());
+        menuPanel.getResetOn3InvalidLogin().addActionListener(new MenuResetAfter3AttempsListener());
     }
 
 
@@ -96,7 +94,7 @@ public class MenuController {
     class MenuResetAfter3AttempsListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            boolean isReset = view.getMenuPanel().getResetOn3InvalidLogin().isSelected();
+            boolean isReset = menuPanel.getResetOn3InvalidLogin().isSelected();
             model.getSettings().setFactoryReset(isReset);
         }
     }

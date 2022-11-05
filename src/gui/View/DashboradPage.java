@@ -15,44 +15,10 @@ public class DashboradPage extends JPanel {
     final JPanel rightPanel = new JPanel();
 
     JTree folderTree = new JTree();
+    ScrollPane scrollFolderTree = new ScrollPane();
 
-
-    public JTree getFolderTree() {
-        return folderTree;
-    }
-
-    public JButton getNewFolderButton() {
-        return newFolderButton;
-    }
-
-    public JButton getRemoveFolderButton() {
-        return removeFolderButton;
-    }
-
-    public JTable getTable() {
-        return table;
-    }
-
-    public JButton getNewItemButton() {
-        return newItemButton;
-    }
-
-    public JButton getRemoveItemButton() {
-        return removeItemButton;
-    }
-
-    public JTextField getSearchInput() {
-        return searchInput;
-    }
-
-    public PasswordInputPage getPasswordInputPage() {
-        return passwordInputPage;
-    }
-
-    public NoteInputPage getNoteInputPage() {
-        return noteInputPage;
-    }
-
+    DataPasswords dataPasswords;
+    DataNotes dataNotes;
     final JButton newFolderButton = new JButton("Új mappa");
     final JButton removeFolderButton = new JButton("Mappa törlése");
     JTable table = new JTable();
@@ -64,6 +30,39 @@ public class DashboradPage extends JPanel {
     PasswordInputPage passwordInputPage = new PasswordInputPage();
     NoteInputPage noteInputPage = new NoteInputPage();
 
+    public JTree getFolderTree() {
+        return folderTree;
+    }
+    public JButton getNewFolderButton() {
+        return newFolderButton;
+    }
+    public JButton getRemoveFolderButton() {
+        return removeFolderButton;
+    }
+    public JTable getTable() {
+        return table;
+    }
+    public JButton getNewItemButton() {
+        return newItemButton;
+    }
+    public JButton getRemoveItemButton() {
+        return removeItemButton;
+    }
+    public JTextField getSearchInput() {
+        return searchInput;
+    }
+    public PasswordInputPage getPasswordInputPage() {
+        return passwordInputPage;
+    }
+    public NoteInputPage getNoteInputPage() {
+        return noteInputPage;
+    }
+    public DataPasswords getDataPasswords() {
+        return dataPasswords;
+    }
+    public DataNotes getDataNotes() {
+        return dataNotes;
+    }
 
     public DashboradPage(){
 
@@ -73,9 +72,10 @@ public class DashboradPage extends JPanel {
         leftPanel.setLayout(new BorderLayout());
         leftPanel.setPreferredSize(new Dimension(200,100));
         leftPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
-        JPanel leftSouthPanel = new JPanel(new GridLayout(3,1));
+        JPanel leftSouthPanel = new JPanel(new GridLayout(4,1));
+        leftSouthPanel.add(Box.createRigidArea(new Dimension(0, 1)));
         leftSouthPanel.add(newFolderButton);
-        leftSouthPanel.add(Box.createRigidArea(new Dimension(0, 3)));
+        leftSouthPanel.add(Box.createRigidArea(new Dimension(0, 1)));
         leftSouthPanel.add(removeFolderButton);
         leftPanel.add(leftSouthPanel, BorderLayout.SOUTH);
 
@@ -112,37 +112,28 @@ public class DashboradPage extends JPanel {
      */
     public void showFolderListItem(Folder mainFolder) {
 
-        if(folderTree.getParent() == leftPanel){
-            leftPanel.remove(folderTree);
+        if(scrollFolderTree.getParent() == leftPanel){
+            leftPanel.remove(scrollFolderTree);
         }
 
         // Folder Tree
         DefaultMutableTreeNode root = Global.convertFolderToTreeNode(mainFolder);
         folderTree = new JTree(root);
-        leftPanel.add(folderTree, BorderLayout.NORTH);
+        scrollFolderTree = new ScrollPane();
+        scrollFolderTree.add(folderTree);
+        leftPanel.add(scrollFolderTree, BorderLayout.CENTER);
         leftPanel.repaint();
     }
 
-    private void editTable(Object[] columnNames, Object[][] datas){
-        if(scrollTable.getParent() == rightPanel){
-            leftPanel.remove(scrollTable);
-        }
+    private void showTableTools(){
+        rightPanel.removeAll();
+
         // Search input
         JPanel rightNorthPanel = new JPanel(new FlowLayout());
         rightNorthPanel.add(new JLabel("Keresés: "));
         searchInput.setPreferredSize(new Dimension(200,20));
         rightNorthPanel.add(searchInput);
         rightPanel.add(rightNorthPanel, BorderLayout.NORTH);
-
-        // Password-Note Table
-        table = new JTable(datas, columnNames);
-        table.setAutoCreateRowSorter(true);
-        table.setDefaultEditor(Object.class, null);
-        table.setShowHorizontalLines(true);
-        table.setGridColor(Color.orange);
-        table.setRowSelectionAllowed(true);
-        scrollTable = new JScrollPane(table);
-        rightPanel.add(scrollTable, BorderLayout.CENTER);
 
         // Buttons
         JPanel itemButtons = new JPanel(new FlowLayout());
@@ -158,10 +149,13 @@ public class DashboradPage extends JPanel {
      * @param passwords jelszavak
      */
     public void showPasswordsItem(HashSet<Password> passwords){
-        Object[] columnNames = {"Name", "Username", "Password", "Encryption"};
-        //DataPasswords dataPasswords = new DataPasswords(passwords);
-        Object[][] datas = Global.convertPasswordHashSetToObjectArrays(passwords);
-        editTable(columnNames, datas);
+        showTableTools();
+        dataPasswords = new DataPasswords(passwords);
+        table = new JTable(dataPasswords);
+        table.setAutoCreateRowSorter(true);
+        table.setFillsViewportHeight(true);
+        scrollTable = new JScrollPane(table);
+        rightPanel.add(scrollTable, BorderLayout.CENTER);
     }
 
     /**
@@ -169,9 +163,13 @@ public class DashboradPage extends JPanel {
      * @param notes feljegyzések
      */
     public void showNotesItem(HashSet<Note> notes){
-        Object[] columnNames = {"Name", "Note", "Encryption"};
-        Object[][] datas = Global.convertNotedHashSetToObjectArrays(notes);
-        editTable(columnNames, datas);
+        showTableTools();
+        dataNotes = new DataNotes(notes);
+        table = new JTable(dataNotes);
+        table.setAutoCreateRowSorter(true);
+        table.setFillsViewportHeight(true);
+        scrollTable = new JScrollPane(table);
+        rightPanel.add(scrollTable, BorderLayout.CENTER);
     }
 
 
