@@ -18,13 +18,13 @@ public class NoteInputPage extends JPanel{
         this.setLayout(new GridLayout(6,1));
 
         JPanel sor1 = new JPanel(new FlowLayout());
-        sor1.add(new JLabel("Név"));
+        sor1.add(new JLabel("Név*"));
         nameInput.setPreferredSize(new Dimension(150, 20));
         sor1.add(nameInput);
         this.add(sor1);
 
         JPanel sor2 = new JPanel(new FlowLayout());
-        sor2.add(new JLabel("Leírás:"));
+        sor2.add(new JLabel("Leírás*:"));
         noteInput.setPreferredSize(new Dimension(150, 20));
         sor2.add(noteInput);
         this.add(sor2);

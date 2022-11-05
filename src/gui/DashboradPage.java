@@ -73,7 +73,9 @@ public class DashboradPage extends JPanel {
             leftPanel.remove(scrollTable);
         }
         // Search input
-        JPanel rightNorthPanel = new JPanel(new GridLayout(1,1));
+        JPanel rightNorthPanel = new JPanel(new FlowLayout());
+        rightNorthPanel.add(new JLabel("Keresés: "));
+        searchInput.setPreferredSize(new Dimension(200,20));
         rightNorthPanel.add(searchInput);
         rightPanel.add(rightNorthPanel, BorderLayout.NORTH);
 

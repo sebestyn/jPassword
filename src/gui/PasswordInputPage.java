@@ -19,7 +19,7 @@ public class PasswordInputPage extends JPanel {
         this.setLayout(new GridLayout(6,1));
 
         JPanel sor1 = new JPanel(new FlowLayout());
-        sor1.add(new JLabel("Név"));
+        sor1.add(new JLabel("Név*"));
         nameInput.setPreferredSize(new Dimension(150, 20));
         sor1.add(nameInput);
         this.add(sor1);
@@ -31,7 +31,7 @@ public class PasswordInputPage extends JPanel {
         this.add(sor2);
 
         JPanel sor3 = new JPanel(new FlowLayout());
-        sor3.add(new JLabel("Jelszó:"));
+        sor3.add(new JLabel("Jelszó*:"));
         passwordInput.setPreferredSize(new Dimension(150, 20));
         sor3.add(passwordInput);
         this.add(sor3);
