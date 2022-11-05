@@ -1,6 +1,8 @@
-package gui;
+package gui.View;
 
 import dataTypes.Folder;
+import gui.Model;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.WindowAdapter;
@@ -9,9 +11,28 @@ import java.awt.event.WindowEvent;
 public class View extends JFrame {
 
     final Model model;
+
     final LoginPage loginPage = new LoginPage();
     final MenuPanel menuPanel = new MenuPanel();
     final DashboradPage dashboradPage = new DashboradPage();
+
+    // Get
+    public Model getModel() {
+        return model;
+    }
+
+    public LoginPage getLoginPage() {
+        return loginPage;
+    }
+
+    public MenuPanel getMenuPanel() {
+        return menuPanel;
+    }
+
+    public DashboradPage getDashboradPage() {
+        return dashboradPage;
+    }
+
 
     /**
      * Konstruktor a View megjelenítő ablakhoz
@@ -86,7 +107,7 @@ public class View extends JFrame {
      */
     public void toggleMenuPanel(boolean visible) {
         if(visible){
-            menuPanel.init(model.settings);
+            menuPanel.init(model.getSettings());
             this.setJMenuBar(menuPanel);
         } else {
             this.setJMenuBar(null);

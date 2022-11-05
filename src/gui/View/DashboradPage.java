@@ -1,8 +1,9 @@
-package gui;
+package gui.View;
 
 import dataTypes.Folder;
 import dataTypes.Note;
 import dataTypes.Password;
+import gui.Global;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -14,6 +15,44 @@ public class DashboradPage extends JPanel {
     final JPanel rightPanel = new JPanel();
 
     JTree folderTree = new JTree();
+
+
+    public JTree getFolderTree() {
+        return folderTree;
+    }
+
+    public JButton getNewFolderButton() {
+        return newFolderButton;
+    }
+
+    public JButton getRemoveFolderButton() {
+        return removeFolderButton;
+    }
+
+    public JTable getTable() {
+        return table;
+    }
+
+    public JButton getNewItemButton() {
+        return newItemButton;
+    }
+
+    public JButton getRemoveItemButton() {
+        return removeItemButton;
+    }
+
+    public JTextField getSearchInput() {
+        return searchInput;
+    }
+
+    public PasswordInputPage getPasswordInputPage() {
+        return passwordInputPage;
+    }
+
+    public NoteInputPage getNoteInputPage() {
+        return noteInputPage;
+    }
+
     final JButton newFolderButton = new JButton("Új mappa");
     final JButton removeFolderButton = new JButton("Mappa törlése");
     JTable table = new JTable();
@@ -30,8 +69,8 @@ public class DashboradPage extends JPanel {
 
         this.setLayout(new BorderLayout());
 
+        // Left Panel
         leftPanel.setLayout(new BorderLayout());
-        //leftPanel.setBackground(Color.red);
         leftPanel.setPreferredSize(new Dimension(200,100));
         leftPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
         JPanel leftSouthPanel = new JPanel(new GridLayout(3,1));
@@ -40,15 +79,31 @@ public class DashboradPage extends JPanel {
         leftSouthPanel.add(removeFolderButton);
         leftPanel.add(leftSouthPanel, BorderLayout.SOUTH);
 
-        //rightPanel.setLayout(new GridLayout(1,1));
+        // Right Panel
         rightPanel.setLayout(new BorderLayout());
         rightPanel.setBackground(new Color(141, 137, 203));
         rightPanel.setPreferredSize(new Dimension(100,100));
         rightPanel.setBorder(BorderFactory.createEmptyBorder(10,10,10,10));
+        showTempOpenFileText();
 
         this.add(leftPanel, BorderLayout.WEST);
         this.add(rightPanel, BorderLayout.CENTER);
 
+    }
+
+    public void showTempOpenFileText(){
+        JLabel title = new JLabel("Nyiss meg egy fájlt baloldalt kétszer kattintva");
+        ImageIcon logo = new ImageIcon("./doc/logo/100x100.png");
+        title.setIcon(logo);
+        title.setFont(new Font("Calibri", Font.BOLD, 20));
+        title.setVerticalTextPosition(JLabel.BOTTOM);
+        title.setHorizontalTextPosition(JLabel.CENTER);
+        title.setBackground(new Color(141, 137, 203));
+        title.setOpaque(true);
+        title.setVerticalAlignment(JLabel.BOTTOM);
+        title.setHorizontalAlignment(JLabel.CENTER);
+        this.removeRightPanel();
+        rightPanel.add(title, BorderLayout.NORTH);
     }
 
     /**
@@ -104,6 +159,7 @@ public class DashboradPage extends JPanel {
      */
     public void showPasswordsItem(HashSet<Password> passwords){
         Object[] columnNames = {"Name", "Username", "Password", "Encryption"};
+        //DataPasswords dataPasswords = new DataPasswords(passwords);
         Object[][] datas = Global.convertPasswordHashSetToObjectArrays(passwords);
         editTable(columnNames, datas);
     }

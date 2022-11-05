@@ -1,9 +1,17 @@
-package gui;
+package gui.View;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class LoginPage extends JPanel  {
+    public JButton getLoginButton() {
+        return loginButton;
+    }
+
+    public boolean isRegistration() {
+        return registration;
+    }
+
     final JTextField passwordInput;
     final JButton loginButton;
     boolean registration = false;

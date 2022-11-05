@@ -1,6 +1,6 @@
-import gui.Controller;
+import gui.Controller.Controller;
 import gui.Model;
-import gui.View;
+import gui.View.View;
 
 import java.io.IOException;
 

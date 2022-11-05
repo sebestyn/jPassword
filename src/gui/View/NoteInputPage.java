@@ -1,4 +1,4 @@
-package gui;
+package gui.View;
 
 import crypt.CryptType;
 
@@ -7,6 +7,22 @@ import java.awt.*;
 import java.util.stream.Stream;
 
 public class NoteInputPage extends JPanel{
+
+    public JTextField getNameInput() {
+        return nameInput;
+    }
+
+    public JTextField getNoteInput() {
+        return noteInput;
+    }
+
+    public JComboBox<String> getCryptType_list() {
+        return cryptType_list;
+    }
+
+    public JButton getSaveButton() {
+        return saveButton;
+    }
 
     final JTextField nameInput = new JTextField();
     final JTextField noteInput = new JTextField();

@@ -16,6 +16,10 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 public class Model {
+    public Settings getSettings() {
+        return settings;
+    }
+
     final Settings settings;
     private final String mainFolderPath = "./data";
     private final MasterPassword masterPassword;
