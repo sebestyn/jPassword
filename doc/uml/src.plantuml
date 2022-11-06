@@ -1,0 +1,389 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class AES {
+  + AES(): 
+  - KEY_SIZE: int
+  - key: SecretKey
+  - T_LEN: int
+  - IV: byte[]
+  + init(MasterPassword): void
+  + generateKey(MasterPassword): SecretKey
+  + encrypt(String): String
+  - decode(String): byte[]
+  + decrypt(String): String
+  - encode(byte[]): String
+}
+class App {
+  + App(): 
+  ~ model: Model
+  + runGUI(): void
+  + runConsole(): void
+}
+class ConsoleApp {
+  + ConsoleApp(Model): 
+  ~ reader: BufferedReader
+  ~ model: Model
+  + run(): void
+  - auth(): void
+}
+class Controller {
+  + Controller(Model, View): 
+}
+class Crypt {
+  + Crypt(): 
+  + encrypt(CryptType, String): String
+  + init(MasterPassword): void
+  + decrypt(CryptType, String): String
+}
+enum CryptType << enumeration >> {
+  + CryptType(): 
+  + NONE: 
+  + SHA256: 
+  + SEBI: 
+  + AES: 
+  + values(): CryptType[]
+  + valueOf(String): CryptType
+}
+class CryptoException {
+  ~ CryptoException(String): 
+}
+class DashboardController {
+  + DashboardController(Model, View): 
+  ~ model: Model
+  ~ view: View
+  ~ dashboradPage: DashboradPage
+  + resetFolderItemSelectListener(): void
+}
+class DashboradPage {
+  + DashboradPage(): 
+  ~ scrollFolderTree: ScrollPane
+  ~ newFolderButton: JButton
+  ~ passwordInputPage: PasswordInputPage
+  ~ table: JTable
+  ~ dataNotes: DataNotes
+  ~ removeFolderButton: JButton
+  ~ searchInput: JTextField
+  ~ rightPanel: JPanel
+  ~ leftPanel: JPanel
+  ~ removeItemButton: JButton
+  ~ scrollTable: JScrollPane
+  ~ dataPasswords: DataPasswords
+  ~ noteInputPage: NoteInputPage
+  ~ folderTree: JTree
+  ~ newItemButton: JButton
+  + getRemoveItemButton(): JButton
+  + showFolderListItem(Folder): void
+  - showTableTools(): void
+  + showPasswordsItem(HashSet<Password>): void
+  + getFolderTree(): JTree
+  + getDataNotes(): DataNotes
+  + showTempOpenFileText(): void
+  + getPasswordInputPage(): PasswordInputPage
+  + getTable(): JTable
+  + removeRightPanel(): void
+  + getNoteInputPage(): NoteInputPage
+  + getDataPasswords(): DataPasswords
+  + getRemoveFolderButton(): JButton
+  + getNewFolderButton(): JButton
+  + getNewItemButton(): JButton
+  + getSearchInput(): JTextField
+  + showNewPasswordPage(): void
+  + showNewNotePage(): void
+  + showNotesItem(HashSet<Note>): void
+}
+class DataNotes {
+  + DataNotes(HashSet<Note>): 
+  ~ notesList: ArrayList<Note>
+  ~ notes: HashSet<Note>
+  + getRowCount(): int
+  + getValueAt(int, int): Object
+  + addNote(Note): void
+  + getColumnCount(): int
+  + setValueAt(Object, int, int): void
+  + getColumnName(int): String
+  + isCellEditable(int, int): boolean
+}
+class DataPasswords {
+  + DataPasswords(HashSet<Password>): 
+  ~ passwordsList: ArrayList<Password>
+  ~ passwords: HashSet<Password>
+  + isCellEditable(int, int): boolean
+  + getRowCount(): int
+  + getColumnCount(): int
+  + addPassword(Password): void
+  + getColumnName(int): String
+  + getValueAt(int, int): Object
+  + setValueAt(Object, int, int): void
+}
+class Folder {
+  + Folder(String, Folder): 
+  - folders: HashSet<Folder>
+  - notes: HashSet<Note>
+  - passwords: HashSet<Password>
+  - forderName: String
+  - parentFolder: Folder
+  + getFolder(String): Folder
+  + toString(): String
+  + addNote(Note): void
+  + getParentFolder(): Folder
+  + removeNote(Note): void
+  + makeEmpty(): void
+  + removePassword(Password): void
+  + save(String): void
+  + list(String): void
+  + addPassword(Password): void
+  + addFolder(Folder): void
+  + getNotes(): HashSet<Note>
+  + searchNote(String): HashSet<Note>
+  + getName(): String
+  + equals(Object): boolean
+  + load(String): void
+  + getPasswords(): HashSet<Password>
+  - deleteDir(File): void
+  + removeFolder(Folder): void
+  + getFolders(): HashSet<Folder>
+  + searchPassword(String): HashSet<Password>
+  + hashCode(): int
+}
+class Global {
+  + Global(): 
+  + convertFolderToTreeNode(Folder): DefaultMutableTreeNode
+}
+class Global {
+  + Global(): 
+  + oneLineString(String): String
+}
+class LoginController {
+  + LoginController(Model, View): 
+  ~ model: Model
+  ~ view: View
+  ~ loginPage: LoginPage
+  - runRegistration(): void
+  - runLogin(): void
+  - runDashboard(): void
+}
+class LoginPage {
+  + LoginPage(): 
+  ~ passwordInput: JTextField
+  ~ loginButton: JButton
+  ~ registration: boolean
+  + setToRegistration(): void
+  + getRegistration(): boolean
+  + getLoginButton(): JButton
+  + getPasswordInput(): JTextField
+}
+class Main {
+  + Main(): 
+  + main(String[]): void
+}
+class MasterPassword {
+  + MasterPassword(String, String): 
+  + MasterPassword(String): 
+  ~ cryptType: CryptType
+  ~ value: String
+  ~ filePath: String
+  + removePassword(): void
+  + savePassword(): void
+  + setValue(String): void
+  + getValue(): String
+  + isInputEqualsHash(String, String): boolean
+  + loadPassword(): String
+  + isAlreadyExist(): boolean
+}
+class MenuController {
+  + MenuController(Model, View, DashboardController): 
+  ~ model: Model
+  ~ menuPanel: MenuPanel
+  ~ dashboardController: DashboardController
+  ~ view: View
+}
+class MenuPanel {
+  + MenuPanel(): 
+  ~ saveMenu: JMenuItem
+  ~ resetMenu: JMenuItem
+  ~ loadMenu: JMenuItem
+  ~ resetOn3InvalidLogin: JRadioButtonMenuItem
+  + getSaveMenu(): JMenuItem
+  + getResetOn3InvalidLogin(): JRadioButtonMenuItem
+  + getLoadMenu(): JMenuItem
+  + init(Settings): void
+  + getResetMenu(): JMenuItem
+}
+class Model {
+  + Model(): 
+  - mainFolderPath: String
+  - mainFolder: Folder
+  ~ settings: Settings
+  - loginAttemp: int
+  - masterPassword: MasterPassword
+  - actualFolder: Folder
+  + need_to_regigster(): boolean
+  + getActualFolder(): Folder
+  + getMainFolderPath(): String
+  + setActualFolder(Folder): void
+  + getSettings(): Settings
+  + getMasterPassword(): MasterPassword
+  + getMainFolder(): Folder
+  + register(String): void
+  + loadData(String): void
+  + login(String): String
+  + factoryReset(): void
+  + saveData(): void
+}
+class Note {
+  + Note(String, String): 
+  + Note(CryptType, String, String): 
+  - name: String
+  - note: String
+  - cryptType: CryptType
+  + getEncrypted(): String
+  + toString(): String
+  + setNote(String): void
+  + getNote(): String
+  + equals(Object): boolean
+  + hashCode(): int
+  + getName(): String
+  + setName(String): void
+  + getCryptType(): CryptType
+}
+class NoteInputPage {
+  + NoteInputPage(): 
+  ~ noteInput: JTextField
+  ~ cryptType_list: JComboBox<String>
+  ~ nameInput: JTextField
+  ~ saveButton: JButton
+  + getSaveButton(): JButton
+  + getCryptType_list(): JComboBox<String>
+  + getNoteInput(): JTextField
+  + getNameInput(): JTextField
+}
+class Password {
+  + Password(CryptType, String, String, String): 
+  + Password(String, String): 
+  + Password(CryptType, String, String): 
+  - password: String
+  - name: String
+  - username: String
+  - cryptType: CryptType
+  + setUsername(String): void
+  + getUsername(): String
+  + hashCode(): int
+  + getPassword(): String
+  + setName(String): void
+  + toString(): String
+  + setPassword(String): void
+  + getEncrypted(): String
+  + getCryptType(): CryptType
+  + getName(): String
+  + equals(Object): boolean
+}
+class PasswordInputPage {
+  + PasswordInputPage(): 
+  ~ cryptType_list: JComboBox<String>
+  ~ saveButton: JButton
+  ~ nameInput: JTextField
+  ~ passwordInput: JTextField
+  ~ usernameInput: JTextField
+  + getCryptType_list(): JComboBox<String>
+  + getPasswordInput(): JTextField
+  + getNameInput(): JTextField
+  + getUsernameInput(): JTextField
+  + getSaveButton(): JButton
+}
+class SEBI {
+  + SEBI(): 
+  ~ key: String
+  + decrypt(String): String
+  + encrypt(String): String
+  + init(MasterPassword): void
+}
+class SHA256 {
+  + SHA256(): 
+  + decrypt(String): String
+  + encrypt(String): String
+  - toHexString(byte[]): String
+  - getSHA(String): byte[]
+}
+class Settings {
+  + Settings(String): 
+  - filePath: String
+  - factoryReset: boolean
+  + getFactoryReset(): boolean
+  + save(): void
+  + setFactoryReset(boolean): void
+  + load(): void
+}
+class View {
+  + View(Model): 
+  ~ loginPage: LoginPage
+  ~ dashboradPage: DashboradPage
+  ~ model: Model
+  ~ menuPanel: MenuPanel
+  + getMenuPanel(): MenuPanel
+  + getLoginPage(): LoginPage
+  + toggleDashboardPage(boolean, Folder): void
+  + toggleMenuPanel(boolean): void
+  + toggleLoginPage(boolean): void
+  + clear(): void
+  + getDashboradPage(): DashboradPage
+}
+
+App                  -[#595959,dashed]->  ConsoleApp          : "«create»"
+App                  -[#595959,dashed]->  Controller          : "«create»"
+App                  -[#595959,dashed]->  Model               : "«create»"
+App                 "1" *-[#595959,plain]-> "model\n1" Model               
+App                  -[#595959,dashed]->  View                : "«create»"
+ConsoleApp           -[#595959,dashed]->  Folder              : "«create»"
+ConsoleApp          "1" *-[#595959,plain]-> "model\n1" Model               
+ConsoleApp           -[#595959,dashed]->  Note                : "«create»"
+ConsoleApp           -[#595959,dashed]->  Password            : "«create»"
+Controller           -[#595959,dashed]->  LoginController     : "«create»"
+DashboardController "1" *-[#595959,plain]-> "dashboradPage\n1" DashboradPage       
+DashboardController "1" *-[#595959,plain]-> "model\n1" Model               
+DashboardController "1" *-[#595959,plain]-> "view\n1" View                
+DashboradPage       "1" *-[#595959,plain]-> "dataNotes\n1" DataNotes           
+DashboradPage        -[#595959,dashed]->  DataNotes           : "«create»"
+DashboradPage       "1" *-[#595959,plain]-> "dataPasswords\n1" DataPasswords       
+DashboradPage        -[#595959,dashed]->  DataPasswords       : "«create»"
+DashboradPage        -[#595959,dashed]->  NoteInputPage       : "«create»"
+DashboradPage       "1" *-[#595959,plain]-> "noteInputPage\n1" NoteInputPage       
+DashboradPage       "1" *-[#595959,plain]-> "passwordInputPage\n1" PasswordInputPage   
+DashboradPage        -[#595959,dashed]->  PasswordInputPage   : "«create»"
+DataNotes           "1" *-[#595959,plain]-> "notesList\n*" Note                
+DataPasswords       "1" *-[#595959,plain]-> "passwordsList\n*" Password            
+Folder               -[#595959,dashed]->  Note                : "«create»"
+Folder              "1" *-[#595959,plain]-> "notes\n*" Note                
+Folder               -[#595959,dashed]->  Password            : "«create»"
+Folder              "1" *-[#595959,plain]-> "passwords\n*" Password            
+LoginController      -[#595959,dashed]->  DashboardController : "«create»"
+LoginController     "1" *-[#595959,plain]-> "loginPage\n1" LoginPage           
+LoginController      -[#595959,dashed]->  MenuController      : "«create»"
+LoginController     "1" *-[#595959,plain]-> "model\n1" Model               
+LoginController     "1" *-[#595959,plain]-> "view\n1" View                
+Main                 -[#595959,dashed]->  App                 : "«create»"
+MasterPassword      "1" *-[#595959,plain]-> "cryptType\n1" CryptType           
+MenuController      "1" *-[#595959,plain]-> "dashboardController\n1" DashboardController 
+MenuController      "1" *-[#595959,plain]-> "menuPanel\n1" MenuPanel           
+MenuController      "1" *-[#595959,plain]-> "model\n1" Model               
+MenuController      "1" *-[#595959,plain]-> "view\n1" View                
+Model               "1" *-[#595959,plain]-> "mainFolder\n1" Folder              
+Model                -[#595959,dashed]->  Folder              : "«create»"
+Model               "1" *-[#595959,plain]-> "masterPassword\n1" MasterPassword      
+Model                -[#595959,dashed]->  MasterPassword      : "«create»"
+Model               "1" *-[#595959,plain]-> "settings\n1" Settings            
+Model                -[#595959,dashed]->  Settings            : "«create»"
+Note                "1" *-[#595959,plain]-> "cryptType\n1" CryptType           
+Password            "1" *-[#595959,plain]-> "cryptType\n1" CryptType           
+SHA256               -[#595959,dashed]->  CryptoException     : "«create»"
+View                "1" *-[#595959,plain]-> "dashboradPage\n1" DashboradPage       
+View                 -[#595959,dashed]->  DashboradPage       : "«create»"
+View                "1" *-[#595959,plain]-> "loginPage\n1" LoginPage           
+View                 -[#595959,dashed]->  LoginPage           : "«create»"
+View                 -[#595959,dashed]->  MenuPanel           : "«create»"
+View                "1" *-[#595959,plain]-> "menuPanel\n1" MenuPanel           
+View                "1" *-[#595959,plain]-> "model\n1" Model               
+@enduml

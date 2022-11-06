@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/Zsolt Sebestyén/Videos/filerun/3_felev/prog3/HF/jPassword/src</OriginalElement>
+  <nodes>
+    <node x="1918.5315663554386" y="1131.7394760849738">crypt.CryptoException</node>
+    <node x="3451.367650075699" y="747.430113735262">gui.View.DataPasswords</node>
+    <node x="555.4876067675109" y="1063.0415944220056">gui.Controller.DashboardController</node>
+    <node x="1214.394015230073" y="1422.657101982785">dataTypes.Password</node>
+    <node x="929.8837578571222" y="-2.1356742070158248">gui.View.DashboradPage</node>
+    <node x="3541.4388980051936" y="1078.163947730708">dataTypes.Settings</node>
+    <node x="3011.2829836684355" y="1341.8508284171562">crypt.SHA256</node>
+    <node x="4348.787476626136" y="945.6766609470437">ConsoleApp</node>
+    <node x="888.4704103995339" y="1208.0419201787747">gui.View.NoteInputPage</node>
+    <node x="873.4810828926979" y="864.8021046617756">gui.View.PasswordInputPage</node>
+    <node x="175.929897760043" y="1001.388079745243">gui.View.MenuPanel</node>
+    <node x="2662.7454210485703" y="1175.233880037696">dataTypes.Folder</node>
+    <node x="3015.5513765349415" y="1123.006481198341">crypt.SEBI</node>
+    <node x="3792.674087448696" y="876.7546746095574">App</node>
+    <node x="1259.2936518969088" y="1263.5503460073965">gui.Controller.Controller</node>
+    <node x="4009.283165943236" y="730.100831552031">dataTypes.MasterPassword</node>
+    <node x="2161.4131528510343" y="1008.6967653804246">crypt.Crypt</node>
+    <node x="546.8369700755329" y="658.8791238252937">crypt.AES</node>
+    <node x="2473.967356165004" y="903.036368373821">gui.Controller.LoginController</node>
+    <node x="237.30138223067564" y="691.1178119859412">gui.View.LoginPage</node>
+    <node x="2757.9066519625185" y="590.6367827846183">gui.Model</node>
+    <node x="3263.6427019392863" y="1063.9178300688611">dataTypes.Note</node>
+    <node x="3814.714255979733" y="1099.271454448201">Main</node>
+    <node x="2331.4471030830255" y="691.2738952715516">gui.Controller.MenuController</node>
+    <node x="4063.907850001945" y="1108.1442610920856">gui.View.DataNotes</node>
+    <node x="1200.0953131845483" y="1069.8773437413015">gui.Global</node>
+    <node x="1895.4766792219232" y="885.8563333931729">dataTypes.Global</node>
+    <node x="1553.0583936317655" y="1256.3307386651759">gui.View.View</node>
+    <node x="1647.818282380774" y="1004.9752369553858">crypt.CryptType</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="gui.Model" target="dataTypes.MasterPassword" relationship="TO_ONE">
+      <point x="125.5" y="-210.63678278461828" />
+      <point x="4144.783165943236" y="607.0" />
+      <point x="0.0" y="-150.0" />
+    </edge>
+    <edge source="gui.Controller.MenuController" target="gui.Controller.DashboardController" relationship="TO_ONE">
+      <point x="0.0" y="-72.0" />
+      <point x="2495.4471030830255" y="-19.635674207015825" />
+      <point x="830.3369700755329" y="-19.635674207015825" />
+      <point x="830.3369700755329" y="1120.3020000000001" />
+      <point x="121.0" y="-15.739594422005553" />
+    </edge>
+    <edge source="App" target="gui.Controller.Controller" relationship="CREATE">
+      <point x="-67.95983146896288" y="62.0" />
+      <point x="3797.214255979733" y="1917.157" />
+      <point x="1509.894015230073" y="1917.157" />
+      <point x="1509.894015230073" y="1305.5503460073965" />
+      <point x="90.5" y="15.0" />
+    </edge>
+    <edge source="App" target="gui.View.View" relationship="CREATE">
+      <point x="15.0" y="-62.0" />
+      <point x="3880.174087448696" y="712.600831552031" />
+      <point x="4582.287476626136" y="712.600831552031" />
+      <point x="4582.287476626136" y="1962.157" />
+      <point x="1650.558" y="1962.157" />
+      <point x="-47.50039363176552" y="150.0000000000001" />
+    </edge>
+    <edge source="gui.Controller.DashboardController" target="gui.View.DashboradPage" relationship="TO_ONE">
+      <point x="3.932324891593453E-4" y="73.00040557799446" />
+      <point x="676.488" y="1459.542" />
+      <point x="1196.894" y="1459.542" />
+      <point x="1196.894" y="1187.0" />
+      <point x="1182.595" y="1187.0" />
+      <point x="101.71124214287784" y="402.9996742070158" />
+    </edge>
+    <edge source="dataTypes.Password" target="crypt.CryptType" relationship="TO_ONE">
+      <point x="138.9999847699271" y="-1.0198278505413327E-4" />
+      <point x="1835.558" y="1638.657" />
+      <point x="1835.558" y="1856.0" />
+      <point x="1877.977" y="1856.0" />
+      <point x="1877.977" y="1099.975" />
+      <point x="92.49971761922598" y="-2.3695538573065278E-4" />
+    </edge>
+    <edge source="gui.View.View" target="gui.View.MenuPanel" relationship="CREATE">
+      <point x="-32.50039363176552" y="150.0000000000001" />
+      <point x="1665.558" y="1932.157" />
+      <point x="128.43" y="1932.157" />
+      <point x="128.43" y="1129.388079745243" />
+      <point x="-159.5" y="0.0" />
+    </edge>
+    <edge source="dataTypes.Note" target="crypt.CryptType" relationship="TO_ONE">
+      <point x="2.9806071370330756E-4" y="172.00016993113888" />
+      <point x="3372.143" y="1856.0" />
+      <point x="1877.977" y="1856.0" />
+      <point x="1877.977" y="1099.975" />
+      <point x="92.49971761922598" y="-2.3695538573065278E-4" />
+    </edge>
+    <edge source="gui.View.DashboradPage" target="gui.View.PasswordInputPage" relationship="CREATE">
+      <point x="-74.90267496442425" y="403.0" />
+      <point x="0.0" y="-139.0" />
+    </edge>
+    <edge source="gui.Controller.MenuController" target="gui.Model" relationship="TO_ONE">
+      <point x="-1.0308302535122493E-4" y="72.00010472844838" />
+      <point x="2495.447" y="861.0" />
+      <point x="2722.0" y="861.0" />
+      <point x="2722.0" y="817.637" />
+      <point x="-125.49965196251833" y="2.1721538172414512E-4" />
+    </edge>
+    <edge source="gui.Controller.LoginController" target="gui.Controller.MenuController" relationship="CREATE">
+      <point x="0.0" y="-95.0" />
+      <point x="84.02025308197835" y="72.0" />
+    </edge>
+    <edge source="gui.View.DashboradPage" target="gui.View.DataPasswords" relationship="TO_ONE">
+      <point x="0.0" y="-403.0" />
+      <point x="1080.8837578571222" y="-49.635674207015825" />
+      <point x="3592.868" y="-49.635674207015825" />
+      <point x="15.000349924300735" y="-128.0" />
+    </edge>
+    <edge source="gui.View.DashboradPage" target="gui.View.NoteInputPage" relationship="TO_ONE">
+      <point x="-151.0" y="-15.0" />
+      <point x="514.3369700755329" y="385.8643257929842" />
+      <point x="514.3369700755329" y="1340.0419201787747" />
+      <point x="-132.5" y="15.0" />
+    </edge>
+    <edge source="gui.Model" target="dataTypes.Folder" relationship="CREATE">
+      <point x="125.50034803748167" y="2.1721538172414512E-4" />
+      <point x="3181.051" y="817.637" />
+      <point x="3181.051" y="652.0" />
+      <point x="3246.143" y="652.0" />
+      <point x="3246.143" y="1503.351" />
+      <point x="143.4995789514296" y="2.1171199623040593" />
+    </edge>
+    <edge source="gui.View.DataPasswords" target="dataTypes.Password" relationship="TO_MANY">
+      <point x="3.49924300735438E-4" y="-128.00011373526206" />
+      <point x="3577.868" y="573.137" />
+      <point x="2116.032" y="573.137" />
+      <point x="2116.032" y="1242.0" />
+      <point x="1241.794" y="1242.0" />
+      <point x="-111.60001523007281" y="-216.00010198278494" />
+    </edge>
+    <edge source="dataTypes.Folder" target="dataTypes.Note" relationship="TO_MANY">
+      <point x="143.4995789514296" y="17.11711996230406" />
+      <point x="3357.143" y="1518.351" />
+      <point x="-14.999701939286297" y="172.00016993113888" />
+    </edge>
+    <edge source="gui.Controller.MenuController" target="gui.View.MenuPanel" relationship="TO_ONE">
+      <point x="-164.00010308302535" y="-14.999895271551622" />
+      <point x="1861.0" y="748.274" />
+      <point x="1861.0" y="1573.831" />
+      <point x="1695.558" y="1573.831" />
+      <point x="1695.558" y="1872.157" />
+      <point x="335.43" y="1872.157" />
+      <point x="1.0223995701608146E-4" y="127.99992025475706" />
+    </edge>
+    <edge source="ConsoleApp" target="dataTypes.Note" relationship="CREATE">
+      <point x="14.999523373864577" y="73.00033905295629" />
+      <point x="4449.287" y="1432.0" />
+      <point x="3387.143" y="1432.0" />
+      <point x="15.000298060713703" y="172.00016993113888" />
+    </edge>
+    <edge source="gui.Controller.LoginController" target="gui.View.LoginPage" relationship="TO_ONE">
+      <point x="-3.561650037227082E-4" y="94.99963162617894" />
+      <point x="2579.467" y="1226.0" />
+      <point x="1908.0" y="1226.0" />
+      <point x="1908.0" y="1887.157" />
+      <point x="158.43" y="1887.157" />
+      <point x="158.43" y="797.1179999999999" />
+      <point x="-104.50038223067565" y="1.8801405877866273E-4" />
+    </edge>
+    <edge source="crypt.SHA256" target="crypt.CryptoException" relationship="CREATE">
+      <point x="-95.0" y="0.0" />
+      <point x="2982.2454210485703" y="1413.8508284171562" />
+      <point x="2982.2454210485703" y="1157.733880037696" />
+      <point x="89.99999999999977" y="-1.005596047277777" />
+    </edge>
+    <edge source="dataTypes.Folder" target="dataTypes.Note" relationship="CREATE">
+      <point x="143.4995789514296" y="-176.88288003769605" />
+      <point x="3231.143" y="1324.351" />
+      <point x="3231.143" y="1432.0" />
+      <point x="3387.143" y="1432.0" />
+      <point x="15.000298060713703" y="172.00016993113888" />
+    </edge>
+    <edge source="gui.View.DashboradPage" target="gui.View.DataPasswords" relationship="CREATE">
+      <point x="15.0" y="-403.0" />
+      <point x="1095.8837578571222" y="-64.63567420701582" />
+      <point x="3607.868" y="-64.63567420701582" />
+      <point x="30.000349924300735" y="-128.0" />
+    </edge>
+    <edge source="dataTypes.Folder" target="dataTypes.Password" relationship="CREATE">
+      <point x="-4.210485703879385E-4" y="326.00011996230387" />
+      <point x="2806.245" y="1872.0" />
+      <point x="3130.5" y="1872.0" />
+      <point x="3130.5" y="1902.157" />
+      <point x="1353.394" y="1902.157" />
+      <point x="-1.5230072904159897E-5" y="215.99989801721495" />
+    </edge>
+    <edge source="gui.View.DataNotes" target="dataTypes.Note" relationship="TO_MANY">
+      <point x="1.499980553489877E-4" y="127.99973890791443" />
+      <point x="4172.908" y="1456.0" />
+      <point x="3357.143" y="1456.0" />
+      <point x="-14.999701939286297" y="172.00016993113888" />
+    </edge>
+    <edge source="gui.View.DashboradPage" target="gui.View.PasswordInputPage" relationship="TO_ONE">
+      <point x="0.0" y="403.0" />
+      <point x="74.90267496442425" y="-139.0" />
+    </edge>
+    <edge source="gui.View.View" target="gui.View.DashboradPage" relationship="CREATE">
+      <point x="-82.74039363176553" y="-150.0" />
+      <point x="1615.318" y="400.8643257929842" />
+      <point x="151.0" y="0.0" />
+    </edge>
+    <edge source="App" target="gui.Model" relationship="TO_ONE">
+      <point x="-8.744869592192117E-5" y="62.00032539044264" />
+      <point x="3865.174" y="1048.0" />
+      <point x="3196.051" y="1048.0" />
+      <point x="3196.051" y="1071.4180000000001" />
+      <point x="2722.0" y="1071.4180000000001" />
+      <point x="2722.0" y="817.637" />
+      <point x="-125.49965196251833" y="2.1721538172414512E-4" />
+    </edge>
+    <edge source="gui.Controller.Controller" target="gui.Controller.LoginController" relationship="CREATE">
+      <point x="90.5" y="0.0" />
+      <point x="1524.894015230073" y="1290.5503460073965" />
+      <point x="1524.894015230073" y="1588.831" />
+      <point x="2594.467" y="1588.831" />
+      <point x="14.999643834996277" y="95.0" />
+    </edge>
+    <edge source="gui.Model" target="dataTypes.Folder" relationship="TO_ONE">
+      <point x="-77.1612309139482" y="227.0" />
+      <point x="0.0" y="-326.0" />
+    </edge>
+    <edge source="gui.View.DashboradPage" target="gui.View.NoteInputPage" relationship="CREATE">
+      <point x="-151.0" y="0.0" />
+      <point x="529.3369700755329" y="400.8643257929842" />
+      <point x="529.3369700755329" y="1325.0419201787747" />
+      <point x="-132.5" y="0.0" />
+    </edge>
+    <edge source="ConsoleApp" target="dataTypes.Password" relationship="CREATE">
+      <point x="-4.7662613542343024E-4" y="73.00033905295629" />
+      <point x="4434.287" y="1872.0" />
+      <point x="3130.5" y="1872.0" />
+      <point x="3130.5" y="1902.157" />
+      <point x="1353.394" y="1902.157" />
+      <point x="-1.5230072904159897E-5" y="215.99989801721495" />
+    </edge>
+    <edge source="gui.Controller.MenuController" target="gui.View.View" relationship="TO_ONE">
+      <point x="-164.00010308302535" y="1.0472844837750017E-4" />
+      <point x="1572.0" y="763.274" />
+      <point x="1572.0" y="833.0" />
+      <point x="1588.595" y="833.0" />
+      <point x="-109.46339363176548" y="-149.99973866517576" />
+    </edge>
+    <edge source="Main" target="App" relationship="CREATE">
+      <point x="0.0" y="-39.0" />
+      <point x="26.040168531037125" y="62.0" />
+    </edge>
+    <edge source="ConsoleApp" target="gui.Model" relationship="TO_ONE">
+      <point x="-85.50047662613542" y="3.390529562921074E-4" />
+      <point x="4297.783" y="1018.677" />
+      <point x="4297.783" y="1048.0" />
+      <point x="3196.051" y="1048.0" />
+      <point x="3196.051" y="1071.4180000000001" />
+      <point x="2722.0" y="1071.4180000000001" />
+      <point x="2722.0" y="817.637" />
+      <point x="-125.49965196251833" y="2.1721538172414512E-4" />
+    </edge>
+    <edge source="gui.View.View" target="gui.View.LoginPage" relationship="CREATE">
+      <point x="12.499606368234481" y="150.0000000000001" />
+      <point x="1710.558" y="1977.157" />
+      <point x="113.43" y="1977.157" />
+      <point x="113.43" y="782.1179999999999" />
+      <point x="-104.5" y="-14.999811985941221" />
+    </edge>
+    <edge source="gui.Controller.DashboardController" target="gui.Model" relationship="TO_ONE">
+      <point x="121.00039323248916" y="29.33540557799438" />
+      <point x="1630.318" y="1165.377" />
+      <point x="1630.318" y="861.0" />
+      <point x="2722.0" y="861.0" />
+      <point x="2722.0" y="817.637" />
+      <point x="-125.49965196251833" y="2.1721538172414512E-4" />
+    </edge>
+    <edge source="gui.View.View" target="gui.View.DashboradPage" relationship="TO_ONE">
+      <point x="-124.46339363176548" y="-149.99973866517576" />
+      <point x="1573.595" y="1187.0" />
+      <point x="1182.595" y="1187.0" />
+      <point x="101.71124214287784" y="402.9996742070158" />
+    </edge>
+    <edge source="gui.Model" target="dataTypes.Settings" relationship="CREATE">
+      <point x="125.5" y="203.29333095064374" />
+      <point x="3647.9388980051936" y="1020.930113735262" />
+      <point x="0.0" y="-95.0" />
+    </edge>
+    <edge source="App" target="gui.Model" relationship="CREATE">
+      <point x="-15.0" y="-62.0" />
+      <point x="3850.174087448696" y="622.0" />
+      <point x="125.5" y="-195.63678278461828" />
+    </edge>
+    <edge source="dataTypes.Folder" target="dataTypes.Password" relationship="TO_MANY">
+      <point x="-143.5004210485704" y="1.1996230387012474E-4" />
+      <point x="1923.0" y="1501.234" />
+      <point x="1923.0" y="1242.0" />
+      <point x="1241.794" y="1242.0" />
+      <point x="-111.60001523007281" y="-216.00010198278494" />
+    </edge>
+    <edge source="gui.Controller.LoginController" target="gui.Controller.DashboardController" relationship="CREATE">
+      <point x="97.47974691802165" y="-95.0" />
+      <point x="2676.9471030830255" y="-34.635674207015825" />
+      <point x="487.429897760043" y="-34.635674207015825" />
+      <point x="487.429897760043" y="969.3791238252937" />
+      <point x="676.4876067675109" y="969.3791238252937" />
+      <point x="0.0" y="-73.0" />
+    </edge>
+    <edge source="gui.Controller.LoginController" target="gui.View.View" relationship="TO_ONE">
+      <point x="-105.50035616500372" y="-10.561368373820983" />
+      <point x="2168.913" y="987.475" />
+      <point x="2168.913" y="833.0" />
+      <point x="1588.595" y="833.0" />
+      <point x="-109.46339363176548" y="-149.99973866517576" />
+    </edge>
+    <edge source="gui.Model" target="dataTypes.MasterPassword" relationship="CREATE">
+      <point x="125.5" y="-225.63678278461828" />
+      <point x="4159.783165943236" y="592.0" />
+      <point x="15.0" y="-150.0" />
+    </edge>
+    <edge source="dataTypes.MasterPassword" target="crypt.CryptType" relationship="TO_ONE">
+      <point x="-98.37516594323597" y="150.0001684479691" />
+      <point x="4046.408" y="1856.0" />
+      <point x="1877.977" y="1856.0" />
+      <point x="1877.977" y="1099.975" />
+      <point x="92.49971761922598" y="-2.3695538573065278E-4" />
+    </edge>
+    <edge source="gui.View.View" target="gui.View.LoginPage" relationship="TO_ONE">
+      <point x="-3.936317655188759E-4" y="-149.99973866517576" />
+      <point x="1698.058" y="1226.0" />
+      <point x="1908.0" y="1226.0" />
+      <point x="1908.0" y="1887.157" />
+      <point x="158.43" y="1887.157" />
+      <point x="158.43" y="797.1179999999999" />
+      <point x="-104.50038223067565" y="1.8801405877866273E-4" />
+    </edge>
+    <edge source="gui.Model" target="dataTypes.Settings" relationship="TO_ONE">
+      <point x="125.5" y="-180.63678278461828" />
+      <point x="3721.867650075699" y="637.0" />
+      <point x="73.92875207050565" y="-95.0" />
+    </edge>
+    <edge source="gui.Controller.LoginController" target="gui.Model" relationship="TO_ONE">
+      <point x="105.49964383499628" y="-3.683738210611409E-4" />
+      <point x="2722.0" y="998.036" />
+      <point x="2722.0" y="817.637" />
+      <point x="-125.49965196251833" y="2.1721538172414512E-4" />
+    </edge>
+    <edge source="gui.Controller.DashboardController" target="gui.View.View" relationship="TO_ONE">
+      <point x="121.00039323248916" y="-0.7395944220055526" />
+      <point x="855.981" y="1135.3020000000001" />
+      <point x="855.981" y="833.0" />
+      <point x="1588.595" y="833.0" />
+      <point x="-109.46339363176548" y="-149.99973866517576" />
+    </edge>
+    <edge source="gui.View.DashboradPage" target="gui.View.DataNotes" relationship="CREATE">
+      <point x="151.0" y="-30.0" />
+      <point x="4552.287476626136" y="370.8643257929842" />
+      <point x="4552.287476626136" y="1251.1442610920856" />
+      <point x="109.0" y="15.0" />
+    </edge>
+    <edge source="App" target="ConsoleApp" relationship="CREATE">
+      <point x="41.040168531037125" y="62.0" />
+      <point x="3906.214255979733" y="1085.663947730708" />
+      <point x="-85.5" y="66.98728678366422" />
+    </edge>
+    <edge source="gui.View.DashboradPage" target="gui.View.DataNotes" relationship="TO_ONE">
+      <point x="151.0" y="-15.0" />
+      <point x="4537.287476626136" y="385.8643257929842" />
+      <point x="4537.287476626136" y="1236.1442610920856" />
+      <point x="109.0" y="0.0" />
+    </edge>
+    <edge source="ConsoleApp" target="dataTypes.Folder" relationship="CREATE">
+      <point x="-4.7662613542343024E-4" y="-72.99966094704371" />
+      <point x="4434.287" y="652.0" />
+      <point x="3246.143" y="652.0" />
+      <point x="3246.143" y="1503.351" />
+      <point x="143.4995789514296" y="2.1171199623040593" />
+    </edge>
+    <edge source="gui.View.View" target="gui.Model" relationship="TO_ONE">
+      <point x="-67.74039363176553" y="-149.99973866517576" />
+      <point x="1630.318" y="861.0" />
+      <point x="2722.0" y="861.0" />
+      <point x="2722.0" y="817.637" />
+      <point x="-125.49965196251833" y="2.1721538172414512E-4" />
+    </edge>
+    <edge source="gui.View.View" target="gui.View.MenuPanel" relationship="TO_ONE">
+      <point x="144.99960636823448" y="2.61334824244841E-4" />
+      <point x="1861.0" y="1406.3310000000001" />
+      <point x="1861.0" y="1573.831" />
+      <point x="1695.558" y="1573.831" />
+      <point x="1695.558" y="1872.157" />
+      <point x="335.43" y="1872.157" />
+      <point x="1.0223995701608146E-4" y="127.99992025475706" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.2630289532293987" showDependencies="true" x="2358.0" y="966.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
