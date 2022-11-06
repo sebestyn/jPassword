@@ -2,26 +2,13 @@
 <project version="4">
   <component name="AnalysisUIOptions">
     <option name="ANALYZE_TEST_SOURCES" value="false" />
-    <option name="SCOPE_TYPE" value="8" />
     <option name="CUSTOM_SCOPE_NAME" value="Project Files" />
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="kesz (uj table tada model)">
-      <change afterPath="$PROJECT_DIR$/doc/Dokumentáció.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/doc/Specifikáció másolata.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/gyerekeim/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/család/gyerekeim/password.encrypt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/notes.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/család/notes.encrypt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mainFolder/család/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/család/password.encrypt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mainFolder/notes.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/notes.encrypt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data/mainFolder/password.encrypt" beforeDir="false" afterPath="$PROJECT_DIR$/data/mainFolder/password.encrypt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Controller/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Controller/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/gui/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/gui/Model.java" afterDir="false" />
-    </list>
+    <list default="true" id="bc9e3c66-09b8-4cdc-93b0-37639a65efa5" name="Changes" comment="kesz" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -228,7 +215,7 @@
       <workItem from="1667643376237" duration="10330000" />
       <workItem from="1667654863397" duration="1323000" />
       <workItem from="1667689244961" duration="714000" />
-      <workItem from="1667758582063" duration="479000" />
+      <workItem from="1667758582063" duration="1076000" />
     </task>
     <task id="LOCAL-00001" summary="teszt">
       <created>1665311331916</created>
@@ -426,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667653474998</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="kesz">
+      <created>1667759149739</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1667759149739</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -469,7 +463,9 @@
     <MESSAGE value="search" />
     <MESSAGE value="struct szetszedve" />
     <MESSAGE value="kesz (uj table tada model)" />
-    <option name="LAST_COMMIT_MESSAGE" value="kesz (uj table tada model)" />
+    <MESSAGE value="kesz" />
+    <option name="LAST_COMMIT_MESSAGE" value="kesz" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
