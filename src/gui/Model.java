@@ -16,10 +16,6 @@ import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
 public class Model {
-    public Settings getSettings() {
-        return settings;
-    }
-
     final Settings settings;
     private final String mainFolderPath = "./data";
     private final MasterPassword masterPassword;
@@ -43,6 +39,9 @@ public class Model {
     public Folder getMainFolder() { return mainFolder; }
     public Folder getActualFolder() { return actualFolder; }
     public void setActualFolder(Folder f) { actualFolder = f; }
+    public Settings getSettings() {
+        return settings;
+    }
 
     /**
      * Adatok betöltése és dekódolása fájlokból
